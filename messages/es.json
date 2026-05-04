@@ -1,6 +1,6 @@
 {
   "site": {
-    "description": "Realitas Infinitas construye sistemas de software inteligentes que aportan estructura, claridad y escalabilidad a entornos operativos complejos — comenzando por el sector salud."
+    "description": "Empresa de tecnología sanitaria que construye software inteligente y productos — desde programas empresariales hasta herramientas clínicas como Clinic."
   },
   "nav": {
     "products": "Productos",
@@ -26,7 +26,7 @@
   },
   "meta": {
     "homeTitle": "Inicio",
-    "homeDescription": "Realitas Infinitas construye software inteligente para entornos operativos complejos: estructura, claridad y escalabilidad en salud y más allá.",
+    "homeDescription": "Empresa de tecnología sanitaria: software inteligente para entornos operativos complejos — estructura, claridad y escalabilidad.",
     "aboutTitle": "Nosotros",
     "aboutDescription": "Realitas Infinitas es una empresa de software orientada a productos, con foco en precisión, usabilidad y mantenibilidad.",
     "contactTitle": "Contacto",
@@ -37,13 +37,20 @@
     "clinicDescription": "Clinic ayuda a profesionales de la salud a registrar pacientes, organizar la información y gestionar historias clínicas con un flujo digital simple y confiable."
   },
   "HomePage": {
-    "heroTitle": "Software for complex realities.",
+    "heroTitle": "Software para realidades complejas.",
     "heroSubhead": "Realitas Infinitas construye sistemas de software inteligentes que aportan estructura, claridad y escalabilidad a entornos operativos complejos.",
-    "heroVisualCaption": "Estructura en capas y profundidad progresiva — reflejada en cómo diseñamos sistemas.",
+    "heroVisualCaption": "Estructura, claridad y profundidad — las mismas cualidades que ingeniamos en software sanitario.",
+    "brandEyebrow": "Tecnología sanitaria",
+    "clientsEyebrow": "Experiencia",
+    "clientsTitle": "Ingeniería de confianza en programas sanitarios exigentes",
+    "clientVesta": "VestaCare",
+    "clientSI": "Successful Imperatives",
+    "clientsFootnote": "Hoy aplicamos la misma exigencia a productos pensados para consultorios y prácticas — empezando por Clinic.",
     "brandTitle": "Tecnología para entornos exigentes",
-    "brandBody": "Realitas Infinitas se concentra en software para realidades complejas: procesos en capas, flujos fragmentados y datos operativos densos, transformados en sistemas claros y usables. Nuestra forma de trabajar combina ingeniería disciplinada con respeto por cómo operan los equipos en salud y otros entornos de alto riesgo.",
+    "brandBody": "Realitas Infinitas une ingeniería de nivel empresarial con productos que los equipos pueden adoptar sin fricción. Desde la complejidad del ciclo de ingresos y las integraciones hasta el ritmo diario del consultorio, diseñamos sistemas que respetan la normativa, la realidad operativa y a las personas detrás de la pantalla.",
     "productsSectionTitle": "Productos",
-    "productsSectionIntro": "Entregamos productos con intención. Clinic es la primera línea — pensada para registro de pacientes, historias clínicas y flujos de atención confiables.",
+    "productsSectionIntro": "Entregamos productos con intención. Clinic es nuestro primer producto para prácticas — registro de pacientes, historias clínicas y flujos que se mantienen confiables bajo presión.",
+    "clinicEyebrow": "Producto insignia",
     "clinicCardTitle": "Clinic",
     "clinicCardDesc": "Plataforma de software para salud orientada al registro de pacientes, gestión de historias clínicas y flujos operativos. Clinic ayuda a organizar la información, reducir fricción y apoyar una mejor atención con procesos digitales más claros.",
     "clinicLearnMore": "Más información",
