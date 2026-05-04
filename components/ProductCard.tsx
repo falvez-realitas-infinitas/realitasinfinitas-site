@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/cn";
 
@@ -10,13 +11,14 @@ export type ProductCardProps = {
   subtle?: boolean;
 };
 
-export function ProductCard({
+export async function ProductCard({
   title,
   description,
   href,
   status = "available",
   subtle = false,
 }: ProductCardProps) {
+  const t = await getTranslations("ProductCard");
   const isComing = status === "coming";
 
   const content = (
@@ -25,7 +27,8 @@ export function ProductCard({
         "group relative flex h-full flex-col rounded-2xl p-6 sm:p-8",
         "glass-panel accent-gradient-border transition-all duration-300",
         subtle && "opacity-60 hover:opacity-80",
-        !subtle && "hover:border-sky-400/25 hover:shadow-lg hover:shadow-sky-950/20"
+        !subtle &&
+          "hover:border-sky-400/25 hover:shadow-lg hover:shadow-sky-950/20"
       )}
     >
       <div className="mb-4 flex items-start justify-between gap-4">
@@ -34,7 +37,7 @@ export function ProductCard({
         </h3>
         {isComing ? (
           <span className="shrink-0 rounded-full border border-slate-600/60 bg-slate-900/50 px-2.5 py-0.5 text-xs font-medium text-slate-400">
-            Coming later
+            {t("comingLater")}
           </span>
         ) : (
           href && (
@@ -58,7 +61,10 @@ export function ProductCard({
 
   if (href && !isComing) {
     return (
-      <Link href={href} className="block h-full outline-none focus-visible:ring-2 focus-visible:ring-sky-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-2xl">
+      <Link
+        href={href}
+        className="block h-full outline-none focus-visible:ring-2 focus-visible:ring-sky-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-2xl"
+      >
         {content}
       </Link>
     );

@@ -1,0 +1,143 @@
+{
+  "site": {
+    "description": "Realitas Infinitas builds precise, scalable, and human-centered digital products for complex workflows — starting with healthcare."
+  },
+  "nav": {
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact",
+    "contactUs": "Contact us",
+    "exploreClinic": "Explore Clinic",
+    "mainNav": "Main navigation",
+    "mobileNav": "Mobile navigation",
+    "closeMenu": "Close menu",
+    "openMenu": "Open menu"
+  },
+  "footer": {
+    "tagline": "Product-oriented software for clear workflows and systems built to evolve.",
+    "copyright": "All rights reserved.",
+    "footerNav": "Footer"
+  },
+  "localeSwitcher": {
+    "label": "Language",
+    "en": "English",
+    "es": "Español"
+  },
+  "meta": {
+    "homeTitle": "Home",
+    "homeDescription": "Realitas Infinitas builds precise, scalable, and human-centered digital products for complex workflows — starting with healthcare.",
+    "aboutTitle": "About",
+    "aboutDescription": "Realitas Infinitas is a product-oriented software company focused on precision, usability, and maintainability.",
+    "contactTitle": "Contact",
+    "contactDescription": "Reach Realitas Infinitas about Clinic, partnerships, or general inquiries.",
+    "productsTitle": "Products",
+    "productsDescription": "Realitas Infinitas builds a family of products for structured workflows. Clinic is the first — more will follow.",
+    "clinicTitle": "Clinic",
+    "clinicDescription": "Clinic helps healthcare professionals register patients, organize patient information, and manage medical histories through a simple and reliable digital workflow."
+  },
+  "HomePage": {
+    "heroEyebrow": "Software company",
+    "heroTitle": "Software systems for realities that keep evolving.",
+    "howWeWorkTitle": "How we work",
+    "howWeWorkP1": "{name} creates software products designed for <m1>clarity</m1>, <m2>reliability</m2>, and <m3>long-term evolution</m3>. We architect structured information and clear workflows so teams can rely on a digital foundation that grows with their operations.",
+    "howWeWorkP2": "The first product line focuses on healthcare: from patient registration to clinical history management, with a calm interface and a path toward future integrations.",
+    "clinicSectionTitle": "First product: Clinic",
+    "clinicSectionIntro": "A reliable digital foundation for patient registration, medical history, and clinical records — designed for healthcare professionals.",
+    "clinicBullet1": "Patient registration",
+    "clinicBullet2": "Medical history management",
+    "clinicBullet3": "Clinical record organization",
+    "clinicBullet4": "Simple, secure, scalable foundation",
+    "clinicAside": "Clinic is not a generic template — it is structured information and clear workflows for practices that need organization without noise.",
+    "clinicReadMore": "Read more about Clinic →",
+    "principlesTitle": "Product principles",
+    "principlesIntro": "Values that guide how we design and ship software.",
+    "principle1Title": "Clarity over complexity",
+    "principle1Desc": "Interfaces and data models that stay understandable as your workflows grow.",
+    "principle2Title": "Reliable workflows",
+    "principle2Desc": "Predictable paths for daily operations — fewer surprises, clearer handoffs.",
+    "principle3Title": "Human-centered design",
+    "principle3Desc": "Built for the people using the system: calm, precise, and respectful of context.",
+    "principle4Title": "Built to evolve",
+    "principle4Desc": "A foundation you can extend — integrations and products over time, not dead ends.",
+    "ctaTitle": "Learn more about Clinic",
+    "ctaDescription": "See how Clinic supports patient registration, profiles, and clinical records — or reach out to discuss partnerships and early access."
+  },
+  "AboutPage": {
+    "p1": "{name} is a product-oriented software company. We focus on building systems that combine <m1>technical precision</m1>, <m2>usability</m2>, and <m3>long-term maintainability</m3> — so the software you rely on today can still make sense years from now.",
+    "p2": "Our work starts with healthcare: Clinic is the first product, centered on patient registration, profiles, medical histories, and clinical records. Over time, we expect to introduce additional product lines that share the same commitment to structured information and clear workflows.",
+    "p3": "We avoid hype and overstated claims. We prefer calm interfaces, explicit data models, and software that earns trust through consistency — built to evolve alongside your organization."
+  },
+  "Leadership": {
+    "title": "Leadership",
+    "intro": "Realitas Infinitas is led by professionals with hands-on experience building software for complex operational environments, where technology, business logic, and real-world execution must work together.",
+    "initials": "FA",
+    "avatarAriaLabel": "Facundo Alvez — profile placeholder",
+    "profileName": "Facundo Alvez",
+    "profileRole": "Founder & Software Engineer",
+    "bioP1": "Facundo Alvez is a software engineer with over a decade of experience building healthcare technology solutions for the U.S. market. His work spans software development, product strategy, integrations, automation, revenue cycle workflows, and business-critical systems.",
+    "bioP2": "As founder of Realitas Infinitas, he focuses on creating practical, reliable software for complex operational environments.",
+    "highlightsLabel": "Focus areas",
+    "highlight1": "Software engineering and product development",
+    "highlight2": "Healthcare technology and revenue cycle experience",
+    "highlight3": "Business process automation",
+    "highlight4": "System integrations and operational workflows",
+    "highlight5": "Practical software for complex real-world problems"
+  },
+  "ContactPage": {
+    "intro": "Send a message using the form below, or email us directly."
+  },
+  "ContactForm": {
+    "name": "Name",
+    "email": "Email",
+    "company": "Company / Practice",
+    "message": "Message",
+    "placeholderName": "Your name",
+    "placeholderEmail": "you@example.com",
+    "placeholderCompany": "Optional",
+    "placeholderMessage": "How can we help?",
+    "submit": "Send message",
+    "success": "Thanks — your message has been recorded locally. Connect email delivery in <code>ContactForm</code> when ready."
+  },
+  "ProductsPage": {
+    "intro": "Realitas Infinitas will build a small family of products over time, each focused on clear workflows and structured information. The roadmap is intentional: depth first, then expansion.",
+    "futureProduct1Title": "Future product",
+    "futureProduct1Desc": "Additional product lines are planned as the company grows. Details will be shared when they are ready.",
+    "futureProduct2Title": "Another future line",
+    "futureProduct2Desc": "A quiet placeholder for what comes next — we prefer shipping over promising."
+  },
+  "ProductCard": {
+    "comingLater": "Coming later"
+  },
+  "ClinicPage": {
+    "productEyebrow": "Product",
+    "heroTitle": "Clinic: a clean foundation for patient registration and clinical records.",
+    "supportsTitle": "What Clinic supports",
+    "feat1Title": "Patient registration",
+    "feat1Desc": "Capture new patients with consistent fields and a clear entry path into your practice.",
+    "feat2Title": "Patient profiles",
+    "feat2Desc": "Maintain patient identity and demographic detail in one structured profile.",
+    "feat3Title": "Medical histories",
+    "feat3Desc": "Document history over time so context stays available when it matters.",
+    "feat4Title": "Clinical records",
+    "feat4Desc": "Organize clinical notes and records in a calm, scannable structure.",
+    "feat5Title": "Secure, structured information",
+    "feat5Desc": "Information is grouped logically — less hunting, fewer inconsistent snapshots.",
+    "feat6Title": "Built for future integrations",
+    "feat6Desc": "A foundation that can connect to other systems when you are ready to extend.",
+    "workflowTitle": "Example workflow",
+    "workflowSubtitle": "A straightforward sequence you can adapt to your practice.",
+    "workflowStep1": "Register patient",
+    "workflowStep2": "Complete patient profile",
+    "workflowStep3": "Record medical history",
+    "workflowStep4": "Access and update clinical information",
+    "workflowStep5": "Keep information organized over time",
+    "audienceTitle": "Who it is for",
+    "audienceBody": "Clinic is intended for independent healthcare professionals, small clinics, and medical practices that need a more organized way to manage patient information — without adopting an overloaded suite on day one.",
+    "ctaTitle": "Interested in Clinic?",
+    "ctaDescription": "If you are evaluating tools for your practice or exploring a partnership, we would like to hear from you.",
+    "ctaPrimary": "Contact Realitas Infinitas"
+  },
+  "clinicProduct": {
+    "shortDescription": "A clean foundation for patient registration, profiles, and clinical records."
+  }
+}

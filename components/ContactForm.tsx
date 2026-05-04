@@ -1,9 +1,11 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { Button } from "@/components/Button";
 
 export function ContactForm() {
+  const t = useTranslations("ContactForm");
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -25,7 +27,7 @@ export function ContactForm() {
             htmlFor="contact-name"
             className="mb-1.5 block text-sm font-medium text-slate-300"
           >
-            Name
+            {t("name")}
           </label>
           <input
             id="contact-name"
@@ -34,7 +36,7 @@ export function ContactForm() {
             autoComplete="name"
             required
             className="w-full rounded-lg border border-slate-700/60 bg-slate-900/50 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-600 focus:border-sky-500/50 focus:outline-none focus:ring-2 focus:ring-sky-500/30"
-            placeholder="Your name"
+            placeholder={t("placeholderName")}
           />
         </div>
         <div>
@@ -42,7 +44,7 @@ export function ContactForm() {
             htmlFor="contact-email"
             className="mb-1.5 block text-sm font-medium text-slate-300"
           >
-            Email
+            {t("email")}
           </label>
           <input
             id="contact-email"
@@ -51,7 +53,7 @@ export function ContactForm() {
             autoComplete="email"
             required
             className="w-full rounded-lg border border-slate-700/60 bg-slate-900/50 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-600 focus:border-sky-500/50 focus:outline-none focus:ring-2 focus:ring-sky-500/30"
-            placeholder="you@example.com"
+            placeholder={t("placeholderEmail")}
           />
         </div>
         <div>
@@ -59,7 +61,7 @@ export function ContactForm() {
             htmlFor="contact-company"
             className="mb-1.5 block text-sm font-medium text-slate-300"
           >
-            Company / Practice
+            {t("company")}
           </label>
           <input
             id="contact-company"
@@ -67,7 +69,7 @@ export function ContactForm() {
             type="text"
             autoComplete="organization"
             className="w-full rounded-lg border border-slate-700/60 bg-slate-900/50 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-600 focus:border-sky-500/50 focus:outline-none focus:ring-2 focus:ring-sky-500/30"
-            placeholder="Optional"
+            placeholder={t("placeholderCompany")}
           />
         </div>
         <div>
@@ -75,7 +77,7 @@ export function ContactForm() {
             htmlFor="contact-message"
             className="mb-1.5 block text-sm font-medium text-slate-300"
           >
-            Message
+            {t("message")}
           </label>
           <textarea
             id="contact-message"
@@ -83,13 +85,13 @@ export function ContactForm() {
             rows={5}
             required
             className="w-full resize-y rounded-lg border border-slate-700/60 bg-slate-900/50 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-600 focus:border-sky-500/50 focus:outline-none focus:ring-2 focus:ring-sky-500/30"
-            placeholder="How can we help?"
+            placeholder={t("placeholderMessage")}
           />
         </div>
       </div>
       <div className="mt-8">
         <Button type="submit" variant="primary" className="w-full sm:w-auto">
-          Send message
+          {t("submit")}
         </Button>
       </div>
       {submitted && (
@@ -98,9 +100,7 @@ export function ContactForm() {
           role="status"
           aria-live="polite"
         >
-          Thanks — your message has been recorded locally. Connect email delivery
-          in <code className="rounded bg-slate-800 px-1 py-0.5 text-xs">ContactForm</code>{" "}
-          when ready.
+          {t("success")}
         </p>
       )}
     </form>

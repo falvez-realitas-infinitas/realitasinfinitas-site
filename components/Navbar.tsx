@@ -1,21 +1,23 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/Button";
+import { LocaleSwitcher } from "@/components/LocaleSwitcher";
 import { cn } from "@/lib/cn";
 
-const navLinks = [
-  { href: "/products", label: "Products" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-] as const;
-
 export function Navbar() {
+  const t = useTranslations("nav");
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+
+  const navLinks = [
+    { href: "/products", label: t("products") },
+    { href: "/about", label: t("about") },
+    { href: "/contact", label: t("contact") },
+  ] as const;
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/5 bg-slate-950/70 backdrop-blur-xl">
@@ -35,7 +37,7 @@ export function Navbar() {
 
         <nav
           className="hidden items-center gap-1 md:flex"
-          aria-label="Main navigation"
+          aria-label={t("mainNav")}
         >
           {navLinks.map(({ href, label }) => (
             <Link
@@ -53,22 +55,26 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden shrink-0 md:block">
+        <div className="hidden shrink-0 items-center gap-3 md:flex">
+          <LocaleSwitcher />
           <Button href="/products/clinic" variant="primary">
-            Explore Clinic
+            {t("exploreClinic")}
           </Button>
         </div>
 
-        <button
-          type="button"
-          className="inline-flex items-center justify-center rounded-lg p-2 text-slate-300 hover:bg-white/5 hover:text-white md:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        <div className="flex shrink-0 items-center gap-2 md:hidden">
+          <LocaleSwitcher />
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-lg p-2 text-slate-300 hover:bg-white/5 hover:text-white"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? t("closeMenu") : t("openMenu")}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -76,7 +82,7 @@ export function Navbar() {
           id="mobile-nav"
           className="border-t border-white/5 bg-slate-950/95 px-4 py-4 backdrop-blur-xl md:hidden"
         >
-          <nav className="flex flex-col gap-1" aria-label="Mobile navigation">
+          <nav className="flex flex-col gap-1" aria-label={t("mobileNav")}>
             {navLinks.map(({ href, label }) => (
               <Link
                 key={href}
@@ -92,14 +98,14 @@ export function Navbar() {
                 {label}
               </Link>
             ))}
-            <div className="mt-3 pt-3 border-t border-white/10">
+            <div className="mt-3 border-t border-white/10 pt-3">
               <Button
                 href="/products/clinic"
                 variant="primary"
                 className="w-full"
                 onClick={() => setOpen(false)}
               >
-                Explore Clinic
+                {t("exploreClinic")}
               </Button>
             </div>
           </nav>
