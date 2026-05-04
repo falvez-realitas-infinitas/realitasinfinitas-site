@@ -11,7 +11,6 @@ type CTASectionProps = {
   secondaryHref?: string;
   secondaryLabel?: string;
   className?: string;
-  /** Calm dark band with light-on-brown contrast and wordmark for closing CTAs */
   tone?: "light" | "brand";
 };
 
@@ -29,43 +28,43 @@ export function CTASection({
 
   return (
     <Section
-      className={cn("py-16 sm:py-20", className)}
-      innerClassName="max-w-4xl"
+      className={cn("py-16 sm:py-24", className)}
+      innerClassName="max-w-5xl"
     >
       <div
         className={cn(
-          "relative overflow-hidden rounded-3xl px-8 py-12 text-center sm:px-12 sm:py-14",
+          "relative overflow-hidden rounded-[2rem] px-8 py-14 text-center sm:px-14 sm:py-16",
           isBrand
-            ? "border border-white/10 bg-ri-brown text-white shadow-md"
+            ? "border border-white/[0.08] bg-ri-brown text-white shadow-[0_24px_80px_-24px_rgba(42,27,22,0.45)]"
             : "glass-panel accent-gradient-border"
         )}
       >
         {!isBrand && (
           <>
             <div
-              className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-ri-blue/30 blur-3xl"
+              className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-ri-blue/25 blur-3xl"
               aria-hidden
             />
             <div
-              className="pointer-events-none absolute -bottom-24 -left-16 h-56 w-56 rounded-full bg-ri-peach/25 blur-3xl"
+              className="pointer-events-none absolute -bottom-28 -left-20 h-64 w-64 rounded-full bg-ri-peach/20 blur-3xl"
               aria-hidden
             />
           </>
         )}
         {isBrand && (
-          <div className="relative mx-auto mb-8 flex justify-center">
+          <div className="relative mx-auto mb-10 flex justify-center">
             <Image
               src="/brand/ri-logo-horizontal-dark.png"
               alt="Realitas Infinitas logo"
-              width={280}
-              height={56}
-              className="h-10 w-auto max-w-[min(100%,260px)] object-contain sm:h-11"
+              width={300}
+              height={60}
+              className="h-11 w-auto max-w-[min(100%,280px)] object-contain opacity-95 sm:h-12"
             />
           </div>
         )}
         <h2
           className={cn(
-            "relative text-2xl font-semibold tracking-tight sm:text-3xl",
+            "relative font-display text-3xl font-medium leading-[1.15] tracking-tight sm:text-4xl",
             isBrand ? "text-white" : "text-ri-text"
           )}
         >
@@ -73,28 +72,20 @@ export function CTASection({
         </h2>
         <p
           className={cn(
-            "relative mx-auto mt-4 max-w-xl text-sm leading-relaxed sm:text-base",
-            isBrand ? "text-white/85" : "text-ri-muted"
+            "relative mx-auto mt-5 max-w-lg text-base leading-relaxed sm:text-[1.05rem]",
+            isBrand ? "text-white/88" : "text-ri-muted"
           )}
         >
           {description}
         </p>
-        <div className="relative mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-          <Button
-            href={primaryHref}
-            variant="primary"
-            className={cn(isBrand && "bg-white text-ri-brown hover:bg-ri-blue")}
-          >
+        <div className="relative mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
+          <Button href={primaryHref} variant={isBrand ? "darkPrimary" : "primary"}>
             {primaryLabel}
           </Button>
           {secondaryHref && secondaryLabel && (
             <Button
               href={secondaryHref}
-              variant="secondary"
-              className={cn(
-                isBrand &&
-                  "border-white/35 bg-transparent text-white hover:border-white/50 hover:bg-white/10"
-              )}
+              variant={isBrand ? "darkOutline" : "secondary"}
             >
               {secondaryLabel}
             </Button>

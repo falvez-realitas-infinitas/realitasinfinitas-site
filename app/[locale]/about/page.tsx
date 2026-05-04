@@ -34,7 +34,7 @@ export default async function AboutPage({ params }: Props) {
         className="pt-12 pb-10 sm:pt-16 sm:pb-12"
         innerClassName="max-w-3xl"
       >
-        <h1 className="text-4xl font-semibold tracking-tight text-ri-text sm:text-5xl">
+        <h1 className="font-display text-4xl font-medium tracking-tight text-ri-brown sm:text-5xl">
           {tmeta("aboutTitle")}
         </h1>
         <div className="mt-10 space-y-6 text-base leading-relaxed text-ri-muted sm:text-lg">

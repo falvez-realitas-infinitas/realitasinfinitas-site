@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist_Mono, Manrope } from "next/font/google";
+import { Fraunces, Geist_Mono, Manrope } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import { Navbar } from "@/components/Navbar";
@@ -10,6 +10,13 @@ import "./globals.css";
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
+});
+
+const fraunces = Fraunces({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  adjustFontFallback: true,
 });
 
 const geistMono = Geist_Mono({
@@ -65,12 +72,12 @@ export default async function RootLayout({
   return (
     <html
       lang={locale}
-      className={`${manrope.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
+      className={`${manrope.variable} ${fraunces.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans text-ri-text">
         <NextIntlClientProvider messages={messages}>
           <Navbar />
-          <main className="flex flex-1 flex-col">{children}</main>
+          <main className="relative z-[1] flex flex-1 flex-col">{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>

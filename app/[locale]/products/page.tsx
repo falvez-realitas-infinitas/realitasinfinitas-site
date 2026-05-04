@@ -34,7 +34,7 @@ export default async function ProductsPage({ params }: Props) {
   return (
     <Section className="pt-12 pb-20 sm:pt-16 sm:pb-28">
       <div className="max-w-2xl">
-        <h1 className="text-4xl font-semibold tracking-tight text-ri-text sm:text-5xl">
+        <h1 className="font-display text-4xl font-medium tracking-tight text-ri-brown sm:text-5xl">
           {tmeta("productsTitle")}
         </h1>
         <p className="mt-5 text-base leading-relaxed text-ri-muted sm:text-lg">

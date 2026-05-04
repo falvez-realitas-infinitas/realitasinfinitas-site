@@ -30,7 +30,7 @@ export async function LeadershipSection({
     >
       <h2
         id="leadership-heading"
-        className="text-2xl font-semibold tracking-tight text-ri-text sm:text-3xl"
+        className="font-display text-2xl font-medium tracking-tight text-ri-brown sm:text-3xl"
       >
         {t("title")}
       </h2>

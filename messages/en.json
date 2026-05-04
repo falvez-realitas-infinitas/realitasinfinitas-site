@@ -1,6 +1,6 @@
 {
   "site": {
-    "description": "Realitas Infinitas builds intelligent software systems that bring structure, clarity, and scalability to complex operational environments — starting with healthcare."
+    "description": "Healthcare technology company building intelligent software and products — from enterprise programs to clinical tools like Clinic."
   },
   "nav": {
     "products": "Products",
@@ -39,11 +39,18 @@
   "HomePage": {
     "heroTitle": "Software for complex realities.",
     "heroSubhead": "Realitas Infinitas builds intelligent software systems that bring structure, clarity, and scalability to complex operational environments.",
-    "heroVisualCaption": "Layered structure and progressive depth — reflected in how we design systems.",
+    "heroVisualCaption": "Structure, clarity, and depth — the same qualities we engineer into healthcare software.",
+    "brandEyebrow": "Healthcare technology",
+    "clientsEyebrow": "Experience",
+    "clientsTitle": "Engineering trusted on demanding healthcare programs",
+    "clientVesta": "VestaCare",
+    "clientSI": "Successful Imperatives",
+    "clientsFootnote": "We now apply that same rigor to products built for medical practices — beginning with Clinic.",
     "brandTitle": "Technology for demanding environments",
-    "brandBody": "Realitas Infinitas focuses on software for complex realities: layered processes, fragmented workflows, and dense operational data — turned into clear, usable systems. Our practice combines disciplined engineering with respect for how teams actually work in healthcare and other high-stakes domains.",
+    "brandBody": "Realitas Infinitas bridges enterprise-grade engineering with products operators can adopt without friction. From revenue-cycle complexity and integrations to the daily rhythm of clinics, we design systems that respect regulation, workflow reality, and the people behind the screen.",
     "productsSectionTitle": "Products",
-    "productsSectionIntro": "We ship products deliberately. Clinic is the first product line — built for patient registration, clinical records, and dependable care workflows.",
+    "productsSectionIntro": "We ship products deliberately. Clinic is our first product for practices — patient registration, clinical records, and workflows that stay dependable under pressure.",
+    "clinicEyebrow": "Flagship product",
     "clinicCardTitle": "Clinic",
     "clinicCardDesc": "A healthcare software platform for patient registration, medical record management, and operational workflows. Clinic helps teams organize information, reduce friction, and support better care through clearer digital processes.",
     "clinicLearnMore": "Learn more",

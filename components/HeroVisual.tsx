@@ -6,32 +6,27 @@ type HeroVisualProps = {
 
 export function HeroVisual({ caption }: HeroVisualProps) {
   return (
-    <div className="relative mx-auto flex w-full max-w-lg justify-center lg:mx-0 lg:justify-end">
+    <div className="relative flex w-full justify-center lg:justify-end lg:pr-4">
       <div
-        className="pointer-events-none absolute inset-0 -z-10 rounded-[2rem] bg-ri-blue/35 blur-3xl"
+        className="pointer-events-none absolute -right-8 top-1/2 h-[min(90vw,420px)] w-[min(90vw,420px)] -translate-y-1/2 rounded-full bg-gradient-to-br from-ri-blue/50 via-ri-peach/15 to-transparent blur-3xl"
         aria-hidden
       />
-      <div className="relative w-full max-w-sm">
-        <div
-          className="absolute -bottom-2 left-4 right-4 h-24 rounded-2xl border border-ri-border/50 bg-ri-peach/25 sm:h-28"
-          aria-hidden
-        />
-        <div className="glass-panel accent-gradient-border relative rounded-3xl p-6 shadow-sm sm:p-8">
-          <div className="rounded-2xl border border-ri-border bg-ri-card px-6 py-8 sm:px-8 sm:py-10">
-            <Image
-              src="/brand/ri-icon.png"
-              alt="Realitas Infinitas icon"
-              width={112}
-              height={112}
-              className="mx-auto h-24 w-24 object-contain sm:h-28 sm:w-28"
-              priority
-            />
-          </div>
+      <figure className="relative w-full max-w-[340px]">
+        <div className="relative rotate-[1.5deg] rounded-[2rem] border border-ri-border/80 bg-ri-card p-10 shadow-[0_28px_90px_-30px_rgba(89,42,25,0.28)] sm:p-12">
+          <div className="absolute -left-3 -top-3 h-16 w-16 rounded-2xl border border-ri-border/40 bg-ri-bg-warm/90 shadow-sm" />
+          <Image
+            src="/brand/ri-icon.png"
+            alt="Realitas Infinitas icon"
+            width={128}
+            height={128}
+            className="relative mx-auto h-28 w-28 object-contain sm:h-32 sm:w-32"
+            priority
+          />
         </div>
-        <p className="mt-4 text-center text-xs leading-relaxed text-ri-muted lg:text-left">
+        <figcaption className="mt-6 max-w-[34ch] text-left text-xs leading-relaxed text-ri-muted sm:text-[13px]">
           {caption}
-        </p>
-      </div>
+        </figcaption>
+      </figure>
     </div>
   );
 }

@@ -8,11 +8,12 @@
   --ri-copper: #a66b49;
   --ri-brown: #592a19;
 
-  --ri-bg: #fbf8f5;
-  --ri-bg-soft: #fdfbf9;
-  --ri-text: #2a1b16;
-  --ri-text-muted: #6f5a50;
-  --ri-border: rgba(89, 42, 25, 0.14);
+  --ri-bg: #f7f4f0;
+  --ri-bg-soft: #fdfcfa;
+  --ri-bg-warm: #f0ebe6;
+  --ri-text: #1c1410;
+  --ri-text-muted: #5c4d45;
+  --ri-border: rgba(89, 42, 25, 0.12);
   --ri-card: #ffffff;
 
   /* Semantic (site-wide) */
@@ -35,6 +36,7 @@
   --color-ri-brown: var(--ri-brown);
   --color-ri-bg: var(--ri-bg);
   --color-ri-bg-soft: var(--ri-bg-soft);
+  --color-ri-bg-warm: var(--ri-bg-warm);
   --color-ri-text: var(--ri-text);
   --color-ri-muted: var(--ri-text-muted);
   --color-ri-border: var(--ri-border);
@@ -50,32 +52,49 @@ html {
 body {
   background-color: var(--ri-bg);
   background-image: radial-gradient(
-      ellipse 100% 60% at 50% -15%,
-      color-mix(in srgb, var(--ri-blue) 45%, transparent),
-      transparent 55%
+      ellipse 120% 80% at 50% -25%,
+      color-mix(in srgb, var(--ri-blue) 38%, transparent),
+      transparent 58%
     ),
     radial-gradient(
-      ellipse 55% 40% at 100% 0%,
-      color-mix(in srgb, var(--ri-peach) 22%, transparent),
-      transparent 50%
+      ellipse 70% 50% at 110% 5%,
+      color-mix(in srgb, var(--ri-peach) 18%, transparent),
+      transparent 52%
     ),
-    linear-gradient(180deg, var(--ri-bg-soft) 0%, var(--ri-bg) 35%, var(--ri-bg) 100%);
+    linear-gradient(180deg, var(--ri-bg-soft) 0%, var(--ri-bg) 42%, var(--ri-bg) 100%);
   color: var(--foreground);
   font-family: var(--font-sans);
   min-height: 100vh;
 }
 
+/* Subtle editorial grain — avoids flat “template” feel */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
 ::selection {
-  background: color-mix(in srgb, var(--ri-copper) 25%, transparent);
+  background: color-mix(in srgb, var(--ri-copper) 22%, transparent);
   color: var(--ri-text);
 }
 
+.font-display {
+  font-family: var(--font-display), ui-serif, Georgia, "Times New Roman", serif;
+}
+
 .glass-panel {
-  background: color-mix(in srgb, var(--ri-card) 92%, transparent);
+  background: color-mix(in srgb, var(--ri-card) 94%, transparent);
   border: 1px solid var(--card-border);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 1px 2px rgba(42, 27, 22, 0.04);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 12px 40px -18px rgba(42, 27, 22, 0.12);
 }
 
 .glass-panel--dark {
@@ -107,10 +126,10 @@ body {
   border-radius: inherit;
   padding: 1px;
   background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--ri-copper) 55%, transparent),
-    color-mix(in srgb, var(--ri-amber) 40%, transparent),
-    color-mix(in srgb, var(--ri-blue) 50%, transparent)
+    145deg,
+    color-mix(in srgb, var(--ri-copper) 45%, transparent),
+    color-mix(in srgb, var(--ri-amber) 32%, transparent),
+    color-mix(in srgb, var(--ri-blue) 42%, transparent)
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);

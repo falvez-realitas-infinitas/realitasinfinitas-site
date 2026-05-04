@@ -45,6 +45,15 @@ export default async function ClinicPage({ params }: Props) {
     t("workflowStep5"),
   ];
 
+  const features = [
+    { icon: ClipboardList, titleKey: "feat1Title" as const, descKey: "feat1Desc" as const },
+    { icon: User, titleKey: "feat2Title" as const, descKey: "feat2Desc" as const },
+    { icon: History, titleKey: "feat3Title" as const, descKey: "feat3Desc" as const },
+    { icon: FileText, titleKey: "feat4Title" as const, descKey: "feat4Desc" as const },
+    { icon: Stethoscope, titleKey: "feat5Title" as const, descKey: "feat5Desc" as const },
+    { icon: Link2, titleKey: "feat6Title" as const, descKey: "feat6Desc" as const },
+  ];
+
   return (
     <>
       <Section className="pt-12 pb-16 sm:pt-16 sm:pb-20">
@@ -52,7 +61,7 @@ export default async function ClinicPage({ params }: Props) {
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-ri-copper">
             {t("productEyebrow")}
           </p>
-          <h1 className="text-4xl font-semibold leading-tight tracking-tight text-ri-text sm:text-5xl">
+          <h1 className="font-display text-4xl font-medium leading-[1.12] tracking-tight text-ri-brown sm:text-5xl">
             {t("heroTitle")}
           </h1>
           <p className="mt-6 text-base leading-relaxed text-ri-muted sm:text-lg">
@@ -62,40 +71,19 @@ export default async function ClinicPage({ params }: Props) {
       </Section>
 
       <Section className="py-12 sm:py-16">
-        <h2 className="mb-10 text-center text-2xl font-semibold text-ri-text sm:text-3xl">
+        <h2 className="mb-10 text-center font-display text-2xl font-medium text-ri-text sm:text-3xl">
           {t("supportsTitle")}
         </h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <FeatureCard
-            icon={ClipboardList}
-            title={t("feat1Title")}
-            description={t("feat1Desc")}
-          />
-          <FeatureCard
-            icon={User}
-            title={t("feat2Title")}
-            description={t("feat2Desc")}
-          />
-          <FeatureCard
-            icon={History}
-            title={t("feat3Title")}
-            description={t("feat3Desc")}
-          />
-          <FeatureCard
-            icon={FileText}
-            title={t("feat4Title")}
-            description={t("feat4Desc")}
-          />
-          <FeatureCard
-            icon={Stethoscope}
-            title={t("feat5Title")}
-            description={t("feat5Desc")}
-          />
-          <FeatureCard
-            icon={Link2}
-            title={t("feat6Title")}
-            description={t("feat6Desc")}
-          />
+          {features.map((item, i) => (
+            <FeatureCard
+              key={item.titleKey}
+              icon={item.icon}
+              title={t(item.titleKey)}
+              description={t(item.descKey)}
+              index={i}
+            />
+          ))}
         </div>
       </Section>
 

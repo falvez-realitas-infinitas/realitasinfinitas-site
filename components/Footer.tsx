@@ -16,33 +16,28 @@ export async function Footer() {
   ] as const;
 
   return (
-    <footer className="mt-auto border-t border-ri-border bg-ri-bg-soft">
-      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
-          <div className="mx-auto max-w-sm text-center lg:mx-0 lg:text-left">
-            <div className="flex justify-center lg:justify-start">
-              <Image
-                src="/brand/ri-logo-vertical.png"
-                alt="Realitas Infinitas logo"
-                width={220}
-                height={200}
-                className="h-40 w-auto object-contain"
-              />
-            </div>
-            <p className="mt-4 text-sm font-medium text-ri-muted">
+    <footer className="mt-auto border-t border-white/10 bg-ri-brown text-white/85">
+      <div className="mx-auto max-w-[1200px] px-5 py-16 sm:px-8 sm:py-20">
+        <div className="flex flex-col gap-14 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+          <div className="max-w-md">
+            <Image
+              src="/brand/ri-logo-horizontal-dark.png"
+              alt="Realitas Infinitas logo"
+              width={300}
+              height={56}
+              className="h-11 w-auto max-w-[260px] object-contain opacity-95 sm:h-12"
+            />
+            <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/70">
               {t("tagline")}
             </p>
           </div>
-          <nav
-            className="flex flex-1 flex-wrap justify-center gap-x-10 gap-y-4 lg:justify-end"
-            aria-label={t("footerNav")}
-          >
-            <ul className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-3">
+          <nav aria-label={t("footerNav")}>
+            <ul className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:gap-x-12 sm:gap-y-4">
               {footerLinks.map(({ href, label }) => (
                 <li key={href}>
                   <Link
                     href={href}
-                    className="text-sm font-medium text-ri-muted transition-colors hover:text-ri-copper"
+                    className="text-sm font-semibold uppercase tracking-[0.16em] text-white/80 transition-colors hover:text-white"
                   >
                     {label}
                   </Link>
@@ -51,13 +46,13 @@ export async function Footer() {
             </ul>
           </nav>
         </div>
-        <div className="mt-12 flex flex-col gap-3 border-t border-ri-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-center text-xs text-ri-muted sm:text-left">
+        <div className="mt-14 flex flex-col gap-3 border-t border-white/15 pt-10 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs text-white/55">
             © {new Date().getFullYear()} {siteConfig.name}. {t("copyright")}
           </p>
           <a
             href={`mailto:${siteConfig.email}`}
-            className="text-center text-xs text-ri-muted transition-colors hover:text-ri-copper sm:text-right"
+            className="text-xs text-white/60 transition-colors hover:text-white"
           >
             {siteConfig.email}
           </a>

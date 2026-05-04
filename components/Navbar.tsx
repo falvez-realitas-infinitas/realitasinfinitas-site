@@ -21,46 +21,50 @@ export function Navbar() {
   ] as const;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-ri-border bg-ri-bg/85 backdrop-blur-md supports-[backdrop-filter]:bg-ri-bg/70">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:h-[4.25rem] sm:gap-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-[100] border-b border-ri-border/80 bg-ri-bg/75 backdrop-blur-xl backdrop-saturate-150">
+      <div className="mx-auto flex h-[4.25rem] max-w-[1200px] items-center justify-between gap-4 px-5 sm:h-[4.5rem] sm:px-8">
         <Link
           href="/"
-          className="group flex min-w-0 shrink items-center"
+          className="relative flex min-w-0 shrink items-center py-1"
           onClick={() => setOpen(false)}
         >
           <Image
             src="/brand/ri-logo-horizontal.png"
             alt="Realitas Infinitas logo"
-            width={260}
-            height={52}
+            width={280}
+            height={56}
             priority
-            className="h-8 w-auto max-w-[min(100%,200px)] object-contain object-left sm:h-9 sm:max-w-[240px]"
+            className="h-[2.15rem] w-auto max-w-[min(100%,220px)] object-contain object-left sm:h-[2.35rem] sm:max-w-[260px]"
           />
         </Link>
 
         <nav
-          className="hidden items-center gap-1 md:flex"
+          className="hidden items-center gap-10 md:flex"
           aria-label={t("mainNav")}
         >
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className={cn(
-                "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
-                pathname === href || pathname.startsWith(href + "/")
-                  ? "text-ri-brown"
-                  : "text-ri-muted hover:text-ri-text"
-              )}
-            >
-              {label}
-            </Link>
-          ))}
+          {navLinks.map(({ href, label }) => {
+            const active =
+              pathname === href || pathname.startsWith(href + "/");
+            return (
+              <Link
+                key={href}
+                href={href}
+                className={cn(
+                  "border-b border-transparent pb-1 text-[13px] font-medium uppercase tracking-[0.18em] transition-colors",
+                  active
+                    ? "border-ri-brown text-ri-brown"
+                    : "text-ri-muted hover:border-ri-border hover:text-ri-text"
+                )}
+              >
+                {label}
+              </Link>
+            );
+          })}
         </nav>
 
-        <div className="hidden shrink-0 items-center gap-3 md:flex">
+        <div className="hidden shrink-0 items-center gap-5 md:flex">
           <LocaleSwitcher />
-          <Button href="/products/clinic" variant="primary">
+          <Button href="/products/clinic" variant="primary" className="px-7">
             {t("exploreClinic")}
           </Button>
         </div>
@@ -69,13 +73,13 @@ export function Navbar() {
           <LocaleSwitcher />
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-lg p-2 text-ri-text hover:bg-ri-blue/30"
+            className="inline-flex items-center justify-center rounded-full p-2.5 text-ri-text hover:bg-ri-blue/25"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? t("closeMenu") : t("openMenu")}
             onClick={() => setOpen((v) => !v)}
           >
-            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
@@ -83,25 +87,25 @@ export function Navbar() {
       {open && (
         <div
           id="mobile-nav"
-          className="border-t border-ri-border bg-ri-bg px-4 py-4 shadow-sm md:hidden"
+          className="border-t border-ri-border bg-ri-bg/98 px-5 py-6 md:hidden"
         >
-          <nav className="flex flex-col gap-1" aria-label={t("mobileNav")}>
+          <nav className="flex flex-col gap-2" aria-label={t("mobileNav")}>
             {navLinks.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
                 className={cn(
-                  "rounded-lg px-3 py-3 text-sm font-medium",
+                  "rounded-xl px-4 py-3.5 text-sm font-semibold uppercase tracking-[0.14em]",
                   pathname === href || pathname.startsWith(href + "/")
-                    ? "bg-ri-blue/30 text-ri-brown"
-                    : "text-ri-text hover:bg-ri-blue/20"
+                    ? "bg-ri-brown text-white"
+                    : "text-ri-text hover:bg-ri-bg-warm"
                 )}
                 onClick={() => setOpen(false)}
               >
                 {label}
               </Link>
             ))}
-            <div className="mt-3 border-t border-ri-border pt-3">
+            <div className="mt-4 border-t border-ri-border pt-5">
               <Button
                 href="/products/clinic"
                 variant="primary"
