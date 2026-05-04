@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { useState } from "react";
@@ -20,19 +21,21 @@ export function Navbar() {
   ] as const;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/5 bg-slate-950/70 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:h-[4.25rem] sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 border-b border-ri-border bg-ri-bg/85 backdrop-blur-md supports-[backdrop-filter]:bg-ri-bg/70">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:h-[4.25rem] sm:gap-4 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="group flex shrink-0 items-baseline gap-1 text-lg font-semibold tracking-tight"
+          className="group flex min-w-0 shrink items-center"
           onClick={() => setOpen(false)}
         >
-          <span className="text-slate-100 transition-colors group-hover:text-white">
-            Realitas
-          </span>
-          <span className="bg-gradient-to-r from-sky-300 to-violet-300 bg-clip-text text-transparent">
-            Infinitas
-          </span>
+          <Image
+            src="/brand/ri-logo-horizontal.png"
+            alt="Realitas Infinitas logo"
+            width={260}
+            height={52}
+            priority
+            className="h-8 w-auto max-w-[min(100%,200px)] object-contain object-left sm:h-9 sm:max-w-[240px]"
+          />
         </Link>
 
         <nav
@@ -46,8 +49,8 @@ export function Navbar() {
               className={cn(
                 "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
                 pathname === href || pathname.startsWith(href + "/")
-                  ? "text-sky-300"
-                  : "text-slate-400 hover:text-slate-200"
+                  ? "text-ri-brown"
+                  : "text-ri-muted hover:text-ri-text"
               )}
             >
               {label}
@@ -66,7 +69,7 @@ export function Navbar() {
           <LocaleSwitcher />
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-lg p-2 text-slate-300 hover:bg-white/5 hover:text-white"
+            className="inline-flex items-center justify-center rounded-lg p-2 text-ri-text hover:bg-ri-blue/30"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? t("closeMenu") : t("openMenu")}
@@ -80,7 +83,7 @@ export function Navbar() {
       {open && (
         <div
           id="mobile-nav"
-          className="border-t border-white/5 bg-slate-950/95 px-4 py-4 backdrop-blur-xl md:hidden"
+          className="border-t border-ri-border bg-ri-bg px-4 py-4 shadow-sm md:hidden"
         >
           <nav className="flex flex-col gap-1" aria-label={t("mobileNav")}>
             {navLinks.map(({ href, label }) => (
@@ -90,15 +93,15 @@ export function Navbar() {
                 className={cn(
                   "rounded-lg px-3 py-3 text-sm font-medium",
                   pathname === href || pathname.startsWith(href + "/")
-                    ? "bg-white/5 text-sky-300"
-                    : "text-slate-300 hover:bg-white/5"
+                    ? "bg-ri-blue/30 text-ri-brown"
+                    : "text-ri-text hover:bg-ri-blue/20"
                 )}
                 onClick={() => setOpen(false)}
               >
                 {label}
               </Link>
             ))}
-            <div className="mt-3 border-t border-white/10 pt-3">
+            <div className="mt-3 border-t border-ri-border pt-3">
               <Button
                 href="/products/clinic"
                 variant="primary"

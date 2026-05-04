@@ -34,26 +34,26 @@ export default async function AboutPage({ params }: Props) {
         className="pt-12 pb-10 sm:pt-16 sm:pb-12"
         innerClassName="max-w-3xl"
       >
-        <h1 className="text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl">
+        <h1 className="text-4xl font-semibold tracking-tight text-ri-text sm:text-5xl">
           {tmeta("aboutTitle")}
         </h1>
-        <div className="mt-10 space-y-6 text-base leading-relaxed text-slate-400 sm:text-lg">
+        <div className="mt-10 space-y-6 text-base leading-relaxed text-ri-muted sm:text-lg">
           <p>
             {t.rich("p1", {
               name: siteConfig.name,
               m1: (chunks) => (
-                <strong className="font-medium text-slate-300">{chunks}</strong>
+                <strong className="font-medium text-ri-brown">{chunks}</strong>
               ),
               m2: (chunks) => (
-                <strong className="font-medium text-slate-300">{chunks}</strong>
+                <strong className="font-medium text-ri-brown">{chunks}</strong>
               ),
               m3: (chunks) => (
-                <strong className="font-medium text-slate-300">{chunks}</strong>
+                <strong className="font-medium text-ri-brown">{chunks}</strong>
               ),
             })}
           </p>
           <p>{t("p2")}</p>
-          <p className="text-slate-500">{t("p3")}</p>
+          <p className="text-ri-muted/90">{t("p3")}</p>
         </div>
       </Section>
       <LeadershipSection className="pb-24 sm:pb-32" />

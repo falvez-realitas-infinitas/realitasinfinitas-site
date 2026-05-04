@@ -1,12 +1,13 @@
 {
   "site": {
-    "description": "Realitas Infinitas builds precise, scalable, and human-centered digital products for complex workflows — starting with healthcare."
+    "description": "Realitas Infinitas builds intelligent software systems that bring structure, clarity, and scalability to complex operational environments — starting with healthcare."
   },
   "nav": {
     "products": "Products",
     "about": "About",
     "contact": "Contact",
     "contactUs": "Contact us",
+    "viewProducts": "View our products",
     "exploreClinic": "Explore Clinic",
     "mainNav": "Main navigation",
     "mobileNav": "Mobile navigation",
@@ -14,7 +15,7 @@
     "openMenu": "Open menu"
   },
   "footer": {
-    "tagline": "Product-oriented software for clear workflows and systems built to evolve.",
+    "tagline": "Software for complex realities.",
     "copyright": "All rights reserved.",
     "footerNav": "Footer"
   },
@@ -25,7 +26,7 @@
   },
   "meta": {
     "homeTitle": "Home",
-    "homeDescription": "Realitas Infinitas builds precise, scalable, and human-centered digital products for complex workflows — starting with healthcare.",
+    "homeDescription": "Realitas Infinitas builds intelligent software for complex operational environments — structure, clarity, and scalability for healthcare and beyond.",
     "aboutTitle": "About",
     "aboutDescription": "Realitas Infinitas is a product-oriented software company focused on precision, usability, and maintainability.",
     "contactTitle": "Contact",
@@ -36,31 +37,29 @@
     "clinicDescription": "Clinic helps healthcare professionals register patients, organize patient information, and manage medical histories through a simple and reliable digital workflow."
   },
   "HomePage": {
-    "heroEyebrow": "Software company",
-    "heroTitle": "Software systems for realities that keep evolving.",
-    "howWeWorkTitle": "How we work",
-    "howWeWorkP1": "{name} creates software products designed for <m1>clarity</m1>, <m2>reliability</m2>, and <m3>long-term evolution</m3>. We architect structured information and clear workflows so teams can rely on a digital foundation that grows with their operations.",
-    "howWeWorkP2": "The first product line focuses on healthcare: from patient registration to clinical history management, with a calm interface and a path toward future integrations.",
-    "clinicSectionTitle": "First product: Clinic",
-    "clinicSectionIntro": "A reliable digital foundation for patient registration, medical history, and clinical records — designed for healthcare professionals.",
-    "clinicBullet1": "Patient registration",
-    "clinicBullet2": "Medical history management",
-    "clinicBullet3": "Clinical record organization",
-    "clinicBullet4": "Simple, secure, scalable foundation",
-    "clinicAside": "Clinic is not a generic template — it is structured information and clear workflows for practices that need organization without noise.",
-    "clinicReadMore": "Read more about Clinic →",
-    "principlesTitle": "Product principles",
-    "principlesIntro": "Values that guide how we design and ship software.",
-    "principle1Title": "Clarity over complexity",
-    "principle1Desc": "Interfaces and data models that stay understandable as your workflows grow.",
-    "principle2Title": "Reliable workflows",
-    "principle2Desc": "Predictable paths for daily operations — fewer surprises, clearer handoffs.",
-    "principle3Title": "Human-centered design",
-    "principle3Desc": "Built for the people using the system: calm, precise, and respectful of context.",
-    "principle4Title": "Built to evolve",
-    "principle4Desc": "A foundation you can extend — integrations and products over time, not dead ends.",
-    "ctaTitle": "Learn more about Clinic",
-    "ctaDescription": "See how Clinic supports patient registration, profiles, and clinical records — or reach out to discuss partnerships and early access."
+    "heroTitle": "Software for complex realities.",
+    "heroSubhead": "Realitas Infinitas builds intelligent software systems that bring structure, clarity, and scalability to complex operational environments.",
+    "heroVisualCaption": "Layered structure and progressive depth — reflected in how we design systems.",
+    "brandTitle": "Technology for demanding environments",
+    "brandBody": "Realitas Infinitas focuses on software for complex realities: layered processes, fragmented workflows, and dense operational data — turned into clear, usable systems. Our practice combines disciplined engineering with respect for how teams actually work in healthcare and other high-stakes domains.",
+    "productsSectionTitle": "Products",
+    "productsSectionIntro": "We ship products deliberately. Clinic is the first product line — built for patient registration, clinical records, and dependable care workflows.",
+    "clinicCardTitle": "Clinic",
+    "clinicCardDesc": "A healthcare software platform for patient registration, medical record management, and operational workflows. Clinic helps teams organize information, reduce friction, and support better care through clearer digital processes.",
+    "clinicLearnMore": "Learn more",
+    "viewAllProducts": "View our products",
+    "whyTitle": "Why Realitas Infinitas",
+    "whyIntro": "Engineering discipline and operational realism — without theatrics.",
+    "why1Title": "Built for complex workflows",
+    "why1Desc": "Software aligned to real processes: handoffs, exceptions, regulations, and the details that matter on the ground.",
+    "why2Title": "Designed for clarity",
+    "why2Desc": "Interfaces and data models that stay legible as scope grows — so teams are not buried in noise.",
+    "why3Title": "Scalable architecture",
+    "why3Desc": "Foundations that can extend with integrations, volume, and new capabilities over time.",
+    "why4Title": "Human-centered software",
+    "why4Desc": "Respectful of clinicians, staff, and operators — precise where it counts, calm where it helps.",
+    "ctaTitle": "Partner with Realitas Infinitas",
+    "ctaDescription": "Explore Clinic, review our product roadmap, or start a conversation about software for your operational environment."
   },
   "AboutPage": {
     "p1": "{name} is a product-oriented software company. We focus on building systems that combine <m1>technical precision</m1>, <m2>usability</m2>, and <m3>long-term maintainability</m3> — so the software you rely on today can still make sense years from now.",
@@ -138,6 +137,6 @@
     "ctaPrimary": "Contact Realitas Infinitas"
   },
   "clinicProduct": {
-    "shortDescription": "A clean foundation for patient registration, profiles, and clinical records."
+    "shortDescription": "Patient registration, medical records, and operational workflows for healthcare teams — clarity and reliability by design."
   }
 }

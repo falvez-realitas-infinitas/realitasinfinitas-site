@@ -1,12 +1,13 @@
 {
   "site": {
-    "description": "Realitas Infinitas construye productos digitales precisos, escalables y centrados en las personas para flujos de trabajo complejos — comenzando por el sector salud."
+    "description": "Realitas Infinitas construye sistemas de software inteligentes que aportan estructura, claridad y escalabilidad a entornos operativos complejos — comenzando por el sector salud."
   },
   "nav": {
     "products": "Productos",
     "about": "Nosotros",
     "contact": "Contacto",
     "contactUs": "Escríbenos",
+    "viewProducts": "Ver productos",
     "exploreClinic": "Conocer Clinic",
     "mainNav": "Navegación principal",
     "mobileNav": "Navegación móvil",
@@ -14,7 +15,7 @@
     "openMenu": "Abrir menú"
   },
   "footer": {
-    "tagline": "Software orientado a productos para flujos claros y sistemas pensados para evolucionar.",
+    "tagline": "Software para realidades complejas.",
     "copyright": "Todos los derechos reservados.",
     "footerNav": "Pie de página"
   },
@@ -25,7 +26,7 @@
   },
   "meta": {
     "homeTitle": "Inicio",
-    "homeDescription": "Realitas Infinitas construye productos digitales precisos, escalables y centrados en las personas para flujos de trabajo complejos — comenzando por el sector salud.",
+    "homeDescription": "Realitas Infinitas construye software inteligente para entornos operativos complejos: estructura, claridad y escalabilidad en salud y más allá.",
     "aboutTitle": "Nosotros",
     "aboutDescription": "Realitas Infinitas es una empresa de software orientada a productos, con foco en precisión, usabilidad y mantenibilidad.",
     "contactTitle": "Contacto",
@@ -36,31 +37,29 @@
     "clinicDescription": "Clinic ayuda a profesionales de la salud a registrar pacientes, organizar la información y gestionar historias clínicas con un flujo digital simple y confiable."
   },
   "HomePage": {
-    "heroEyebrow": "Empresa de software",
-    "heroTitle": "Sistemas de software para realidades que no dejan de evolucionar.",
-    "howWeWorkTitle": "Cómo trabajamos",
-    "howWeWorkP1": "{name} crea productos de software pensados para la <m1>claridad</m1>, la <m2>confiabilidad</m2> y la <m3>evolución a largo plazo</m3>. Diseñamos información estructurada y flujos claros para que los equipos puedan apoyarse en una base digital que crece con sus operaciones.",
-    "howWeWorkP2": "La primera línea de productos se centra en salud: desde el registro de pacientes hasta la gestión de la historia clínica, con una interfaz serena y un camino hacia integraciones futuras.",
-    "clinicSectionTitle": "Primer producto: Clinic",
-    "clinicSectionIntro": "Una base digital confiable para registro de pacientes, historia médica y expediente clínico — pensada para equipos de salud.",
-    "clinicBullet1": "Registro de pacientes",
-    "clinicBullet2": "Gestión de historia médica",
-    "clinicBullet3": "Organización del expediente clínico",
-    "clinicBullet4": "Base simple, segura y escalable",
-    "clinicAside": "Clinic no es una plantilla genérica: es información estructurada y flujos claros para consultorios que necesitan orden sin ruido.",
-    "clinicReadMore": "Más sobre Clinic →",
-    "principlesTitle": "Principios de producto",
-    "principlesIntro": "Valores que guían cómo diseñamos y entregamos software.",
-    "principle1Title": "Claridad frente a complejidad",
-    "principle1Desc": "Interfaces y modelos de datos que siguen siendo comprensibles a medida que crecen tus flujos.",
-    "principle2Title": "Flujos confiables",
-    "principle2Desc": "Caminos previsibles para el día a día: menos sorpresas y traspasos más claros.",
-    "principle3Title": "Diseño centrado en las personas",
-    "principle3Desc": "Hecho para quienes usan el sistema: sereno, preciso y respetuoso del contexto.",
-    "principle4Title": "Hecho para evolucionar",
-    "principle4Desc": "Una base que puedes ampliar: integraciones y productos en el tiempo, no callejones sin salida.",
-    "ctaTitle": "Más sobre Clinic",
-    "ctaDescription": "Descubre cómo Clinic apoya el registro de pacientes, perfiles e historias clínicas — o escríbenos para alianzas y acceso temprano."
+    "heroTitle": "Software for complex realities.",
+    "heroSubhead": "Realitas Infinitas construye sistemas de software inteligentes que aportan estructura, claridad y escalabilidad a entornos operativos complejos.",
+    "heroVisualCaption": "Estructura en capas y profundidad progresiva — reflejada en cómo diseñamos sistemas.",
+    "brandTitle": "Tecnología para entornos exigentes",
+    "brandBody": "Realitas Infinitas se concentra en software para realidades complejas: procesos en capas, flujos fragmentados y datos operativos densos, transformados en sistemas claros y usables. Nuestra forma de trabajar combina ingeniería disciplinada con respeto por cómo operan los equipos en salud y otros entornos de alto riesgo.",
+    "productsSectionTitle": "Productos",
+    "productsSectionIntro": "Entregamos productos con intención. Clinic es la primera línea — pensada para registro de pacientes, historias clínicas y flujos de atención confiables.",
+    "clinicCardTitle": "Clinic",
+    "clinicCardDesc": "Plataforma de software para salud orientada al registro de pacientes, gestión de historias clínicas y flujos operativos. Clinic ayuda a organizar la información, reducir fricción y apoyar una mejor atención con procesos digitales más claros.",
+    "clinicLearnMore": "Más información",
+    "viewAllProducts": "Ver productos",
+    "whyTitle": "Por qué Realitas Infinitas",
+    "whyIntro": "Ingeniería rigurosa y realismo operativo — sin artificio.",
+    "why1Title": "Hecho para flujos complejos",
+    "why1Desc": "Software alineado a procesos reales: traspasos, excepciones, normativa y los detalles que importan en la práctica.",
+    "why2Title": "Diseñado para la claridad",
+    "why2Desc": "Interfaces y modelos de datos que siguen siendo legibles cuando crece el alcance — sin ahogar al equipo en ruido.",
+    "why3Title": "Arquitectura escalable",
+    "why3Desc": "Bases que pueden extenderse con integraciones, volumen y nuevas capacidades en el tiempo.",
+    "why4Title": "Software centrado en las personas",
+    "why4Desc": "Respetuoso con clínicos, personal y operadores: preciso donde importa, sereno donde ayuda.",
+    "ctaTitle": "Trabaja con Realitas Infinitas",
+    "ctaDescription": "Explora Clinic, revisa la hoja de ruta de producto o inicia una conversación sobre software para tu entorno operativo."
   },
   "AboutPage": {
     "p1": "{name} es una empresa de software orientada a productos. Nos enfocamos en construir sistemas que combinan <m1>rigor técnico</m1>, <m2>usabilidad</m2> y <m3>mantenibilidad a largo plazo</m3>, para que el software del que dependes hoy siga teniendo sentido dentro de años.",
@@ -138,6 +137,6 @@
     "ctaPrimary": "Contactar a Realitas Infinitas"
   },
   "clinicProduct": {
-    "shortDescription": "Una base clara para registro de pacientes, perfiles e historias clínicas."
+    "shortDescription": "Registro de pacientes, historias clínicas y flujos operativos para equipos de salud — claridad y confiabilidad desde el diseño."
   }
 }

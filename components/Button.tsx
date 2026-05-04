@@ -20,15 +20,15 @@ export function Button(props: ButtonAsButton | ButtonAsLink) {
   const { variant = "primary", className, children, ...rest } = props;
 
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400/80 disabled:pointer-events-none disabled:opacity-50";
+    "inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ri-copper disabled:pointer-events-none disabled:opacity-50";
 
   const styles = {
     primary:
-      "bg-gradient-to-r from-sky-500/90 to-violet-500/85 text-white shadow-lg shadow-sky-950/40 hover:from-sky-400 hover:to-violet-400 hover:shadow-sky-900/50 active:scale-[0.98]",
+      "bg-ri-copper text-white shadow-sm hover:bg-ri-brown active:bg-ri-brown",
     secondary:
-      "glass-panel text-slate-100 hover:border-sky-400/30 hover:bg-slate-800/50 active:scale-[0.98]",
+      "border border-ri-border bg-ri-card text-ri-text shadow-sm hover:border-ri-copper/35 hover:bg-ri-bg-soft",
     ghost:
-      "text-slate-300 hover:bg-white/5 hover:text-white active:scale-[0.98]",
+      "text-ri-muted hover:bg-ri-blue/25 hover:text-ri-text",
   } as const;
 
   const cls = cn(base, styles[variant], className);

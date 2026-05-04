@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { siteConfig } from "@/lib/site";
@@ -15,24 +16,33 @@ export async function Footer() {
   ] as const;
 
   return (
-    <footer className="mt-auto border-t border-white/5 bg-slate-950/50">
+    <footer className="mt-auto border-t border-ri-border bg-ri-bg-soft">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
-          <div className="max-w-sm">
-            <p className="text-lg font-semibold tracking-tight text-slate-100">
-              {siteConfig.name}
-            </p>
-            <p className="mt-2 text-sm leading-relaxed text-slate-500">
+        <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+          <div className="mx-auto max-w-sm text-center lg:mx-0 lg:text-left">
+            <div className="flex justify-center lg:justify-start">
+              <Image
+                src="/brand/ri-logo-vertical.png"
+                alt="Realitas Infinitas logo"
+                width={220}
+                height={200}
+                className="h-40 w-auto object-contain"
+              />
+            </div>
+            <p className="mt-4 text-sm font-medium text-ri-muted">
               {t("tagline")}
             </p>
           </div>
-          <nav aria-label={t("footerNav")}>
-            <ul className="flex flex-wrap gap-x-8 gap-y-3">
+          <nav
+            className="flex flex-1 flex-wrap justify-center gap-x-10 gap-y-4 lg:justify-end"
+            aria-label={t("footerNav")}
+          >
+            <ul className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-3">
               {footerLinks.map(({ href, label }) => (
                 <li key={href}>
                   <Link
                     href={href}
-                    className="text-sm text-slate-400 transition-colors hover:text-sky-300"
+                    className="text-sm font-medium text-ri-muted transition-colors hover:text-ri-copper"
                   >
                     {label}
                   </Link>
@@ -41,13 +51,13 @@ export async function Footer() {
             </ul>
           </nav>
         </div>
-        <div className="mt-12 flex flex-col gap-3 border-t border-white/5 pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-slate-600">
+        <div className="mt-12 flex flex-col gap-3 border-t border-ri-border pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-center text-xs text-ri-muted sm:text-left">
             © {new Date().getFullYear()} {siteConfig.name}. {t("copyright")}
           </p>
           <a
             href={`mailto:${siteConfig.email}`}
-            className="text-xs text-slate-500 transition-colors hover:text-sky-400"
+            className="text-center text-xs text-ri-muted transition-colors hover:text-ri-copper sm:text-right"
           >
             {siteConfig.email}
           </a>

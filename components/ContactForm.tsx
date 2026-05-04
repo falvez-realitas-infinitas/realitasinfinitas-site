@@ -4,6 +4,9 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { Button } from "@/components/Button";
 
+const fieldClass =
+  "w-full rounded-xl border border-ri-border bg-ri-card px-4 py-2.5 text-sm text-ri-text placeholder:text-ri-muted/80 focus:border-ri-copper/50 focus:outline-none focus:ring-2 focus:ring-ri-copper/20";
+
 export function ContactForm() {
   const t = useTranslations("ContactForm");
   const [submitted, setSubmitted] = useState(false);
@@ -25,7 +28,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="contact-name"
-            className="mb-1.5 block text-sm font-medium text-slate-300"
+            className="mb-1.5 block text-sm font-medium text-ri-text"
           >
             {t("name")}
           </label>
@@ -35,14 +38,14 @@ export function ContactForm() {
             type="text"
             autoComplete="name"
             required
-            className="w-full rounded-lg border border-slate-700/60 bg-slate-900/50 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-600 focus:border-sky-500/50 focus:outline-none focus:ring-2 focus:ring-sky-500/30"
+            className={fieldClass}
             placeholder={t("placeholderName")}
           />
         </div>
         <div>
           <label
             htmlFor="contact-email"
-            className="mb-1.5 block text-sm font-medium text-slate-300"
+            className="mb-1.5 block text-sm font-medium text-ri-text"
           >
             {t("email")}
           </label>
@@ -52,14 +55,14 @@ export function ContactForm() {
             type="email"
             autoComplete="email"
             required
-            className="w-full rounded-lg border border-slate-700/60 bg-slate-900/50 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-600 focus:border-sky-500/50 focus:outline-none focus:ring-2 focus:ring-sky-500/30"
+            className={fieldClass}
             placeholder={t("placeholderEmail")}
           />
         </div>
         <div>
           <label
             htmlFor="contact-company"
-            className="mb-1.5 block text-sm font-medium text-slate-300"
+            className="mb-1.5 block text-sm font-medium text-ri-text"
           >
             {t("company")}
           </label>
@@ -68,14 +71,14 @@ export function ContactForm() {
             name="company"
             type="text"
             autoComplete="organization"
-            className="w-full rounded-lg border border-slate-700/60 bg-slate-900/50 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-600 focus:border-sky-500/50 focus:outline-none focus:ring-2 focus:ring-sky-500/30"
+            className={fieldClass}
             placeholder={t("placeholderCompany")}
           />
         </div>
         <div>
           <label
             htmlFor="contact-message"
-            className="mb-1.5 block text-sm font-medium text-slate-300"
+            className="mb-1.5 block text-sm font-medium text-ri-text"
           >
             {t("message")}
           </label>
@@ -84,7 +87,7 @@ export function ContactForm() {
             name="message"
             rows={5}
             required
-            className="w-full resize-y rounded-lg border border-slate-700/60 bg-slate-900/50 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-600 focus:border-sky-500/50 focus:outline-none focus:ring-2 focus:ring-sky-500/30"
+            className={`${fieldClass} resize-y`}
             placeholder={t("placeholderMessage")}
           />
         </div>
@@ -96,7 +99,7 @@ export function ContactForm() {
       </div>
       {submitted && (
         <p
-          className="mt-4 text-sm text-sky-300/90"
+          className="mt-4 text-sm text-ri-copper"
           role="status"
           aria-live="polite"
         >

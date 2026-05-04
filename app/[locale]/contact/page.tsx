@@ -31,14 +31,14 @@ export default async function ContactPage({ params }: Props) {
   return (
     <Section className="pt-12 pb-24 sm:pt-16 sm:pb-32">
       <div className="mx-auto max-w-2xl text-center">
-        <h1 className="text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl">
+        <h1 className="text-4xl font-semibold tracking-tight text-ri-text sm:text-5xl">
           {tmeta("contactTitle")}
         </h1>
-        <p className="mt-4 text-slate-400">{t("intro")}</p>
+        <p className="mt-4 text-ri-muted">{t("intro")}</p>
         <p className="mt-3">
           <a
             href={`mailto:${siteConfig.email}`}
-            className="text-sm font-medium text-sky-400 transition-colors hover:text-sky-300"
+            className="text-sm font-semibold text-ri-copper transition-colors hover:text-ri-brown"
           >
             {siteConfig.email}
           </a>

@@ -1,23 +1,46 @@
 @import "tailwindcss";
 
 :root {
-  --background: #030712;
-  --foreground: #f1f5f9;
-  --muted: #94a3b8;
-  --card: rgba(15, 23, 42, 0.45);
-  --card-border: rgba(148, 163, 184, 0.14);
-  --accent-blue: #38bdf8;
-  --accent-violet: #a78bfa;
-  --accent-cyan: #22d3ee;
-  --ring: rgba(56, 189, 248, 0.35);
+  /* Brand palette */
+  --ri-blue: #c4e5f2;
+  --ri-amber: #d9985f;
+  --ri-peach: #f2c8a2;
+  --ri-copper: #a66b49;
+  --ri-brown: #592a19;
+
+  --ri-bg: #fbf8f5;
+  --ri-bg-soft: #fdfbf9;
+  --ri-text: #2a1b16;
+  --ri-text-muted: #6f5a50;
+  --ri-border: rgba(89, 42, 25, 0.14);
+  --ri-card: #ffffff;
+
+  /* Semantic (site-wide) */
+  --background: var(--ri-bg);
+  --foreground: var(--ri-text);
+  --muted: var(--ri-text-muted);
+  --card: var(--ri-card);
+  --card-border: var(--ri-border);
+  --ring-focus: rgba(166, 107, 73, 0.45);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ri-blue: var(--ri-blue);
+  --color-ri-amber: var(--ri-amber);
+  --color-ri-peach: var(--ri-peach);
+  --color-ri-copper: var(--ri-copper);
+  --color-ri-brown: var(--ri-brown);
+  --color-ri-bg: var(--ri-bg);
+  --color-ri-bg-soft: var(--ri-bg-soft);
+  --color-ri-text: var(--ri-text);
+  --color-ri-muted: var(--ri-text-muted);
+  --color-ri-border: var(--ri-border);
+  --color-ri-card: var(--ri-card);
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
 html {
@@ -25,40 +48,48 @@ html {
 }
 
 body {
-  background: radial-gradient(
-      ellipse 120% 80% at 50% -20%,
-      rgba(56, 189, 248, 0.12),
+  background-color: var(--ri-bg);
+  background-image: radial-gradient(
+      ellipse 100% 60% at 50% -15%,
+      color-mix(in srgb, var(--ri-blue) 45%, transparent),
       transparent 55%
     ),
     radial-gradient(
-      ellipse 80% 50% at 100% 0%,
-      rgba(167, 139, 250, 0.1),
+      ellipse 55% 40% at 100% 0%,
+      color-mix(in srgb, var(--ri-peach) 22%, transparent),
       transparent 50%
     ),
-    linear-gradient(180deg, #020617 0%, #030712 40%, #0f172a 100%);
+    linear-gradient(180deg, var(--ri-bg-soft) 0%, var(--ri-bg) 35%, var(--ri-bg) 100%);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-family: var(--font-sans);
   min-height: 100vh;
 }
 
 ::selection {
-  background: rgba(56, 189, 248, 0.25);
-  color: var(--foreground);
+  background: color-mix(in srgb, var(--ri-copper) 25%, transparent);
+  color: var(--ri-text);
 }
 
 .glass-panel {
-  background: var(--card);
+  background: color-mix(in srgb, var(--ri-card) 92%, transparent);
   border: 1px solid var(--card-border);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 2px rgba(42, 27, 22, 0.04);
 }
 
-.text-gradient {
+.glass-panel--dark {
+  background: color-mix(in srgb, var(--ri-brown) 96%, #000 4%);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: none;
+}
+
+.text-gradient-brand {
   background: linear-gradient(
     135deg,
-    #f8fafc 0%,
-    #cbd5e1 45%,
-    #7dd3fc 100%
+    var(--ri-brown) 0%,
+    var(--ri-copper) 50%,
+    var(--ri-amber) 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -77,9 +108,9 @@ body {
   padding: 1px;
   background: linear-gradient(
     135deg,
-    rgba(56, 189, 248, 0.45),
-    rgba(167, 139, 250, 0.35),
-    rgba(34, 211, 238, 0.25)
+    color-mix(in srgb, var(--ri-copper) 55%, transparent),
+    color-mix(in srgb, var(--ri-amber) 40%, transparent),
+    color-mix(in srgb, var(--ri-blue) 50%, transparent)
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);

@@ -28,21 +28,21 @@ export async function ProductCard({
         "glass-panel accent-gradient-border transition-all duration-300",
         subtle && "opacity-60 hover:opacity-80",
         !subtle &&
-          "hover:border-sky-400/25 hover:shadow-lg hover:shadow-sky-950/20"
+          "hover:border-ri-copper/20 hover:shadow-md hover:shadow-ri-brown/5"
       )}
     >
       <div className="mb-4 flex items-start justify-between gap-4">
-        <h3 className="text-lg font-semibold tracking-tight text-slate-100">
+        <h3 className="text-lg font-semibold tracking-tight text-ri-text">
           {title}
         </h3>
         {isComing ? (
-          <span className="shrink-0 rounded-full border border-slate-600/60 bg-slate-900/50 px-2.5 py-0.5 text-xs font-medium text-slate-400">
+          <span className="shrink-0 rounded-full border border-ri-border bg-ri-bg-soft px-2.5 py-0.5 text-xs font-medium text-ri-muted">
             {t("comingLater")}
           </span>
         ) : (
           href && (
             <ArrowUpRight
-              className="h-5 w-5 shrink-0 text-sky-400/70 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              className="h-5 w-5 shrink-0 text-ri-copper transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               aria-hidden
             />
           )
@@ -50,8 +50,8 @@ export async function ProductCard({
       </div>
       <p
         className={cn(
-          "flex-1 text-sm leading-relaxed text-slate-400",
-          subtle && "text-slate-500"
+          "flex-1 text-sm leading-relaxed text-ri-muted",
+          subtle && "text-ri-muted/80"
         )}
       >
         {description}
@@ -63,7 +63,7 @@ export async function ProductCard({
     return (
       <Link
         href={href}
-        className="block h-full outline-none focus-visible:ring-2 focus-visible:ring-sky-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-2xl"
+        className="block h-full rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-ri-copper/50 focus-visible:ring-offset-2 focus-visible:ring-offset-ri-bg"
       >
         {content}
       </Link>

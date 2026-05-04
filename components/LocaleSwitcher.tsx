@@ -12,7 +12,7 @@ export function LocaleSwitcher() {
 
   return (
     <div
-      className="flex items-center gap-1 rounded-lg border border-white/10 bg-slate-900/40 p-0.5"
+      className="flex items-center gap-1 rounded-lg border border-ri-border bg-ri-card/80 p-0.5"
       role="group"
       aria-label={t("label")}
     >
@@ -24,10 +24,10 @@ export function LocaleSwitcher() {
             href={pathname}
             locale={loc}
             className={cn(
-              "rounded-md px-2 py-1 text-xs font-medium transition-colors",
+              "rounded-md px-2 py-1 text-xs font-semibold transition-colors",
               active
-                ? "bg-white/10 text-sky-300"
-                : "text-slate-500 hover:text-slate-300"
+                ? "bg-ri-blue/60 text-ri-brown"
+                : "text-ri-muted hover:text-ri-text"
             )}
             hrefLang={loc}
           >
