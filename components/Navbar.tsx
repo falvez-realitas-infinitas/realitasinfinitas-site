@@ -15,6 +15,7 @@ export function Navbar() {
 
   const navLinks = [
     { href: "/products", label: t("products") },
+    { href: "/reality", label: t("experiment") },
     { href: "/about", label: t("about") },
     { href: "/contact", label: t("contact") },
   ] as const;
@@ -37,7 +38,7 @@ export function Navbar() {
         </Link>
 
         <nav
-          className="hidden items-center gap-10 md:flex"
+          className="hidden shrink-0 items-center gap-6 lg:gap-8 xl:gap-10 md:flex"
           aria-label={t("mainNav")}
         >
           {navLinks.map(({ href, label }) => {
@@ -48,7 +49,7 @@ export function Navbar() {
                 key={href}
                 href={href}
                 className={cn(
-                  "border-b border-transparent pb-1 text-[13px] font-medium uppercase tracking-[0.18em] transition-colors",
+                  "whitespace-nowrap border-b border-transparent pb-1 text-[12px] font-medium uppercase tracking-[0.14em] transition-colors lg:text-[13px] lg:tracking-[0.16em]",
                   active
                     ? "border-ri-brown text-ri-brown"
                     : "text-ri-muted hover:border-ri-border hover:text-ri-text"
@@ -85,7 +86,7 @@ export function Navbar() {
                 key={href}
                 href={href}
                 className={cn(
-                  "rounded-xl px-4 py-3.5 text-sm font-semibold uppercase tracking-[0.14em]",
+                  "whitespace-nowrap rounded-xl px-4 py-3.5 text-sm font-semibold uppercase tracking-[0.14em]",
                   pathname === href || pathname.startsWith(href + "/")
                     ? "bg-ri-brown text-white"
                     : "text-ri-text hover:bg-ri-bg-warm"

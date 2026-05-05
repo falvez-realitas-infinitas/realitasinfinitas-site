@@ -12,7 +12,8 @@
     "mainNav": "Navegación principal",
     "mobileNav": "Navegación móvil",
     "closeMenu": "Cerrar menú",
-    "openMenu": "Abrir menú"
+    "openMenu": "Abrir menú",
+    "experiment": "Realidades"
   },
   "footer": {
     "tagline": "Software para realidades complejas.",
@@ -36,7 +37,9 @@
     "clinicTitle": "Clinic",
     "clinicDescription": "Clinic ayuda a profesionales de la salud a registrar pacientes, organizar la información y gestionar historias clínicas con un flujo digital simple y confiable.",
     "resetPasswordTitle": "Restablecer contraseña",
-    "resetPasswordDescription": "Información sobre enlaces de recuperación de contraseña de la aplicación Clinic."
+    "resetPasswordDescription": "Información sobre enlaces de recuperación de contraseña de la aplicación Clinic.",
+    "realityTitle": "Constructor de realidades",
+    "realityDescription": "Construí una realidad extraña en cinco elecciones rápidas: un minijuego de mundo imaginario, claro y jugado, de Realitas Infinitas."
   },
   "HomePage": {
     "heroEyebrow": "Ingeniería y producto",
@@ -150,6 +153,49 @@
   },
   "clinicProduct": {
     "shortDescription": "Registro de pacientes, historias clínicas y flujos operativos para equipos de salud — claridad y confiabilidad desde el diseño."
+  },
+  "RealityBuilder": {
+    "eyebrow": "Jugar · Imaginar · Inventar",
+    "title": "Constructor de realidades",
+    "intro": "Construí una realidad que no debería existir.\nElegí el mundo, las reglas, el personaje, el conflicto y el giro.\nNo hay respuestas correctas. Solo realidades nuevas.",
+    "begin": "Empezar a construir",
+    "stepProgress": "Paso {current} de {total}",
+    "choose": "Elegir",
+    "steps": {
+      "world": {
+        "heading": "Elegí un mundo",
+        "hint": "¿Dónde vive tu historia?"
+      },
+      "rule": {
+        "heading": "Elegí una ley de la realidad",
+        "hint": "¿Qué ley imposible moldea el día a día?"
+      },
+      "character": {
+        "heading": "Elegí un personaje principal",
+        "hint": "¿Quién se mueve en este lugar?"
+      },
+      "problem": {
+        "heading": "Elegí un problema",
+        "hint": "¿Qué salió hermosamente mal?"
+      },
+      "twist": {
+        "heading": "Elegí un giro",
+        "hint": "¿Qué vuelve aún más extraña esta realidad?"
+      }
+    },
+    "finalTitle": "Tu realidad ya existe",
+    "copy": "Copiar realidad",
+    "createAnother": "Crear otra realidad",
+    "surpriseMe": "Sorpréndeme",
+    "copied": "Copiado al portapapeles.",
+    "copyFailed": "No se pudo copiar — probá de nuevo.",
+    "generateImage": "Generar imagen",
+    "regenerateImage": "Regenerar imagen",
+    "imageLoading": "Generando ilustración…",
+    "imageError": "No se pudo cargar la imagen. Probá de nuevo.",
+    "imageTimeout": "La imagen tarda demasiado. Probá de nuevo.",
+    "imageAlt": "Ilustración inspirada en tu realidad",
+    "imageHint": "Opcional: arte generado por IA con Pollinations (gratis; puede tardar)."
   },
   "ResetPasswordPage": {
     "title": "Restablecer contraseña",

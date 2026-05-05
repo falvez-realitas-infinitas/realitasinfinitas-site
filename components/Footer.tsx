@@ -12,6 +12,7 @@ export async function Footer() {
   const footerLinks = [
     { href: "/products", label: tnav("products") },
     { href: "/products/clinic", label: tmeta("clinicTitle") },
+    { href: "/reality", label: tnav("experiment") },
     { href: "/about", label: tnav("about") },
     { href: "/contact", label: tnav("contact") },
   ] as const;

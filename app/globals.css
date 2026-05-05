@@ -126,6 +126,39 @@ body::before {
   position: relative;
 }
 
+/* Subtle ∞-suggestive field for the Reality Builder experience */
+@keyframes ri-infinity-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.72;
+    transform: scale(1.03) rotate(180deg);
+  }
+}
+
+.ri-infinity-bg {
+  animation: ri-infinity-pulse 32s ease-in-out infinite;
+  background:
+    radial-gradient(
+      ellipse 42% 38% at 38% 48%,
+      color-mix(in srgb, #c4e5f2 16%, transparent),
+      transparent 62%
+    ),
+    radial-gradient(
+      ellipse 42% 38% at 62% 52%,
+      color-mix(in srgb, #a66b49 14%, transparent),
+      transparent 62%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      color-mix(in srgb, #c4e5f2 6%, transparent),
+      transparent 55%
+    );
+}
+
 .accent-gradient-border::before {
   content: "";
   position: absolute;

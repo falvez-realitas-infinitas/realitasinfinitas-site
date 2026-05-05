@@ -12,7 +12,8 @@
     "mainNav": "Main navigation",
     "mobileNav": "Mobile navigation",
     "closeMenu": "Close menu",
-    "openMenu": "Open menu"
+    "openMenu": "Open menu",
+    "experiment": "Reality Builder"
   },
   "footer": {
     "tagline": "Software for complex realities.",
@@ -36,7 +37,9 @@
     "clinicTitle": "Clinic",
     "clinicDescription": "Clinic helps healthcare professionals register patients, organize patient information, and manage medical histories through a simple and reliable digital workflow.",
     "resetPasswordTitle": "Reset password",
-    "resetPasswordDescription": "Information about Clinic application password recovery links."
+    "resetPasswordDescription": "Information about Clinic application password recovery links.",
+    "realityTitle": "Reality Builder",
+    "realityDescription": "Build a strange fictional reality in five quick choices — a playful mini world-building game from Realitas Infinitas."
   },
   "HomePage": {
     "heroEyebrow": "Engineering & product",
@@ -150,6 +153,49 @@
   },
   "clinicProduct": {
     "shortDescription": "Patient registration, medical records, and operational workflows for healthcare teams — clarity and reliability by design."
+  },
+  "RealityBuilder": {
+    "eyebrow": "Play · Imagine · Invent",
+    "title": "Reality Builder",
+    "intro": "Build a reality that should not exist.\nChoose the world, the rules, the character, the conflict, and the twist.\nThere are no correct answers. Only new realities.",
+    "begin": "Start building",
+    "stepProgress": "Step {current} of {total}",
+    "choose": "Choose",
+    "steps": {
+      "world": {
+        "heading": "Choose a world",
+        "hint": "Where does your story live?"
+      },
+      "rule": {
+        "heading": "Choose a rule of reality",
+        "hint": "What impossible law shapes daily life?"
+      },
+      "character": {
+        "heading": "Choose a main character",
+        "hint": "Who moves through this place?"
+      },
+      "problem": {
+        "heading": "Choose a problem",
+        "hint": "What has gone beautifully wrong?"
+      },
+      "twist": {
+        "heading": "Choose a twist",
+        "hint": "What makes this reality stranger still?"
+      }
+    },
+    "finalTitle": "Your Reality Exists Now",
+    "copy": "Copy Reality",
+    "createAnother": "Create Another Reality",
+    "surpriseMe": "Surprise Me",
+    "copied": "Copied to clipboard.",
+    "copyFailed": "Could not copy — try again.",
+    "generateImage": "Visualize",
+    "regenerateImage": "Regenerate image",
+    "imageLoading": "Generating illustration…",
+    "imageError": "Could not load the image. Try again.",
+    "imageTimeout": "The image is taking too long. Try again.",
+    "imageAlt": "Illustration inspired by your reality",
+    "imageHint": "Optional: AI-generated art via Pollinations (free tier; may be slow)."
   },
   "ResetPasswordPage": {
     "title": "Reset password",
