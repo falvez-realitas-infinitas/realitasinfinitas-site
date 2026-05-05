@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Layers, Sparkles, Users, Workflow } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Button } from "@/components/Button";
 import { Section } from "@/components/Section";
 import { FeatureCard } from "@/components/FeatureCard";
 import { CTASection } from "@/components/CTASection";
 import { CredibilityStrip } from "@/components/CredibilityStrip";
 import { HeroVisual } from "@/components/HeroVisual";
+import { Link } from "@/i18n/navigation";
 import { siteConfig } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -31,7 +32,6 @@ export default async function HomePage({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations("HomePage");
-  const tnav = await getTranslations("nav");
 
   const why = [
     { icon: Workflow, titleKey: "why1Title", descKey: "why1Desc" },
@@ -42,31 +42,24 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <>
-      <section className="relative overflow-hidden pt-12 pb-20 sm:pt-16 sm:pb-28 lg:min-h-[min(92vh,920px)] lg:pt-20 lg:pb-24">
-        <div className="mx-auto grid max-w-[1200px] items-center gap-14 px-5 sm:gap-16 sm:px-8 lg:grid-cols-12 lg:gap-10 lg:gap-y-16">
-          <div className="lg:col-span-6 xl:col-span-7">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-ri-copper">
-              {siteConfig.name}
+      <section className="relative overflow-hidden border-b border-ri-border/40 bg-gradient-to-b from-ri-bg-warm/25 via-ri-bg to-ri-bg pt-10 pb-14 sm:pt-12 sm:pb-16 lg:py-[clamp(3rem,11vh,5.25rem)]">
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-[42%] bg-[radial-gradient(ellipse_85%_65%_at_50%_-10%,rgba(110,165,200,0.16),transparent)]"
+          aria-hidden
+        />
+        <div className="relative mx-auto grid max-w-[1200px] items-center gap-10 px-5 sm:gap-12 sm:px-8 lg:grid-cols-12 lg:gap-x-10 lg:gap-y-0">
+          <div className="flex flex-col justify-center lg:col-span-6 xl:col-span-7 lg:min-h-[min(52vh,440px)] xl:min-h-0">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-ri-copper">
+              {t("heroEyebrow")}
             </p>
-            <h1 className="mt-5 font-display text-[2.75rem] font-medium leading-[1.08] tracking-tight text-ri-brown sm:text-5xl lg:text-[3.35rem] xl:text-[3.65rem]">
+            <h1 className="mt-4 font-display text-[2.6rem] font-medium leading-[1.06] tracking-tight text-ri-brown sm:text-[2.75rem] lg:mt-5 lg:text-[3.15rem] xl:text-[3.45rem]">
               {t("heroTitle")}
             </h1>
-            <p className="mt-8 max-w-xl text-[1.05rem] leading-relaxed text-ri-muted sm:text-lg">
+            <p className="mt-6 max-w-xl text-[1.05rem] leading-relaxed text-ri-muted sm:mt-7 sm:text-lg">
               {t("heroSubhead")}
             </p>
-            <div className="mt-11 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-              <Button href="/products/clinic" variant="primary" className="px-8">
-                {tnav("exploreClinic")}
-              </Button>
-              <Button href="/products" variant="secondary" className="px-8">
-                {tnav("viewProducts")}
-              </Button>
-              <Button href="/contact" variant="ghost" className="px-2 sm:ml-1">
-                {tnav("contactUs")}
-              </Button>
-            </div>
           </div>
-          <div className="lg:col-span-6 xl:col-span-5">
+          <div className="flex items-center justify-center lg:col-span-6 xl:col-span-5 lg:justify-end">
             <HeroVisual caption={t("heroVisualCaption")} />
           </div>
         </div>
@@ -103,27 +96,43 @@ export default async function HomePage({ params }: Props) {
           </div>
         </div>
 
-        <div className="mt-14">
+        <div className="mt-14 max-w-3xl">
           <div className="overflow-hidden rounded-[2rem] border border-ri-border/90 bg-ri-card shadow-[0_32px_100px_-48px_rgba(89,42,25,0.35)]">
-            <div className="grid gap-10 p-10 sm:p-12 lg:grid-cols-[1fr_minmax(12rem,auto)] lg:gap-14 lg:p-14">
-              <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-ri-copper">
-                  {t("clinicEyebrow")}
-                </p>
-                <h3 className="mt-4 font-display text-3xl font-medium text-ri-brown sm:text-[2.15rem]">
-                  {t("clinicCardTitle")}
-                </h3>
-                <p className="mt-5 text-base leading-relaxed text-ri-muted">
-                  {t("clinicCardDesc")}
-                </p>
-              </div>
-              <div className="flex flex-col justify-center gap-4 border-t border-ri-border pt-10 lg:border-l lg:border-t-0 lg:pl-14 lg:pt-0">
-                <Button href="/products/clinic" variant="primary" className="w-full px-8">
-                  {t("clinicLearnMore")}
-                </Button>
-                <Button href="/products" variant="secondary" className="w-full px-8">
-                  {t("viewAllProducts")}
-                </Button>
+            <div className="p-10 sm:p-12 lg:p-14">
+              <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10">
+                <div className="flex shrink-0 justify-center lg:justify-start">
+                  <div className="inline-flex w-fit max-w-full items-center justify-center rounded-2xl border border-ri-border/45 bg-gradient-to-br from-white via-ri-bg-soft/95 to-ri-bg-warm/45 px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.88)] sm:px-5 sm:py-4 lg:w-[min(100%,300px)] lg:py-5">
+                    <Image
+                      src="/brand/clinic-logo-edit-2.png"
+                      alt=""
+                      width={1024}
+                      height={161}
+                      unoptimized
+                      sizes="(max-width: 1024px) 85vw, 300px"
+                      className="h-auto w-full max-w-[min(100%,280px)] object-contain object-center sm:max-w-[300px]"
+                      aria-hidden
+                    />
+                  </div>
+                </div>
+                <div className="flex min-w-0 flex-1 flex-col">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-ri-copper">
+                    {t("clinicEyebrow")}
+                  </p>
+                  <h3 className="mt-4 font-display text-3xl font-medium text-ri-brown sm:text-[2.15rem]">
+                    {t("clinicCardTitle")}
+                  </h3>
+                  <p className="mt-5 text-base leading-relaxed text-ri-muted">
+                    {t("clinicCardDesc")}
+                  </p>
+                  <div className="mt-10 border-t border-ri-border pt-10">
+                    <Link
+                      href="/products/clinic"
+                      className="inline-flex items-center justify-center gap-2 rounded-full bg-ri-brown px-8 py-2.5 text-sm font-semibold tracking-wide text-white shadow-sm transition-[background-color] duration-300 hover:bg-ri-copper"
+                    >
+                      {t("clinicLearnMore")}
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -155,9 +164,9 @@ export default async function HomePage({ params }: Props) {
         title={t("ctaTitle")}
         description={t("ctaDescription")}
         primaryHref="/contact"
-        primaryLabel={tnav("contactUs")}
+        primaryLabel={t("ctaPrimary")}
         secondaryHref="/products/clinic"
-        secondaryLabel={tnav("exploreClinic")}
+        secondaryLabel={t("ctaSecondary")}
         className="pb-28 sm:pb-36"
       />
     </>

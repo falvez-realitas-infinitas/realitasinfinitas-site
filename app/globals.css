@@ -41,7 +41,8 @@
   --color-ri-muted: var(--ri-text-muted);
   --color-ri-border: var(--ri-border);
   --color-ri-card: var(--ri-card);
-  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
@@ -61,7 +62,13 @@ body {
       color-mix(in srgb, var(--ri-peach) 18%, transparent),
       transparent 52%
     ),
-    linear-gradient(180deg, var(--ri-bg-soft) 0%, var(--ri-bg) 42%, var(--ri-bg) 100%);
+    linear-gradient(
+      180deg,
+      var(--ri-bg) 0%,
+      var(--ri-bg-soft) 32%,
+      var(--ri-bg) 55%,
+      var(--ri-bg) 100%
+    );
   color: var(--foreground);
   font-family: var(--font-sans);
   min-height: 100vh;
@@ -84,7 +91,7 @@ body::before {
 }
 
 .font-display {
-  font-family: var(--font-display), ui-serif, Georgia, "Times New Roman", serif;
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
 }
 
 .glass-panel {

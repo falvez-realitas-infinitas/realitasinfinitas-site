@@ -6,24 +6,23 @@ type HeroVisualProps = {
 
 export function HeroVisual({ caption }: HeroVisualProps) {
   return (
-    <div className="relative flex w-full justify-center lg:justify-end lg:pr-4">
+    <div className="relative flex w-full max-w-[440px] justify-center lg:max-w-none lg:justify-end">
       <div
-        className="pointer-events-none absolute -right-8 top-1/2 h-[min(90vw,420px)] w-[min(90vw,420px)] -translate-y-1/2 rounded-full bg-gradient-to-br from-ri-blue/50 via-ri-peach/15 to-transparent blur-3xl"
+        className="pointer-events-none absolute left-1/2 top-[42%] h-[min(72vw,340px)] w-[min(72vw,340px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-ri-blue/30 via-ri-peach/15 to-transparent blur-3xl lg:left-auto lg:right-0 lg:translate-x-0 lg:translate-y-[-45%]"
         aria-hidden
       />
-      <figure className="relative w-full max-w-[340px]">
-        <div className="relative rotate-[1.5deg] rounded-[2rem] border border-ri-border/80 bg-ri-card p-10 shadow-[0_28px_90px_-30px_rgba(89,42,25,0.28)] sm:p-12">
-          <div className="absolute -left-3 -top-3 h-16 w-16 rounded-2xl border border-ri-border/40 bg-ri-bg-warm/90 shadow-sm" />
-          <Image
-            src="/brand/ri-icon.png"
-            alt="Realitas Infinitas icon"
-            width={128}
-            height={128}
-            className="relative mx-auto h-28 w-28 object-contain sm:h-32 sm:w-32"
-            priority
-          />
-        </div>
-        <figcaption className="mt-6 max-w-[34ch] text-left text-xs leading-relaxed text-ri-muted sm:text-[13px]">
+      <figure className="relative z-[1] flex w-full flex-col items-center lg:max-w-[400px] lg:items-end">
+        <Image
+          src="/brand/ri-icon.png"
+          alt=""
+          width={322}
+          height={315}
+          sizes="(max-width: 1024px) 42vw, 300px"
+          priority
+          aria-hidden
+          className="h-44 w-auto max-w-full object-contain sm:h-52 md:h-56 lg:h-[15rem]"
+        />
+        <figcaption className="mt-6 max-w-[34ch] text-center text-[13px] leading-relaxed text-ri-muted sm:text-sm lg:max-w-[36ch] lg:text-right">
           {caption}
         </figcaption>
       </figure>

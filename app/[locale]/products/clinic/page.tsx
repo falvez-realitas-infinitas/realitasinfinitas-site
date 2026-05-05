@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   ClipboardList,
   FileText,
@@ -56,22 +57,38 @@ export default async function ClinicPage({ params }: Props) {
 
   return (
     <>
-      <Section className="pt-12 pb-16 sm:pt-16 sm:pb-20">
-        <div className="max-w-3xl">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-ri-copper">
+      <Section className="border-b border-ri-border/35 pt-12 pb-18 sm:pt-16 sm:pb-22">
+        <div className="mx-auto flex max-w-[40rem] flex-col items-center text-center">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-ri-copper">
             {t("productEyebrow")}
           </p>
-          <h1 className="font-display text-4xl font-medium leading-[1.12] tracking-tight text-ri-brown sm:text-5xl">
+          <span
+            className="mt-5 block h-px w-10 bg-ri-copper/35 sm:mt-6"
+            aria-hidden
+          />
+          <div className="mt-8 w-full max-w-[min(100%,28rem)] sm:mt-10">
+            <Image
+              src="/brand/clinic-logo-edit-2.png"
+              alt={tmeta("clinicTitle")}
+              width={1024}
+              height={161}
+              priority
+              unoptimized
+              sizes="(max-width: 768px) 100vw, 448px"
+              className="mx-auto h-auto w-full object-contain object-center"
+            />
+          </div>
+          <h1 className="mt-10 max-w-[34rem] font-display text-[2.15rem] font-medium leading-[1.14] tracking-tight text-ri-brown sm:mt-12 sm:text-4xl sm:leading-[1.12] lg:text-[2.75rem]">
             {t("heroTitle")}
           </h1>
-          <p className="mt-6 text-base leading-relaxed text-ri-muted sm:text-lg">
+          <p className="mt-6 max-w-[32rem] text-base leading-relaxed text-ri-muted sm:mt-7 sm:text-lg">
             {tmeta("clinicDescription")}
           </p>
         </div>
       </Section>
 
-      <Section className="py-12 sm:py-16">
-        <h2 className="mb-10 text-center font-display text-2xl font-medium text-ri-text sm:text-3xl">
+      <Section className="py-14 sm:py-18">
+        <h2 className="mb-12 text-center font-display text-2xl font-medium text-ri-text sm:mb-14 sm:text-3xl">
           {t("supportsTitle")}
         </h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -106,13 +123,15 @@ export default async function ClinicPage({ params }: Props) {
         </div>
       </Section>
 
-      <Section className="py-12 sm:py-20" innerClassName="max-w-3xl">
-        <h2 className="text-2xl font-semibold text-ri-text sm:text-3xl">
-          {t("audienceTitle")}
-        </h2>
-        <p className="mt-5 text-base leading-relaxed text-ri-muted">
-          {t("audienceBody")}
-        </p>
+      <Section className="py-12 sm:py-20" innerClassName="max-w-2xl">
+        <div className="mx-auto text-center">
+          <h2 className="font-display text-2xl font-medium text-ri-text sm:text-3xl">
+            {t("audienceTitle")}
+          </h2>
+          <p className="mt-5 text-base leading-relaxed text-ri-muted sm:mt-6">
+            {t("audienceBody")}
+          </p>
+        </div>
       </Section>
 
       <CTASection

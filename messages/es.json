@@ -1,6 +1,6 @@
 {
   "site": {
-    "description": "Empresa de tecnología sanitaria que construye software inteligente y productos — desde programas empresariales hasta herramientas clínicas como Clinic."
+    "description": "Empresa de tecnología para la salud que construye software inteligente y productos — desde programas empresariales hasta herramientas clínicas como Clinic."
   },
   "nav": {
     "products": "Productos",
@@ -26,30 +26,33 @@
   },
   "meta": {
     "homeTitle": "Inicio",
-    "homeDescription": "Empresa de tecnología sanitaria: software inteligente para entornos operativos complejos — estructura, claridad y escalabilidad.",
+    "homeDescription": "Empresa de tecnología para la salud: software inteligente para entornos operativos complejos — estructura, claridad y escalabilidad.",
     "aboutTitle": "Nosotros",
     "aboutDescription": "Realitas Infinitas es una empresa de software orientada a productos, con foco en precisión, usabilidad y mantenibilidad.",
     "contactTitle": "Contacto",
     "contactDescription": "Escribe a Realitas Infinitas sobre Clinic, alianzas o consultas generales.",
     "productsTitle": "Productos",
-    "productsDescription": "Realitas Infinitas construye una familia de productos para flujos estructurados. Clinic es el primero; vendrán más.",
+    "productsDescription": "Clinic: registro de pacientes, historias clínicas y flujos operativos para equipos de salud.",
     "clinicTitle": "Clinic",
-    "clinicDescription": "Clinic ayuda a profesionales de la salud a registrar pacientes, organizar la información y gestionar historias clínicas con un flujo digital simple y confiable."
+    "clinicDescription": "Clinic ayuda a profesionales de la salud a registrar pacientes, organizar la información y gestionar historias clínicas con un flujo digital simple y confiable.",
+    "resetPasswordTitle": "Restablecer contraseña",
+    "resetPasswordDescription": "Información sobre enlaces de recuperación de contraseña de la aplicación Clinic."
   },
   "HomePage": {
+    "heroEyebrow": "Ingeniería y producto",
     "heroTitle": "Software para realidades complejas.",
     "heroSubhead": "Realitas Infinitas construye sistemas de software inteligentes que aportan estructura, claridad y escalabilidad a entornos operativos complejos.",
-    "heroVisualCaption": "Estructura, claridad y profundidad — las mismas cualidades que ingeniamos en software sanitario.",
-    "brandEyebrow": "Tecnología sanitaria",
+    "heroVisualCaption": "Estructura, claridad y profundidad — las mismas cualidades que ingeniamos en software para la salud.",
+    "brandEyebrow": "Tecnología para la salud",
     "clientsEyebrow": "Experiencia",
-    "clientsTitle": "Ingeniería de confianza en programas sanitarios exigentes",
+    "clientsTitle": "Ingeniería de confianza en programas de salud exigentes",
     "clientVesta": "VestaCare",
     "clientSI": "Successful Imperatives",
-    "clientsFootnote": "Hoy aplicamos la misma exigencia a productos pensados para consultorios y prácticas — empezando por Clinic.",
+    "clientsFootnote": "Hoy aplicamos la misma exigencia a productos pensados para clínicas — empezando por Clinic.",
     "brandTitle": "Tecnología para entornos exigentes",
-    "brandBody": "Realitas Infinitas une ingeniería de nivel empresarial con productos que los equipos pueden adoptar sin fricción. Desde la complejidad del ciclo de ingresos y las integraciones hasta el ritmo diario del consultorio, diseñamos sistemas que respetan la normativa, la realidad operativa y a las personas detrás de la pantalla.",
+    "brandBody": "Realitas Infinitas une ingeniería de nivel empresarial con productos que los equipos pueden adoptar sin fricción. Desde la complejidad del ciclo de ingresos y las integraciones hasta el ritmo diario de la clínica, diseñamos sistemas que respetan la normativa, la realidad operativa y a las personas detrás de la pantalla.",
     "productsSectionTitle": "Productos",
-    "productsSectionIntro": "Entregamos productos con intención. Clinic es nuestro primer producto para prácticas — registro de pacientes, historias clínicas y flujos que se mantienen confiables bajo presión.",
+    "productsSectionIntro": "Nuestro producto es Clinic: registro de pacientes, historias clínicas y flujos pensados para ser confiables bajo presión.",
     "clinicEyebrow": "Producto insignia",
     "clinicCardTitle": "Clinic",
     "clinicCardDesc": "Plataforma de software para salud orientada al registro de pacientes, gestión de historias clínicas y flujos operativos. Clinic ayuda a organizar la información, reducir fricción y apoyar una mejor atención con procesos digitales más claros.",
@@ -58,7 +61,7 @@
     "whyTitle": "Por qué Realitas Infinitas",
     "whyIntro": "Ingeniería rigurosa y realismo operativo — sin artificio.",
     "why1Title": "Hecho para flujos complejos",
-    "why1Desc": "Software alineado a procesos reales: traspasos, excepciones, normativa y los detalles que importan en la práctica.",
+    "why1Desc": "Software alineado a procesos reales: traspasos, excepciones, normativa y los detalles que importan en el día a día.",
     "why2Title": "Diseñado para la claridad",
     "why2Desc": "Interfaces y modelos de datos que siguen siendo legibles cuando crece el alcance — sin ahogar al equipo en ruido.",
     "why3Title": "Arquitectura escalable",
@@ -66,25 +69,27 @@
     "why4Title": "Software centrado en las personas",
     "why4Desc": "Respetuoso con clínicos, personal y operadores: preciso donde importa, sereno donde ayuda.",
     "ctaTitle": "Trabaja con Realitas Infinitas",
-    "ctaDescription": "Explora Clinic, revisa la hoja de ruta de producto o inicia una conversación sobre software para tu entorno operativo."
+    "ctaDescription": "Explora Clinic o inicia una conversación sobre software para tu entorno operativo.",
+    "ctaPrimary": "Escríbenos",
+    "ctaSecondary": "Conocer Clinic"
   },
   "AboutPage": {
     "p1": "{name} es una empresa de software orientada a productos. Nos enfocamos en construir sistemas que combinan <m1>rigor técnico</m1>, <m2>usabilidad</m2> y <m3>mantenibilidad a largo plazo</m3>, para que el software del que dependes hoy siga teniendo sentido dentro de años.",
-    "p2": "Nuestro trabajo empieza en salud: Clinic es el primer producto, centrado en registro de pacientes, perfiles, historias médicas y expediente clínico. Con el tiempo, esperamos sumar más líneas que compartan el mismo compromiso con la información estructurada y los flujos claros.",
+    "p2": "Nuestro trabajo en salud es Clinic hoy: registro de pacientes, perfiles, historias médicas y expediente clínico—información estructurada y flujos claros.",
     "p3": "Evitamos el ruido y las promesas exageradas. Preferimos interfaces tranquilas, modelos de datos explícitos y software que genera confianza con la consistencia — pensado para evolucionar junto a tu organización."
   },
   "Leadership": {
     "title": "Liderazgo",
     "intro": "Realitas Infinitas está dirigida por profesionales con experiencia directa en el desarrollo de software para entornos operativos complejos, donde la tecnología, la lógica de negocio y la ejecución en el mundo real deben alinearse.",
     "initials": "FA",
-    "avatarAriaLabel": "Facundo Alvez — imagen de perfil pendiente",
+    "avatarAriaLabel": "Facundo Alvez",
     "profileName": "Facundo Alvez",
     "profileRole": "Fundador e ingeniero de software",
-    "bioP1": "Facundo Alvez es ingeniero de software con más de una década de experiencia construyendo soluciones de tecnología sanitaria para el mercado estadounidense. Su trabajo abarca desarrollo de software, estrategia de producto, integraciones, automatización, flujos del ciclo de ingresos y sistemas críticos para el negocio.",
+    "bioP1": "Facundo Alvez es ingeniero de software con más de una década de experiencia construyendo soluciones de tecnología para la salud en el mercado estadounidense. Su trabajo abarca desarrollo de software, estrategia de producto, integraciones, automatización, flujos del ciclo de ingresos y sistemas críticos para el negocio.",
     "bioP2": "Como fundador de Realitas Infinitas, se centra en crear software práctico y confiable para entornos operativos complejos.",
     "highlightsLabel": "Áreas de enfoque",
     "highlight1": "Ingeniería de software y desarrollo de producto",
-    "highlight2": "Tecnología sanitaria y experiencia en ciclo de ingresos",
+    "highlight2": "Tecnología para la salud y experiencia en ciclo de ingresos",
     "highlight3": "Automatización de procesos de negocio",
     "highlight4": "Integraciones de sistemas y flujos operativos",
     "highlight5": "Software práctico para problemas complejos del mundo real"
@@ -105,7 +110,7 @@
     "success": "Gracias: tu mensaje quedó registrado localmente. Conecta el envío por correo en ContactForm cuando esté listo."
   },
   "ProductsPage": {
-    "intro": "Realitas Infinitas construirá una familia reducida de productos en el tiempo; cada uno enfocado en flujos claros e información estructurada. La hoja de ruta es deliberada: profundidad primero, expansión después.",
+    "intro": "Hoy ofrecemos Clinic: software centrado en registro de pacientes, historias clínicas y flujos operativos.",
     "futureProduct1Title": "Producto futuro",
     "futureProduct1Desc": "Hay más líneas de producto planificadas a medida que crece la empresa. Compartiremos detalles cuando estén listos.",
     "futureProduct2Title": "Otra línea futura",
@@ -119,7 +124,7 @@
     "heroTitle": "Clinic: una base clara para registro de pacientes y expediente clínico.",
     "supportsTitle": "Qué cubre Clinic",
     "feat1Title": "Registro de pacientes",
-    "feat1Desc": "Altas con campos coherentes y un camino claro de entrada a tu práctica.",
+    "feat1Desc": "Altas con campos coherentes y un camino claro de entrada a tu clínica.",
     "feat2Title": "Perfiles de paciente",
     "feat2Desc": "Mantén identidad y datos demográficos en un perfil estructurado.",
     "feat3Title": "Historias médicas",
@@ -131,19 +136,28 @@
     "feat6Title": "Preparado para integraciones",
     "feat6Desc": "Una base que puede conectarse a otros sistemas cuando quieras ampliar.",
     "workflowTitle": "Ejemplo de flujo",
-    "workflowSubtitle": "Una secuencia directa que puedes adaptar a tu consultorio.",
+    "workflowSubtitle": "Una secuencia directa que puedes adaptar a tu clínica.",
     "workflowStep1": "Registrar paciente",
     "workflowStep2": "Completar perfil",
     "workflowStep3": "Registrar historia médica",
     "workflowStep4": "Consultar y actualizar información clínica",
     "workflowStep5": "Mantener la información ordenada en el tiempo",
     "audienceTitle": "Para quién es",
-    "audienceBody": "Clinic está pensado para profesionales independientes, consultorios pequeños y prácticas que necesitan ordenar mejor la información de pacientes — sin adoptar un paquete sobredimensionado desde el primer día.",
+    "audienceBody": "Clinic está pensado para profesionales independientes y clínicas que necesitan ordenar mejor la información de pacientes — sin adoptar un paquete sobredimensionado desde el primer día.",
     "ctaTitle": "¿Te interesa Clinic?",
-    "ctaDescription": "Si estás evaluando herramientas para tu práctica o explorando una alianza, queremos saber de ti.",
+    "ctaDescription": "Si estás evaluando herramientas para tu clínica o explorando una alianza, queremos saber de ti.",
     "ctaPrimary": "Contactar a Realitas Infinitas"
   },
   "clinicProduct": {
     "shortDescription": "Registro de pacientes, historias clínicas y flujos operativos para equipos de salud — claridad y confiabilidad desde el diseño."
+  },
+  "ResetPasswordPage": {
+    "title": "Restablecer contraseña",
+    "intro": "Los enlaces de recuperación de contraseña corresponden a la aplicación Clinic en la URL donde está desplegada tu instancia (por ejemplo el servidor que usa tu consultorio), no a este sitio corporativo de Realitas Infinitas.",
+    "hint": "Si recibiste un correo con un enlace, abrilo tal cual (o copiá la URL completa). Si no funciona, pedí a tu administrador la dirección correcta de la aplicación.",
+    "appUrlLabel": "Si tu equipo configuró una URL de referencia para la app:",
+    "contactCta": "Contacto",
+    "homeCta": "Volver al inicio",
+    "footerNote": "Este sitio es informativo; el alta y la recuperación de cuenta se gestionan en la aplicación clínica."
   }
 }

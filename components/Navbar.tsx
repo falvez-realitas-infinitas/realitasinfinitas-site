@@ -1,12 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/Button";
-import { LocaleSwitcher } from "@/components/LocaleSwitcher";
+import { LogoLockup } from "@/components/LogoLockup";
+import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/cn";
 
 export function Navbar() {
@@ -21,20 +20,19 @@ export function Navbar() {
   ] as const;
 
   return (
-    <header className="sticky top-0 z-[100] border-b border-ri-border/80 bg-ri-bg/75 backdrop-blur-xl backdrop-saturate-150">
-      <div className="mx-auto flex h-[4.25rem] max-w-[1200px] items-center justify-between gap-4 px-5 sm:h-[4.5rem] sm:px-8">
+    <header className="sticky top-0 z-[100] border-b border-ri-border/30 bg-ri-bg/90 shadow-[0_1px_0_0_rgba(255,255,255,0.35)] backdrop-blur-md supports-[backdrop-filter]:bg-ri-bg/80">
+      <div className="mx-auto flex min-h-[5rem] max-w-[1200px] items-center justify-between gap-4 px-5 py-2.5 sm:min-h-[5.75rem] sm:px-8">
         <Link
           href="/"
-          className="relative flex min-w-0 shrink items-center py-1"
+          className="relative flex min-w-0 shrink items-center py-0.5"
+          aria-label={siteConfig.name}
           onClick={() => setOpen(false)}
         >
-          <Image
-            src="/brand/ri-logo-horizontal.png"
-            alt="Realitas Infinitas logo"
-            width={280}
-            height={56}
+          <LogoLockup
+            variant="light"
+            wordmarkOnly
             priority
-            className="h-[2.15rem] w-auto max-w-[min(100%,220px)] object-contain object-left sm:h-[2.35rem] sm:max-w-[260px]"
+            textClassName="h-[1.85rem] w-auto max-w-[min(100%,72vw)] object-contain object-left sm:h-9 md:h-10 lg:h-11 lg:max-w-[min(100%,520px)]"
           />
         </Link>
 
@@ -62,15 +60,7 @@ export function Navbar() {
           })}
         </nav>
 
-        <div className="hidden shrink-0 items-center gap-5 md:flex">
-          <LocaleSwitcher />
-          <Button href="/products/clinic" variant="primary" className="px-7">
-            {t("exploreClinic")}
-          </Button>
-        </div>
-
-        <div className="flex shrink-0 items-center gap-2 md:hidden">
-          <LocaleSwitcher />
+        <div className="flex shrink-0 md:hidden">
           <button
             type="button"
             className="inline-flex items-center justify-center rounded-full p-2.5 text-ri-text hover:bg-ri-blue/25"
@@ -105,16 +95,6 @@ export function Navbar() {
                 {label}
               </Link>
             ))}
-            <div className="mt-4 border-t border-ri-border pt-5">
-              <Button
-                href="/products/clinic"
-                variant="primary"
-                className="w-full"
-                onClick={() => setOpen(false)}
-              >
-                {t("exploreClinic")}
-              </Button>
-            </div>
           </nav>
         </div>
       )}

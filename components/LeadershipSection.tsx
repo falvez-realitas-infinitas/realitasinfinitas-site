@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Section } from "@/components/Section";
 import { cn } from "@/lib/cn";
@@ -25,7 +26,10 @@ export async function LeadershipSection({
     <Section
       id="leadership"
       aria-labelledby="leadership-heading"
-      className={cn("pt-8 pb-20 sm:pt-12 sm:pb-28", className)}
+      className={cn(
+        "relative border-t border-ri-border/20 bg-gradient-to-b from-ri-bg-warm/25 via-transparent to-transparent pt-10 pb-20 sm:pt-14 sm:pb-28 lg:pt-16 lg:pb-32",
+        className
+      )}
       innerClassName={cn("max-w-5xl", innerClassName)}
     >
       <h2
@@ -42,18 +46,14 @@ export async function LeadershipSection({
         <div className="glass-panel accent-gradient-border rounded-3xl p-8 sm:p-10">
           <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-12">
             <div className="flex justify-center md:shrink-0 md:justify-start">
-              <div
-                className="relative flex h-32 w-32 items-center justify-center rounded-full border border-ri-border bg-gradient-to-br from-ri-blue/50 via-ri-card to-ri-peach/40 shadow-md sm:h-36 sm:w-36"
-                role="img"
-                aria-label={t("avatarAriaLabel")}
-              >
-                <span
-                  className="select-none text-3xl font-semibold tracking-tight text-ri-brown sm:text-4xl"
-                  aria-hidden
-                >
-                  {t("initials")}
-                </span>
-              </div>
+              <Image
+                src="/brand/facundo-alvez.png"
+                alt={t("avatarAriaLabel")}
+                width={300}
+                height={300}
+                sizes="(max-width: 768px) 144px, 160px"
+                className="h-36 w-36 rounded-full object-cover shadow-md ring-2 ring-white/90 sm:h-40 sm:w-40"
+              />
             </div>
 
             <div className="min-w-0 flex-1">

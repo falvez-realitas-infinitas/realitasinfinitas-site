@@ -1,21 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Geist_Mono, Manrope } from "next/font/google";
+import type { ReactNode } from "react";
+import { Geist_Mono, Outfit } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 import { siteConfig } from "@/lib/site";
+import { routing } from "@/i18n/routing";
 import "./globals.css";
 
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-});
-
-const fraunces = Fraunces({
-  variable: "--font-display",
+/** Geometric sans — pairs with the logo wordmark */
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
   adjustFontFallback: true,
 });
 
@@ -31,7 +28,12 @@ export const viewport: Viewport = {
 };
 
 export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getLocale();
+  let locale: string;
+  try {
+    locale = await getLocale();
+  } catch {
+    locale = routing.defaultLocale;
+  }
   const t = await getTranslations({ locale, namespace: "site" });
 
   return {
@@ -63,23 +65,24 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  const locale = await getLocale();
-  const messages = await getMessages();
+}: Readonly<{ children: ReactNode }>) {
+  let locale: string;
+  let messages: Awaited<ReturnType<typeof getMessages>>;
+  try {
+    locale = await getLocale();
+    messages = await getMessages();
+  } catch {
+    locale = routing.defaultLocale;
+    messages = (await import(`../messages/${routing.defaultLocale}.json`)).default;
+  }
 
   return (
     <html
       lang={locale}
-      className={`${manrope.variable} ${fraunces.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
+      className={`${outfit.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans text-ri-text">
-        <NextIntlClientProvider messages={messages}>
-          <Navbar />
-          <main className="relative z-[1] flex flex-1 flex-col">{children}</main>
-          <Footer />
-        </NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
       </body>
     </html>
   );

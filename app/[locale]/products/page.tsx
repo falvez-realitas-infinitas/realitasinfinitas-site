@@ -42,23 +42,19 @@ export default async function ProductsPage({ params }: Props) {
         </p>
       </div>
 
-      <div className="mt-14 grid gap-6 sm:mt-16 lg:grid-cols-2">
+      <div className="mt-14 max-w-3xl sm:mt-16">
         <ProductCard
+          logo={{
+            src: "/brand/clinic-logo-edit-2.png",
+            alt: tmeta("clinicTitle"),
+            width: 1024,
+            height: 161,
+            unoptimized: true,
+          }}
           title={tmeta("clinicTitle")}
           description={tclinic("shortDescription")}
           href="/products/clinic"
           status="available"
-        />
-        <ProductCard
-          title={t("futureProduct1Title")}
-          description={t("futureProduct1Desc")}
-          status="coming"
-        />
-        <ProductCard
-          title={t("futureProduct2Title")}
-          description={t("futureProduct2Desc")}
-          status="coming"
-          subtle
         />
       </div>
     </Section>

@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Section } from "@/components/Section";
+import { LogoLockup } from "@/components/LogoLockup";
 import { Button } from "@/components/Button";
 import { cn } from "@/lib/cn";
 
@@ -52,13 +52,12 @@ export function CTASection({
           </>
         )}
         {isBrand && (
-          <div className="relative mx-auto mb-10 flex justify-center">
-            <Image
-              src="/brand/ri-logo-horizontal-dark.png"
-              alt="Realitas Infinitas logo"
-              width={300}
-              height={60}
-              className="h-11 w-auto max-w-[min(100%,280px)] object-contain opacity-95 sm:h-12"
+          <div className="relative mx-auto mb-10 flex justify-center px-1">
+            <LogoLockup
+              variant="dark"
+              className="max-w-full justify-center"
+              iconClassName="h-14 w-14 shrink-0 object-contain sm:h-[4.5rem] sm:w-[4.5rem] lg:h-[5rem] lg:w-[5rem]"
+              textClassName="h-9 w-auto max-w-[min(100%,88vw)] object-contain object-center sm:h-11 sm:max-w-[560px] lg:h-12 lg:max-w-[640px]"
             />
           </div>
         )}

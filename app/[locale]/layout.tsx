@@ -1,6 +1,8 @@
 import { hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { Footer } from "@/components/Footer";
+import { Navbar } from "@/components/Navbar";
 import { routing } from "@/i18n/routing";
 
 type Props = {
@@ -20,5 +22,11 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   setRequestLocale(locale);
 
-  return children;
+  return (
+    <>
+      <Navbar />
+      <main className="relative z-[1] flex flex-1 flex-col">{children}</main>
+      <Footer />
+    </>
+  );
 }

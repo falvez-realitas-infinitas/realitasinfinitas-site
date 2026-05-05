@@ -32,11 +32,14 @@
     "contactTitle": "Contact",
     "contactDescription": "Reach Realitas Infinitas about Clinic, partnerships, or general inquiries.",
     "productsTitle": "Products",
-    "productsDescription": "Realitas Infinitas builds a family of products for structured workflows. Clinic is the first — more will follow.",
+    "productsDescription": "Clinic — patient registration, clinical records, and operational workflows for healthcare teams.",
     "clinicTitle": "Clinic",
-    "clinicDescription": "Clinic helps healthcare professionals register patients, organize patient information, and manage medical histories through a simple and reliable digital workflow."
+    "clinicDescription": "Clinic helps healthcare professionals register patients, organize patient information, and manage medical histories through a simple and reliable digital workflow.",
+    "resetPasswordTitle": "Reset password",
+    "resetPasswordDescription": "Information about Clinic application password recovery links."
   },
   "HomePage": {
+    "heroEyebrow": "Engineering & product",
     "heroTitle": "Software for complex realities.",
     "heroSubhead": "Realitas Infinitas builds intelligent software systems that bring structure, clarity, and scalability to complex operational environments.",
     "heroVisualCaption": "Structure, clarity, and depth — the same qualities we engineer into healthcare software.",
@@ -49,7 +52,7 @@
     "brandTitle": "Technology for demanding environments",
     "brandBody": "Realitas Infinitas bridges enterprise-grade engineering with products operators can adopt without friction. From revenue-cycle complexity and integrations to the daily rhythm of clinics, we design systems that respect regulation, workflow reality, and the people behind the screen.",
     "productsSectionTitle": "Products",
-    "productsSectionIntro": "We ship products deliberately. Clinic is our first product for practices — patient registration, clinical records, and workflows that stay dependable under pressure.",
+    "productsSectionIntro": "Clinic is our product: patient registration, clinical records, and workflows designed to stay dependable under pressure.",
     "clinicEyebrow": "Flagship product",
     "clinicCardTitle": "Clinic",
     "clinicCardDesc": "A healthcare software platform for patient registration, medical record management, and operational workflows. Clinic helps teams organize information, reduce friction, and support better care through clearer digital processes.",
@@ -66,18 +69,20 @@
     "why4Title": "Human-centered software",
     "why4Desc": "Respectful of clinicians, staff, and operators — precise where it counts, calm where it helps.",
     "ctaTitle": "Partner with Realitas Infinitas",
-    "ctaDescription": "Explore Clinic, review our product roadmap, or start a conversation about software for your operational environment."
+    "ctaDescription": "Explore Clinic or start a conversation about software for your operational environment.",
+    "ctaPrimary": "Contact us",
+    "ctaSecondary": "Learn about Clinic"
   },
   "AboutPage": {
     "p1": "{name} is a product-oriented software company. We focus on building systems that combine <m1>technical precision</m1>, <m2>usability</m2>, and <m3>long-term maintainability</m3> — so the software you rely on today can still make sense years from now.",
-    "p2": "Our work starts with healthcare: Clinic is the first product, centered on patient registration, profiles, medical histories, and clinical records. Over time, we expect to introduce additional product lines that share the same commitment to structured information and clear workflows.",
+    "p2": "Our work in healthcare is Clinic today: patient registration, profiles, medical histories, and clinical records—structured information and clear workflows.",
     "p3": "We avoid hype and overstated claims. We prefer calm interfaces, explicit data models, and software that earns trust through consistency — built to evolve alongside your organization."
   },
   "Leadership": {
     "title": "Leadership",
     "intro": "Realitas Infinitas is led by professionals with hands-on experience building software for complex operational environments, where technology, business logic, and real-world execution must work together.",
     "initials": "FA",
-    "avatarAriaLabel": "Facundo Alvez — profile placeholder",
+    "avatarAriaLabel": "Facundo Alvez",
     "profileName": "Facundo Alvez",
     "profileRole": "Founder & Software Engineer",
     "bioP1": "Facundo Alvez is a software engineer with over a decade of experience building healthcare technology solutions for the U.S. market. His work spans software development, product strategy, integrations, automation, revenue cycle workflows, and business-critical systems.",
@@ -105,7 +110,7 @@
     "success": "Thanks — your message has been recorded locally. Connect email delivery in <code>ContactForm</code> when ready."
   },
   "ProductsPage": {
-    "intro": "Realitas Infinitas will build a small family of products over time, each focused on clear workflows and structured information. The roadmap is intentional: depth first, then expansion.",
+    "intro": "Today we offer Clinic—focused software for patient registration, clinical records, and operational workflows.",
     "futureProduct1Title": "Future product",
     "futureProduct1Desc": "Additional product lines are planned as the company grows. Details will be shared when they are ready.",
     "futureProduct2Title": "Another future line",
@@ -145,5 +150,14 @@
   },
   "clinicProduct": {
     "shortDescription": "Patient registration, medical records, and operational workflows for healthcare teams — clarity and reliability by design."
+  },
+  "ResetPasswordPage": {
+    "title": "Reset password",
+    "intro": "Password recovery links belong to the Clinic application at the URL where your instance is deployed (for example your practice’s server), not to this Realitas Infinitas marketing site.",
+    "hint": "If you received an email with a link, open it as-is (or copy the full URL). If it does not work, ask your administrator for the correct application URL.",
+    "appUrlLabel": "If your team shared a reference URL for the app:",
+    "contactCta": "Contact",
+    "homeCta": "Back to home",
+    "footerNote": "This site is informational; signup and account recovery are handled in the clinical application."
   }
 }
