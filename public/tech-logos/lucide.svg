@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 64" role="img" aria-labelledby="title desc">
+  <title id="title">Lucide</title>
+  <desc id="desc">Lucide wordmark with spark icon.</desc>
+  <rect width="220" height="64" rx="14" fill="#0B1020"/>
+  <path d="M26 18l3.6 8.4L38 30l-8.4 3.6L26 42l-3.6-8.4L14 30l8.4-3.6L26 18Z" fill="#D1D5DB"/>
+  <text x="50" y="39" fill="#E5E7EB" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="26" font-weight="700">Lucide</text>
+</svg>

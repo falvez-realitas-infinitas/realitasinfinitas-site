@@ -8,7 +8,7 @@ import { CTASection } from "@/components/CTASection";
 import { CredibilityStrip } from "@/components/CredibilityStrip";
 import { HeroVisual } from "@/components/HeroVisual";
 import { Link } from "@/i18n/navigation";
-import { siteConfig } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -16,15 +16,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
 
-  return {
+  return buildPageMetadata({
+    locale: locale as "en" | "es",
+    pathname: "/",
     title: t("homeTitle"),
     description: t("homeDescription"),
-    openGraph: {
-      title: `${siteConfig.name} · ${t("homeTitle")}`,
-      description: t("homeDescription"),
-      url: "/",
-    },
-  };
+  });
 }
 
 export default async function HomePage({ params }: Props) {
@@ -38,6 +35,21 @@ export default async function HomePage({ params }: Props) {
     { icon: Sparkles, titleKey: "why2Title", descKey: "why2Desc" },
     { icon: Layers, titleKey: "why3Title", descKey: "why3Desc" },
     { icon: Users, titleKey: "why4Title", descKey: "why4Desc" },
+  ] as const;
+
+  const stackTech = [
+    { key: "stackTech1", logo: "/tech-logos/nextdotjs.svg" },
+    { key: "stackTech2", logo: "/tech-logos/react.svg" },
+    { key: "stackTech3", logo: "/tech-logos/typescript.svg" },
+    { key: "stackTech4", logo: "/tech-logos/tailwindcss.svg" },
+    { key: "stackTech5", logo: "/tech-logos/nextintl.svg" },
+    { key: "stackTech6", logo: "/tech-logos/lucide.svg" },
+    { key: "stackTech7", logo: "/tech-logos/prisma.svg" },
+    { key: "stackTech8", logo: "/tech-logos/postgresql.svg" },
+    { key: "stackTech9", logo: "/tech-logos/nextauth.svg" },
+    { key: "stackTech10", logo: "/tech-logos/zod.svg" },
+    { key: "stackTech11", logo: "/tech-logos/vercel.svg" },
+    { key: "stackTech12", logo: "/tech-logos/github.svg" },
   ] as const;
 
   return (
@@ -137,6 +149,46 @@ export default async function HomePage({ params }: Props) {
             </div>
           </div>
         </div>
+      </Section>
+
+      <Section className="border-t border-ri-border py-20 sm:py-28" innerClassName="max-w-[1200px]">
+        <div className="max-w-2xl">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-ri-copper">
+            {t("stackEyebrow")}
+          </p>
+          <h2 className="mt-4 font-display text-3xl font-medium text-ri-text sm:text-[2.2rem]">
+            {t("stackTitle")}
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-ri-muted sm:text-[1.05rem]">
+            {t("stackIntro")}
+          </p>
+        </div>
+
+        <ul className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {stackTech.map(({ key, logo }) => (
+            <li
+              key={key}
+              aria-label={t(key)}
+              className="group relative overflow-hidden rounded-2xl border border-ri-border/70 bg-gradient-to-br from-white/95 via-ri-bg-soft/75 to-ri-bg-warm/30 px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.92)] transition-all duration-300 hover:-translate-y-0.5 hover:border-ri-copper/45 hover:shadow-[0_16px_32px_-24px_rgba(89,42,25,0.45)]"
+            >
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-white/70 to-transparent opacity-80" aria-hidden />
+              <div className="relative flex items-center gap-3">
+                <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-ri-border/60 bg-white/90 p-1.5 transition-colors duration-300 group-hover:border-ri-copper/35 group-hover:bg-ri-bg-warm/50">
+                  <Image
+                    src={logo}
+                    alt={`${t(key)} logo`}
+                    width={24}
+                    height={24}
+                    className="h-6 w-6 object-contain"
+                  />
+                </span>
+                <span className="block truncate text-sm font-semibold tracking-[0.01em] text-ri-text">
+                  {t(key)}
+                </span>
+              </div>
+            </li>
+          ))}
+        </ul>
       </Section>
 
       <Section className="py-20 sm:py-28" innerClassName="max-w-[1200px]">

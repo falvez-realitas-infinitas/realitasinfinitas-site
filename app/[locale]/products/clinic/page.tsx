@@ -12,7 +12,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Section } from "@/components/Section";
 import { FeatureCard } from "@/components/FeatureCard";
 import { CTASection } from "@/components/CTASection";
-import { siteConfig } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -20,15 +20,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
 
-  return {
+  return buildPageMetadata({
+    locale: locale as "en" | "es",
+    pathname: "/products/clinic",
     title: t("clinicTitle"),
     description: t("clinicDescription"),
-    openGraph: {
-      title: `${t("clinicTitle")} · ${siteConfig.name}`,
-      description: t("clinicDescription"),
-      url: "/products/clinic",
-    },
-  };
+  });
 }
 
 export default async function ClinicPage({ params }: Props) {
@@ -84,6 +81,14 @@ export default async function ClinicPage({ params }: Props) {
           <p className="mt-6 max-w-[32rem] text-base leading-relaxed text-ri-muted sm:mt-7 sm:text-lg">
             {tmeta("clinicDescription")}
           </p>
+          <div className="mt-8 sm:mt-9">
+            <a
+              href="https://clinic.realitasinfinitas.com/login"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-ri-brown px-6 py-2.5 text-sm font-semibold tracking-wide text-white shadow-sm transition-[background-color,border-color,color,box-shadow] duration-300 hover:bg-ri-copper active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ri-copper"
+            >
+              {t("loginCta")}
+            </a>
+          </div>
         </div>
       </Section>
 

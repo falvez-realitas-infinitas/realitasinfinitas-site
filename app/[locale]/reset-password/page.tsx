@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 import { Link } from "@/i18n/navigation";
+import { buildPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 type PageProps = {
@@ -14,10 +15,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
 
-  return {
+  return buildPageMetadata({
+    locale: locale as "en" | "es",
+    pathname: "/reset-password",
     title: t("resetPasswordTitle"),
     description: t("resetPasswordDescription"),
-  };
+  });
 }
 
 export default async function ResetPasswordPage({ params }: PageProps) {

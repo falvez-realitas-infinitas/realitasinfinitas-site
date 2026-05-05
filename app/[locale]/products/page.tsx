@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Section } from "@/components/Section";
 import { ProductCard } from "@/components/ProductCard";
-import { siteConfig } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -12,15 +12,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
 
-  return {
+  return buildPageMetadata({
+    locale: locale as "en" | "es",
+    pathname: "/products",
     title: t("productsTitle"),
     description: t("productsDescription"),
-    openGraph: {
-      title: `${t("productsTitle")} · ${siteConfig.name}`,
-      description: t("productsDescription"),
-      url: "/products",
-    },
-  };
+  });
 }
 
 export default async function ProductsPage({ params }: Props) {

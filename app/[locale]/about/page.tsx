@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { LeadershipSection } from "@/components/LeadershipSection";
 import { Section } from "@/components/Section";
 import { siteConfig } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -10,15 +11,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
 
-  return {
+  return buildPageMetadata({
+    locale: locale as "en" | "es",
+    pathname: "/about",
     title: t("aboutTitle"),
     description: t("aboutDescription"),
-    openGraph: {
-      title: `${t("aboutTitle")} · ${siteConfig.name}`,
-      description: t("aboutDescription"),
-      url: "/about",
-    },
-  };
+  });
 }
 
 export default async function AboutPage({ params }: Props) {

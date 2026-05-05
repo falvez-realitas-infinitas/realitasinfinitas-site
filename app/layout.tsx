@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Geist_Mono, Outfit } from "next/font/google";
-import { NextIntlClientProvider } from "next-intl";
-import { getLocale, getMessages, getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { siteConfig } from "@/lib/site";
+import { getLocaleAlternates } from "@/lib/seo";
 import { routing } from "@/i18n/routing";
 import "./globals.css";
 
@@ -36,6 +36,12 @@ export async function generateMetadata(): Promise<Metadata> {
   }
   const t = await getTranslations({ locale, namespace: "site" });
 
+  const currentLocale = routing.locales.includes(
+    locale as (typeof routing.locales)[number],
+  )
+    ? (locale as (typeof routing.locales)[number])
+    : routing.defaultLocale;
+
   return {
     metadataBase: new URL(siteConfig.url),
     title: {
@@ -43,22 +49,38 @@ export async function generateMetadata(): Promise<Metadata> {
       template: `%s · ${siteConfig.name}`,
     },
     description: t("description"),
-    icons: {
-      icon: [{ url: "/brand/ri-icon.png", type: "image/png", sizes: "any" }],
-      apple: [{ url: "/brand/ri-icon.png", sizes: "180x180" }],
+    applicationName: siteConfig.name,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
     },
+    alternates: getLocaleAlternates("/", currentLocale),
+    icons: {
+      icon: [{ url: "/globe.svg", type: "image/svg+xml", sizes: "any" }],
+      apple: [{ url: "/globe.svg", sizes: "180x180" }],
+    },
+    manifest: "/manifest.webmanifest",
     openGraph: {
       type: "website",
-      locale: locale === "es" ? "es_ES" : "en_US",
+      locale: currentLocale === "es" ? "es_ES" : "en_US",
       siteName: siteConfig.name,
       title: siteConfig.name,
       description: t("description"),
-      url: siteConfig.url,
+      url: `${siteConfig.url}/${currentLocale}`,
+      images: [{ url: "/globe.svg" }],
     },
     twitter: {
       card: "summary_large_image",
       title: siteConfig.name,
       description: t("description"),
+      images: ["/globe.svg"],
     },
   };
 }
@@ -67,13 +89,10 @@ export default async function RootLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
   let locale: string;
-  let messages: Awaited<ReturnType<typeof getMessages>>;
   try {
     locale = await getLocale();
-    messages = await getMessages();
   } catch {
     locale = routing.defaultLocale;
-    messages = (await import(`../messages/${routing.defaultLocale}.json`)).default;
   }
 
   return (
@@ -82,7 +101,7 @@ export default async function RootLayout({
       className={`${outfit.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans text-ri-text">
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+        {children}
       </body>
     </html>
   );

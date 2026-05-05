@@ -16,6 +16,21 @@ export function LocaleSwitcher({ variant = "light" }: LocaleSwitcherProps) {
   const pathname = usePathname();
   const isDark = variant === "dark";
 
+  // Ensure we don't duplicate the locale segment (e.g. `/es/en`).
+  // If the current pathname already contains a locale prefix, strip it
+  // and let `Link` re-apply the correct one.
+  const pathnameWithoutLocale = (() => {
+    if (!pathname) return "/";
+    for (const loc of routing.locales) {
+      const prefix = `/${loc}`;
+      if (pathname === prefix) return "/";
+      if (pathname.startsWith(`${prefix}/`)) {
+        return pathname.slice(prefix.length) || "/";
+      }
+    }
+    return pathname || "/";
+  })();
+
   return (
     <div
       className={cn(
@@ -32,7 +47,7 @@ export function LocaleSwitcher({ variant = "light" }: LocaleSwitcherProps) {
         return (
           <Link
             key={loc}
-            href={pathname}
+            href={pathnameWithoutLocale}
             locale={loc}
             className={cn(
               "rounded-full px-3 py-1.5 text-xs font-semibold transition-colors",

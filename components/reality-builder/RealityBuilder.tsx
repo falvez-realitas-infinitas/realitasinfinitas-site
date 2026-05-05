@@ -38,7 +38,7 @@ type IllustrationState =
   | { status: "idle" }
   | { status: "loading" }
   | { status: "ready"; objectUrl: string }
-  | { status: "error" };
+  | { status: "error"; hint?: string };
 
 const ILLUSTRATION_LOAD_MS = 90_000;
 
@@ -114,6 +114,47 @@ export function RealityBuilder() {
     });
   }, [clearIllustrationTimer]);
 
+  /** Map API JSON + status to toast copy (server returns structured errors from `/api/reality-image`). */
+  const illustrationToastForFailedResponse = useCallback(
+    async (res: Response) => {
+      const status = res.status;
+      try {
+        const ct = res.headers.get("content-type") ?? "";
+        if (ct.includes("application/json")) {
+          const data = (await res.json()) as {
+            error?: string;
+            upstreamStatus?: number;
+          };
+          if (
+            data.error === "upstream_timeout" ||
+            status === 504
+          ) {
+            return t("imageTimeout");
+          }
+          if (
+            data.error === "upstream_unreachable" ||
+            status === 503
+          ) {
+            return t("imageErrorUnavailable");
+          }
+          if (
+            status === 429 ||
+            status === 424 ||
+            status === 502 ||
+            data.error === "upstream_failed" ||
+            data.error === "not_image"
+          ) {
+            return t("imageErrorUpstream");
+          }
+        }
+      } catch {
+        /* ignore malformed error bodies */
+      }
+      return t("imageError");
+    },
+    [t],
+  );
+
   const requestIllustration = useCallback(async () => {
     if (!narrative) return;
     clearIllustrationTimer();
@@ -137,21 +178,53 @@ export function RealityBuilder() {
         signal: ctrl.signal,
       });
       clearIllustrationTimer();
-      if (!res.ok) throw new Error("upstream");
+      if (!res.ok) {
+        const toastMsg = await illustrationToastForFailedResponse(res.clone());
+        const hintParts: string[] = [`HTTP ${res.status}`];
+        try {
+          const ct = res.headers.get("content-type") ?? "";
+          if (ct.includes("application/json")) {
+            const data = (await res.json()) as {
+              error?: string;
+              upstreamStatus?: number;
+            };
+            if (data.error) hintParts.push(data.error);
+            if (data.upstreamStatus != null)
+              hintParts.push(`upstream ${data.upstreamStatus}`);
+          }
+        } catch {
+          /* ignore */
+        }
+        setIllustration({
+          status: "error",
+          hint: hintParts.filter(Boolean).join(" · "),
+        });
+        showToast(toastMsg);
+        return;
+      }
       const blob = await res.blob();
       if (!blob.type.startsWith("image/")) throw new Error("not_image");
       const objectUrl = URL.createObjectURL(blob);
       setIllustration({ status: "ready", objectUrl });
     } catch (e) {
       clearIllustrationTimer();
-      setIllustration({ status: "error" });
+      setIllustration({
+        status: "error",
+        hint: e instanceof Error ? e.message : undefined,
+      });
       if (e instanceof Error && e.name === "AbortError") {
         showToast(t("imageTimeout"));
       } else {
         showToast(t("imageError"));
       }
     }
-  }, [clearIllustrationTimer, narrative, showToast, t]);
+  }, [
+    clearIllustrationTimer,
+    illustrationToastForFailedResponse,
+    narrative,
+    showToast,
+    t,
+  ]);
 
   const onIllustrationDecodeError = useCallback(() => {
     clearIllustrationTimer();
@@ -159,7 +232,7 @@ export function RealityBuilder() {
       if (prev.status === "ready") {
         URL.revokeObjectURL(prev.objectUrl);
       }
-      return { status: "error" };
+      return { status: "error", hint: undefined };
     });
     showToast(t("imageError"));
   }, [clearIllustrationTimer, showToast, t]);
@@ -395,6 +468,11 @@ export function RealityBuilder() {
                 {illustration.status === "error" && (
                   <div className="mt-4 space-y-3 text-center sm:text-left">
                     <p className="text-sm text-amber-200/90">{t("imageError")}</p>
+                    {illustration.hint ? (
+                      <p className="text-[11px] leading-snug text-white/35">
+                        {illustration.hint}
+                      </p>
+                    ) : null}
                     <button
                       type="button"
                       onClick={() => void requestIllustration()}
