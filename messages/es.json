@@ -115,7 +115,11 @@
     "highlight5": "Software práctico para problemas complejos del mundo real"
   },
   "ContactPage": {
-    "intro": "Envía un mensaje con el formulario o escríbenos directamente por correo."
+    "intro": "Puedes escribirnos por el formulario, por correo o por teléfono.",
+    "originLabel": "Origen",
+    "origin": "Nacimos en Mendoza, Argentina, y hoy seguimos trabajando desde acá con el mismo compromiso.",
+    "emailLabel": "Correo electrónico",
+    "phoneLabel": "Teléfono"
   },
   "ContactForm": {
     "name": "Nombre",

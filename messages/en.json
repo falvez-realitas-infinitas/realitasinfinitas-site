@@ -115,7 +115,11 @@
     "highlight5": "Practical software for complex real-world problems"
   },
   "ContactPage": {
-    "intro": "Send a message using the form below, or email us directly."
+    "intro": "Reach us through the form, by email, or by phone.",
+    "originLabel": "Based in",
+    "origin": "We began in Mendoza, Argentina, and we still work from here with the same commitment.",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone"
   },
   "ContactForm": {
     "name": "Name",

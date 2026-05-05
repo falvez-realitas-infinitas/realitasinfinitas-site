@@ -53,7 +53,9 @@ export default async function LocaleLayout({ children, params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }}
       />
       <Navbar />
-      <main className="relative z-[1] flex flex-1 flex-col">{children}</main>
+      <main className="relative z-[1] flex min-h-0 flex-1 flex-col">
+        {children}
+      </main>
       <Footer />
     </NextIntlClientProvider>
   );
