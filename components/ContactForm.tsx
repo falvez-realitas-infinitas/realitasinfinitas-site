@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { Button } from "@/components/Button";
+import { siteConfig } from "@/lib/site";
 
 const fieldClass =
   "w-full rounded-xl border border-ri-border bg-ri-card px-4 py-2.5 text-sm text-ri-text placeholder:text-ri-muted/80 focus:border-ri-copper/50 focus:outline-none focus:ring-2 focus:ring-ri-copper/20";
@@ -17,12 +18,69 @@ export type ContactFormProps = {
 export function ContactForm({ compact = false }: ContactFormProps) {
   const t = useTranslations("ContactForm");
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO: Integrate email sending (e.g. Resend, SendGrid, or a server action)
-    // via API route or third-party form backend. Wire `name`, `email`, `company`, `message`.
-    setSubmitted(true);
+    setError(null);
+    setSubmitted(false);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const name = String(fd.get("name") ?? "").trim();
+    const email = String(fd.get("email") ?? "").trim();
+    const company = String(fd.get("company") ?? "").trim();
+    const message = String(fd.get("message") ?? "").trim();
+
+    setSending(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, company, message }),
+      });
+      const data = (await res.json().catch(() => ({}))) as {
+        code?: string;
+        error?: string;
+      };
+
+      if (res.ok) {
+        setSubmitted(true);
+        form.reset();
+        return;
+      }
+
+      if (res.status === 503 && data.code === "EMAIL_NOT_CONFIGURED") {
+        setError(
+          t("errorUnavailable", {
+            email: siteConfig.email,
+            phone: siteConfig.phoneDisplay,
+          })
+        );
+        return;
+      }
+
+      if (res.status === 422) {
+        setError(t("errorValidation"));
+        return;
+      }
+
+      setError(
+        t("errorUnavailable", {
+          email: siteConfig.email,
+          phone: siteConfig.phoneDisplay,
+        })
+      );
+    } catch {
+      setError(
+        t("errorUnavailable", {
+          email: siteConfig.email,
+          phone: siteConfig.phoneDisplay,
+        })
+      );
+    } finally {
+      setSending(false);
+    }
   }
 
   const inputClass = compact ? compactFieldClass : fieldClass;
@@ -106,11 +164,22 @@ export function ContactForm({ compact = false }: ContactFormProps) {
         <Button
           type="submit"
           variant="primary"
+          disabled={sending}
           className={compact ? "w-full text-sm sm:w-auto" : "w-full sm:w-auto"}
         >
-          {t("submit")}
+          {sending ? t("submitting") : t("submit")}
         </Button>
       </div>
+      {error && (
+        <p
+          className={
+            compact ? "mt-3 text-sm text-red-700" : "mt-4 text-sm text-red-700"
+          }
+          role="alert"
+        >
+          {error}
+        </p>
+      )}
       {submitted && (
         <p
           className={

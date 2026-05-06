@@ -145,7 +145,10 @@
     "placeholderCompany": "Optional",
     "placeholderMessage": "How can we help?",
     "submit": "Send message",
-    "success": "Thanks — your message has been recorded locally. Connect email delivery in <code>ContactForm</code> when ready."
+    "submitting": "Sending…",
+    "success": "Thanks — we received your message and will get back to you as soon as we can.",
+    "errorValidation": "Please check the fields and try again.",
+    "errorUnavailable": "We couldn't send your message from here. Please email {email} or call {phone}."
   },
   "ProductsPage": {
     "intro": "Today we offer Clinic—focused software for patient registration, clinical records, and operational workflows.",

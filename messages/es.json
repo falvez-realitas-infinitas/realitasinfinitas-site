@@ -145,7 +145,10 @@
     "placeholderCompany": "Opcional",
     "placeholderMessage": "¿En qué podemos ayudarte?",
     "submit": "Enviar mensaje",
-    "success": "Gracias: tu mensaje quedó registrado localmente. Conecta el envío por correo en ContactForm cuando esté listo."
+    "submitting": "Enviando…",
+    "success": "Gracias — recibimos tu mensaje y te responderemos lo antes posible.",
+    "errorValidation": "Revisá los datos e intentá de nuevo.",
+    "errorUnavailable": "No pudimos enviar tu mensaje desde aquí. Escribinos a {email} o llamá al {phone}."
   },
   "ProductsPage": {
     "intro": "Hoy ofrecemos Clinic: software centrado en registro de pacientes, historias clínicas y flujos operativos.",
