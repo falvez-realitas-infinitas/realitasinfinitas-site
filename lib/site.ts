@@ -5,6 +5,7 @@ export const siteConfig = {
   partnerUrls: {
     vestacare: "https://vestacare.com",
     successfulImperatives: "https://successfulimperatives.com",
+    espacioSaludable: "https://www.instagram.com/espaciosaludable.gr/",
   },
   email: "contact@realitasinfinitas.com",
   /** E.164-style dial string for tel: links */

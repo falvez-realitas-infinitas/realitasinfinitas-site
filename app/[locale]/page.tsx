@@ -4,6 +4,7 @@ import { Layers, Sparkles, Users, Workflow } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Section } from "@/components/Section";
 import { FeatureCard } from "@/components/FeatureCard";
+import { ServicesSection } from "@/components/ServicesSection";
 import { CTASection } from "@/components/CTASection";
 import { CredibilityStrip } from "@/components/CredibilityStrip";
 import { HeroVisual } from "@/components/HeroVisual";
@@ -79,22 +80,7 @@ export default async function HomePage({ params }: Props) {
 
       <CredibilityStrip />
 
-      <Section
-        className="border-t border-ri-border py-20 sm:py-28"
-        innerClassName="max-w-[840px]"
-      >
-        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-ri-copper">
-          {t("brandEyebrow")}
-        </p>
-        <h2 className="mt-5 font-display text-3xl font-medium leading-[1.2] text-ri-text sm:text-[2.15rem]">
-          {t("brandTitle")}
-        </h2>
-        <div className="mt-8 border-l-[3px] border-ri-copper pl-8">
-          <p className="text-[1.05rem] leading-relaxed text-ri-muted sm:text-lg">
-            {t("brandBody")}
-          </p>
-        </div>
-      </Section>
+      <ServicesSection />
 
       <Section className="bg-ri-bg-warm/35 py-20 sm:py-28" innerClassName="max-w-[1200px]">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12">

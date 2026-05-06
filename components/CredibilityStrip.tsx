@@ -14,7 +14,7 @@ export async function CredibilityStrip() {
         <p className="mx-auto mt-3 max-w-2xl text-center font-display text-xl font-medium leading-snug text-ri-text sm:text-2xl">
           {t("clientsTitle")}
         </p>
-        <div className="mt-12 grid grid-cols-1 items-center justify-items-center gap-6 sm:mx-auto sm:max-w-4xl sm:grid-cols-2 sm:gap-8 md:mt-14 md:max-w-5xl md:gap-10">
+        <div className="mt-12 grid grid-cols-1 items-center justify-items-center gap-6 sm:mx-auto sm:max-w-4xl sm:grid-cols-2 sm:gap-8 md:mt-14 md:max-w-5xl md:grid-cols-3 md:gap-10">
           <a
             href={siteConfig.partnerUrls.vestacare}
             target="_blank"
@@ -44,6 +44,21 @@ export async function CredibilityStrip() {
               height={445}
               sizes="(max-width: 640px) 250px, (max-width: 1024px) 290px, 320px"
               className="h-auto max-h-[4.4rem] w-auto max-w-full object-contain object-center contrast-125 saturate-120 drop-shadow-[0_1px_2px_rgba(0,0,0,0.24)] sm:max-h-[4.9rem]"
+            />
+          </a>
+          <a
+            href={siteConfig.partnerUrls.espacioSaludable}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex h-36 w-full max-w-[380px] items-center justify-center rounded-2xl border border-ri-copper/20 bg-transparent px-6 py-5 shadow-[0_12px_36px_-24px_rgba(89,42,25,0.65)] transition hover:border-ri-copper/40 hover:bg-ri-bg-soft/30 hover:shadow-[0_18px_46px_-28px_rgba(89,42,25,0.75)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ri-copper sm:h-40 sm:px-9 sm:py-6"
+          >
+            <Image
+              src="/brand/espacio-saludable-logo.png"
+              alt="Espacio Saludable"
+              width={512}
+              height={512}
+              sizes="(max-width: 640px) 210px, (max-width: 1024px) 230px, 250px"
+              className="h-auto max-h-[7.2rem] w-auto max-w-full object-contain object-center contrast-110 saturate-105 sm:max-h-[8.2rem]"
             />
           </a>
         </div>
