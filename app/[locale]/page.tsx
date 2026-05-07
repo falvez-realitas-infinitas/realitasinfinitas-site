@@ -94,7 +94,7 @@ export default async function HomePage({ params }: Props) {
           </div>
         </div>
 
-        <div className="mt-14 max-w-3xl">
+        <div className="mt-14 max-w-3xl space-y-10">
           <div className="overflow-hidden rounded-[2rem] border border-ri-border/90 bg-ri-card shadow-[0_32px_100px_-48px_rgba(89,42,25,0.35)]">
             <div className="p-10 sm:p-12 lg:p-14">
               <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10">
@@ -131,6 +131,28 @@ export default async function HomePage({ params }: Props) {
                     </Link>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="overflow-hidden rounded-[2rem] border border-ri-border/90 bg-ri-card shadow-[0_32px_100px_-48px_rgba(89,42,25,0.35)]">
+            <div className="p-10 sm:p-12 lg:p-14">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-ri-copper">
+                {t("footxEyebrow")}
+              </p>
+              <h3 className="mt-4 font-display text-3xl font-medium text-ri-brown sm:text-[2.15rem]">
+                {t("footxCardTitle")}
+              </h3>
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-ri-muted">
+                {t("footxCardDesc")}
+              </p>
+              <div className="mt-10 border-t border-ri-border pt-10">
+                <Link
+                  href="/products/footx-scheduler"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-ri-brown px-8 py-2.5 text-sm font-semibold tracking-wide text-white shadow-sm transition-[background-color] duration-300 hover:bg-ri-copper"
+                >
+                  {t("footxLearnMore")}
+                </Link>
               </div>
             </div>
           </div>

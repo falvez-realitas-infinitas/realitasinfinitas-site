@@ -1,6 +1,6 @@
 {
   "site": {
-    "description": "Healthcare technology company building intelligent software and products — from enterprise programs to clinical tools like Clinic."
+    "description": "Healthcare technology company building intelligent software and products — from enterprise programs to clinical tools like Clinic and FootX Scheduler."
   },
   "nav": {
     "products": "Products",
@@ -31,10 +31,12 @@
     "aboutTitle": "About",
     "aboutDescription": "Realitas Infinitas is a product-oriented software company focused on precision, usability, and maintainability.",
     "contactTitle": "Contact",
-    "contactDescription": "Reach Realitas Infinitas about Clinic, partnerships, or general inquiries.",
+    "contactDescription": "Reach Realitas Infinitas about Clinic, FootX Scheduler, partnerships, or general inquiries.",
     "productsTitle": "Products",
-    "productsDescription": "Clinic — patient registration, clinical records, and operational workflows for healthcare teams.",
+    "productsDescription": "Clinic and FootX Scheduler — clinical records, follow-up scheduling, and operational workflows for healthcare teams.",
     "clinicTitle": "Clinic",
+    "footxSchedulerTitle": "FootX Scheduler",
+    "footxSchedulerDescription": "Multi-tenant scheduling and reminder workflows for imaging and study follow-up: sync from legacy Firebird data, review eligibility by stage, and manage exclusions with clear operational guardrails.",
     "clinicDescription": "Clinic helps healthcare professionals register patients, organize patient information, and manage medical histories through a simple and reliable digital workflow.",
     "resetPasswordTitle": "Reset password",
     "resetPasswordDescription": "Information about Clinic application password recovery links.",
@@ -50,13 +52,17 @@
     "clientsTitle": "Engineering trusted on demanding healthcare programs",
     "clientVesta": "VestaCare",
     "clientSI": "Successful Imperatives",
-    "clientsFootnote": "We now apply that same rigor to products built for medical practices — beginning with Clinic.",
+    "clientsFootnote": "We now apply that same rigor to products built for medical practices — Clinic for clinical records and FootX Scheduler for study follow-up.",
     "productsSectionTitle": "Products",
-    "productsSectionIntro": "Clinic is our product: patient registration, clinical records, and workflows designed to stay dependable under pressure.",
+    "productsSectionIntro": "Clinic covers patient registration and clinical records; FootX Scheduler handles study-based reminder workflows — both built to stay dependable under pressure.",
     "clinicEyebrow": "Flagship product",
     "clinicCardTitle": "Clinic",
     "clinicCardDesc": "A healthcare software platform for patient registration, medical record management, and operational workflows. Clinic helps teams organize information, reduce friction, and support better care through clearer digital processes.",
     "clinicLearnMore": "Learn more",
+    "footxEyebrow": "Operations & follow-up",
+    "footxCardTitle": "FootX Scheduler",
+    "footxCardDesc": "Import study data from Firebird sources, organize work per practice, and run staged reminder eligibility with manual exclusions — so staff see who needs follow-up without fighting the spreadsheet.",
+    "footxLearnMore": "Learn more",
     "stackEyebrow": "Active stack",
     "stackTitle": "Technologies currently in use",
     "stackIntro": "A practical view of what powers our current products in production and active development.",
@@ -86,7 +92,7 @@
     "why4Title": "Human-centered software",
     "why4Desc": "Respectful of clinicians, staff, and operators — precise where it counts, calm where it helps.",
     "ctaTitle": "Partner with Realitas Infinitas",
-    "ctaDescription": "Explore Clinic or start a conversation about software for your operational environment.",
+    "ctaDescription": "Explore our products or start a conversation about software for your operational environment.",
     "ctaPrimary": "Contact us",
     "ctaSecondary": "Learn about Clinic"
   },
@@ -151,7 +157,7 @@
     "errorUnavailable": "We couldn't send your message from here. Please email {email} or call {phone}."
   },
   "ProductsPage": {
-    "intro": "Today we offer Clinic—focused software for patient registration, clinical records, and operational workflows.",
+    "intro": "Today we offer Clinic for clinical records and FootX Scheduler for study follow-up and reminder operations — complementary tools for busy practices.",
     "futureProduct1Title": "Future product",
     "futureProduct1Desc": "Additional product lines are planned as the company grows. Details will be shared when they are ready.",
     "futureProduct2Title": "Another future line",
@@ -192,6 +198,39 @@
   },
   "clinicProduct": {
     "shortDescription": "Patient registration, medical records, and operational workflows for healthcare teams — clarity and reliability by design."
+  },
+  "footxProduct": {
+    "shortDescription": "Study-based reminders from legacy Firebird data — multi-practice sync, eligibility stages, and controlled exclusions for imaging follow-up."
+  },
+  "FootxSchedulerPage": {
+    "productEyebrow": "Product",
+    "heroTitle": "Operational clarity for study follow-up and staged reminders.",
+    "contactCta": "Contact us",
+    "supportsTitle": "What FootX Scheduler supports",
+    "feat1Title": "Legacy Firebird ingestion",
+    "feat1Desc": "Connect or upload `.fdb` sources and sync patient and study snapshots into application storage for ongoing eligibility.",
+    "feat2Title": "Multi-practice scope",
+    "feat2Desc": "Separate tenants so each practice sees its own patients, batches, and configuration without cross-noise.",
+    "feat3Title": "Staged reminder eligibility",
+    "feat3Desc": "Compute who qualifies for reminder stages from study timing and configured offsets — fewer manual spreadsheets.",
+    "feat4Title": "Manual exclusions",
+    "feat4Desc": "Staff can review lists and exclude specific patients or stages when reality diverges from the default rules.",
+    "feat5Title": "Filtered operational views",
+    "feat5Desc": "Browse patient lists and drill into detail with filters aligned to how teams actually triage follow-up.",
+    "feat6Title": "Accounts and recovery",
+    "feat6Desc": "Admin and staff roles with password reset flows delivered through transactional email channels.",
+    "workflowTitle": "Example workflow",
+    "workflowSubtitle": "A practical sequence teams run after imaging studies.",
+    "workflowStep1": "Attach or upload the Firebird database",
+    "workflowStep2": "Sync patient and study rows into the latest batch",
+    "workflowStep3": "Review eligibility for reminder stages 1–3",
+    "workflowStep4": "Apply exclusions where follow-up should pause",
+    "workflowStep5": "Admins maintain practices, users, and access",
+    "audienceTitle": "Who it is for",
+    "audienceBody": "FootX Scheduler suits clinics and imaging workflows that still depend on Firebird-backed systems but need a modern layer for reminder coordination — especially when multiple practices share operational discipline but not the same database clutter.",
+    "ctaTitle": "Interested in FootX Scheduler?",
+    "ctaDescription": "If you are evaluating reminder tooling or need help bridging legacy study data into a governed workflow, we would like to hear from you.",
+    "ctaPrimary": "Contact Realitas Infinitas"
   },
   "RealityBuilder": {
     "eyebrow": "Play · Imagine · Invent",

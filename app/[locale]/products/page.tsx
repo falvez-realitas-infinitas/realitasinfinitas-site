@@ -27,6 +27,7 @@ export default async function ProductsPage({ params }: Props) {
   const t = await getTranslations("ProductsPage");
   const tmeta = await getTranslations("meta");
   const tclinic = await getTranslations("clinicProduct");
+  const tfootx = await getTranslations("footxProduct");
 
   return (
     <Section className="pt-12 pb-20 sm:pt-16 sm:pb-28">
@@ -39,7 +40,7 @@ export default async function ProductsPage({ params }: Props) {
         </p>
       </div>
 
-      <div className="mt-14 max-w-3xl sm:mt-16">
+      <div className="mt-14 flex max-w-3xl flex-col gap-10 sm:mt-16">
         <ProductCard
           logo={{
             src: "/brand/clinic-logo-edit-2.png",
@@ -51,6 +52,12 @@ export default async function ProductsPage({ params }: Props) {
           title={tmeta("clinicTitle")}
           description={tclinic("shortDescription")}
           href="/products/clinic"
+          status="available"
+        />
+        <ProductCard
+          title={tmeta("footxSchedulerTitle")}
+          description={tfootx("shortDescription")}
+          href="/products/footx-scheduler"
           status="available"
         />
       </div>

@@ -7,6 +7,7 @@ const localizedPaths = [
   "/about",
   "/products",
   "/products/clinic",
+  "/products/footx-scheduler",
   "/contact",
   "/reality",
   "/reset-password",
