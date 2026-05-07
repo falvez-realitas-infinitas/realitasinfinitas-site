@@ -205,7 +205,7 @@
   "FootxSchedulerPage": {
     "productEyebrow": "Producto",
     "heroTitle": "Claridad operativa para el seguimiento de estudios y recordatorios por etapas.",
-    "contactCta": "Contactanos",
+    "loginCta": "Ingresá a FootX Scheduler",
     "supportsTitle": "Qué cubre FootX Scheduler",
     "feat1Title": "Ingesta desde Firebird heredado",
     "feat1Desc": "Conectá o subí fuentes `.fdb` y sincronizá instantáneas de pacientes y estudios para calcular elegibilidad.",

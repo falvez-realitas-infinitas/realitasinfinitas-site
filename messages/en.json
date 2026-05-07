@@ -205,7 +205,7 @@
   "FootxSchedulerPage": {
     "productEyebrow": "Product",
     "heroTitle": "Operational clarity for study follow-up and staged reminders.",
-    "contactCta": "Contact us",
+    "loginCta": "Log in to FootX Scheduler",
     "supportsTitle": "What FootX Scheduler supports",
     "feat1Title": "Legacy Firebird ingestion",
     "feat1Desc": "Connect or upload `.fdb` sources and sync patient and study snapshots into application storage for ongoing eligibility.",

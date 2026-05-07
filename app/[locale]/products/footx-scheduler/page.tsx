@@ -11,7 +11,6 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Section } from "@/components/Section";
 import { FeatureCard } from "@/components/FeatureCard";
 import { CTASection } from "@/components/CTASection";
-import { Link } from "@/i18n/navigation";
 import { buildPageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -97,12 +96,14 @@ export default async function FootxSchedulerPage({ params }: Props) {
             {tmeta("footxSchedulerDescription")}
           </p>
           <div className="mt-8 sm:mt-9">
-            <Link
-              href="/contact"
+            <a
+              href="https://footxscheduler.realitasinfinitas.com/login"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-ri-brown px-6 py-2.5 text-sm font-semibold tracking-wide text-white shadow-sm transition-[background-color,border-color,color,box-shadow] duration-300 hover:bg-ri-copper active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ri-copper"
             >
-              {t("contactCta")}
-            </Link>
+              {t("loginCta")}
+            </a>
           </div>
         </div>
       </Section>
