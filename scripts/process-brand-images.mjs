@@ -16,6 +16,14 @@ function isBgPixel(r, g, b) {
   return max < 55 && chroma < 22;
 }
 
+/** Matte black inside letter counters (o, d, e, …) — same colour as outer bg but not 4-connected to corners. */
+function isTrappedMatteBlack(r, g, b) {
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  const chroma = max - min;
+  return max <= 18 && chroma <= 12;
+}
+
 function floodTransparentRGBA(rgbBuffer, width, height, channels) {
   const total = width * height;
   const visited = new Uint8Array(total);
@@ -75,7 +83,9 @@ function floodTransparentRGBA(rgbBuffer, width, height, channels) {
     out[o] = r;
     out[o + 1] = g;
     out[o + 2] = b;
-    out[o + 3] = visited[i] ? 0 : 255;
+    const exterior = visited[i];
+    const trappedHole = !exterior && isTrappedMatteBlack(r, g, b);
+    out[o + 3] = exterior || trappedHole ? 0 : 255;
   }
 
   return out;
