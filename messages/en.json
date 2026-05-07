@@ -36,7 +36,7 @@
     "productsDescription": "Clinic and FootX Scheduler — clinical records, follow-up scheduling, and operational workflows for healthcare teams.",
     "clinicTitle": "Clinic",
     "footxSchedulerTitle": "FootX Scheduler",
-    "footxSchedulerDescription": "Multi-tenant scheduling and reminder workflows for imaging and study follow-up: sync from legacy Firebird data, review eligibility by stage, and manage exclusions with clear operational guardrails.",
+    "footxSchedulerDescription": "Multi-tenant scheduling and reminder workflows for imaging and study follow-up: sync study data, review eligibility by stage, and manage exclusions with clear operational guardrails.",
     "clinicDescription": "Clinic helps healthcare professionals register patients, organize patient information, and manage medical histories through a simple and reliable digital workflow.",
     "resetPasswordTitle": "Reset password",
     "resetPasswordDescription": "Information about Clinic application password recovery links.",
@@ -61,7 +61,7 @@
     "clinicLearnMore": "Learn more",
     "footxEyebrow": "Operations & follow-up",
     "footxCardTitle": "FootX Scheduler",
-    "footxCardDesc": "Import study data from Firebird sources, organize work per practice, and run staged reminder eligibility with manual exclusions — so staff see who needs follow-up without fighting the spreadsheet.",
+    "footxCardDesc": "Import study data, organize work per practice, and run staged reminder eligibility with manual exclusions — so staff see who needs follow-up without fighting the spreadsheet.",
     "footxLearnMore": "Learn more",
     "stackEyebrow": "Active stack",
     "stackTitle": "Technologies currently in use",
@@ -200,15 +200,15 @@
     "shortDescription": "Patient registration, medical records, and operational workflows for healthcare teams — clarity and reliability by design."
   },
   "footxProduct": {
-    "shortDescription": "Study-based reminders from legacy Firebird data — multi-practice sync, eligibility stages, and controlled exclusions for imaging follow-up."
+    "shortDescription": "Study-based reminders with multi-practice sync, eligibility stages, and controlled exclusions for imaging follow-up."
   },
   "FootxSchedulerPage": {
     "productEyebrow": "Product",
     "heroTitle": "Operational clarity for study follow-up and staged reminders.",
     "loginCta": "Log in to FootX Scheduler",
     "supportsTitle": "What FootX Scheduler supports",
-    "feat1Title": "Legacy Firebird ingestion",
-    "feat1Desc": "Connect or upload `.fdb` sources and sync patient and study snapshots into application storage for ongoing eligibility.",
+    "feat1Title": "Study data ingestion",
+    "feat1Desc": "Connect data sources and sync patient and study snapshots into application storage for ongoing eligibility.",
     "feat2Title": "Multi-practice scope",
     "feat2Desc": "Separate tenants so each practice sees its own patients, batches, and configuration without cross-noise.",
     "feat3Title": "Staged reminder eligibility",
@@ -221,13 +221,13 @@
     "feat6Desc": "Admin and staff roles with password reset flows delivered through transactional email channels.",
     "workflowTitle": "Example workflow",
     "workflowSubtitle": "A practical sequence teams run after imaging studies.",
-    "workflowStep1": "Attach or upload the Firebird database",
+    "workflowStep1": "Attach or upload the source database",
     "workflowStep2": "Sync patient and study rows into the latest batch",
     "workflowStep3": "Review eligibility for reminder stages 1–3",
     "workflowStep4": "Apply exclusions where follow-up should pause",
     "workflowStep5": "Admins maintain practices, users, and access",
     "audienceTitle": "Who it is for",
-    "audienceBody": "FootX Scheduler suits clinics and imaging workflows that still depend on Firebird-backed systems but need a modern layer for reminder coordination — especially when multiple practices share operational discipline but not the same database clutter.",
+    "audienceBody": "FootX Scheduler suits clinics and imaging workflows that depend on legacy systems but need a modern layer for reminder coordination — especially when multiple practices share operational discipline but not the same database clutter.",
     "ctaTitle": "Interested in FootX Scheduler?",
     "ctaDescription": "If you are evaluating reminder tooling or need help bridging legacy study data into a governed workflow, we would like to hear from you.",
     "ctaPrimary": "Contact Realitas Infinitas"

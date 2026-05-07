@@ -36,7 +36,7 @@
     "productsDescription": "Clinic y FootX Scheduler: expediente clínico, seguimiento de estudios y flujos operativos para equipos de salud.",
     "clinicTitle": "Clinic",
     "footxSchedulerTitle": "FootX Scheduler",
-    "footxSchedulerDescription": "Flujo multi-consultorio para recordatorios y seguimiento de estudios: sincroniza datos desde fuentes Firebird heredadas, revisa elegibilidad por etapa y gestiona exclusiones con reglas operativas claras.",
+    "footxSchedulerDescription": "Flujo multi-consultorio para recordatorios y seguimiento de estudios: sincroniza datos de estudios, revisa elegibilidad por etapa y gestiona exclusiones con reglas operativas claras.",
     "clinicDescription": "Clinic ayuda a profesionales de la salud a registrar pacientes, organizar la información y gestionar historias clínicas con un flujo digital simple y confiable.",
     "resetPasswordTitle": "Restablecer contraseña",
     "resetPasswordDescription": "Información sobre enlaces de recuperación de contraseña de la aplicación Clinic.",
@@ -61,7 +61,7 @@
     "clinicLearnMore": "Más información",
     "footxEyebrow": "Operación y seguimiento",
     "footxCardTitle": "FootX Scheduler",
-    "footxCardDesc": "Importá datos de estudios desde Firebird, organizá el trabajo por consultorio y ejecutá elegibilidad de recordatorios por etapas con exclusiones manuales — para que el equipo vea a quién hacer seguimiento sin depender solo de planillas.",
+    "footxCardDesc": "Importá datos de estudios, organizá el trabajo por consultorio y ejecutá elegibilidad de recordatorios por etapas con exclusiones manuales — para que el equipo vea a quién hacer seguimiento sin depender solo de planillas.",
     "footxLearnMore": "Más información",
     "stackEyebrow": "Stack activo",
     "stackTitle": "Tecnologías actualmente en uso",
@@ -200,15 +200,15 @@
     "shortDescription": "Registro de pacientes, historias clínicas y flujos operativos para equipos de salud — claridad y confiabilidad desde el diseño."
   },
   "footxProduct": {
-    "shortDescription": "Recordatorios por estudio desde datos Firebird heredados — sincronización multi-consultorio, etapas de elegibilidad y exclusiones controladas."
+    "shortDescription": "Recordatorios por estudio con sincronización multi-consultorio, etapas de elegibilidad y exclusiones controladas."
   },
   "FootxSchedulerPage": {
     "productEyebrow": "Producto",
     "heroTitle": "Claridad operativa para el seguimiento de estudios y recordatorios por etapas.",
     "loginCta": "Ingresá a FootX Scheduler",
     "supportsTitle": "Qué cubre FootX Scheduler",
-    "feat1Title": "Ingesta desde Firebird heredado",
-    "feat1Desc": "Conectá o subí fuentes `.fdb` y sincronizá instantáneas de pacientes y estudios para calcular elegibilidad.",
+    "feat1Title": "Ingesta de datos de estudios",
+    "feat1Desc": "Conectá fuentes de datos y sincronizá instantáneas de pacientes y estudios para calcular elegibilidad.",
     "feat2Title": "Alcance multi-consultorio",
     "feat2Desc": "Consultorios separados para que cada práctica vea sus pacientes, lotes y configuración sin cruces.",
     "feat3Title": "Elegibilidad por etapas",
@@ -221,13 +221,13 @@
     "feat6Desc": "Roles admin y staff con flujo de restablecimiento de contraseña por correo transaccional.",
     "workflowTitle": "Ejemplo de flujo",
     "workflowSubtitle": "Una secuencia habitual después de estudios de imagen.",
-    "workflowStep1": "Asociar o subir la base Firebird",
+    "workflowStep1": "Asociar o subir la base de origen",
     "workflowStep2": "Sincronizar filas de pacientes y estudios al lote actual",
     "workflowStep3": "Revisar elegibilidad para las etapas de recordatorio 1 a 3",
     "workflowStep4": "Aplicar exclusiones cuando el seguimiento debe pausarse",
     "workflowStep5": "Los administradores mantienen consultorios, usuarios y accesos",
     "audienceTitle": "Para quién es",
-    "audienceBody": "FootX Scheduler encaja en clínicas y flujos de imagen que aún dependen de sistemas con Firebird pero necesitan una capa moderna para coordinar recordatorios — especialmente cuando varios consultorios comparten disciplina operativa pero no el mismo desorden de datos.",
+    "audienceBody": "FootX Scheduler encaja en clínicas y flujos de imagen que dependen de sistemas heredados pero necesitan una capa moderna para coordinar recordatorios — especialmente cuando varios consultorios comparten disciplina operativa pero no el mismo desorden de datos.",
     "ctaTitle": "¿Te interesa FootX Scheduler?",
     "ctaDescription": "Si estás evaluando herramientas de recordatorios o necesitás puente entre datos de estudios heredados y un flujo gobernado, queremos saber de vos.",
     "ctaPrimary": "Contactar a Realitas Infinitas"
