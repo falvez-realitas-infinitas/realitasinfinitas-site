@@ -61,7 +61,7 @@ export default async function ProductsPage({ params }: Props) {
             src: "/footx-scheduler-logo.png",
             alt: tmeta("footxSchedulerTitle"),
             width: 1024,
-            height: 133,
+            height: 304,
             unoptimized: true,
           }}
           href="/products/footx-scheduler"

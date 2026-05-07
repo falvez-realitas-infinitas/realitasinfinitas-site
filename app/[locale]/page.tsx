@@ -141,7 +141,7 @@ export default async function HomePage({ params }: Props) {
                       src="/footx-scheduler-logo.png"
                       alt=""
                       width={1024}
-                      height={133}
+                      height={304}
                       unoptimized
                       sizes="(max-width: 1024px) 85vw, 300px"
                       className="h-auto w-full max-w-[min(100%,280px)] object-contain object-center sm:max-w-[300px]"
