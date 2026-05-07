@@ -63,8 +63,8 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     alternates: getLocaleAlternates("/", currentLocale),
     icons: {
-      icon: [{ url: "/brand/ri-icon.png", type: "image/png", sizes: "512x512" }],
-      apple: [{ url: "/brand/ri-icon.png", sizes: "180x180" }],
+      icon: [{ url: "/icon.png", type: "image/png", sizes: "512x512" }],
+      apple: [{ url: "/icon.png", sizes: "180x180" }],
     },
     manifest: "/manifest.webmanifest",
     openGraph: {
