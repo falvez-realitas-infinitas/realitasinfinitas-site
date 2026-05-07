@@ -34,16 +34,11 @@ export async function ProductCard({
 
   const titleRow = (
     <div className="flex items-start justify-between gap-4">
-      <h3
-        className={cn(
-          "font-semibold tracking-tight text-ri-text",
-          logo
-            ? "font-display text-xl sm:text-2xl"
-            : "text-lg",
-        )}
-      >
-        {title}
-      </h3>
+      {!logo && (
+        <h3 className="text-lg font-semibold tracking-tight text-ri-text">
+          {title}
+        </h3>
+      )}
       {isComing ? (
         <span className="shrink-0 rounded-full border border-ri-border bg-ri-bg-soft px-2.5 py-0.5 text-xs font-medium text-ri-muted">
           {t("comingLater")}

@@ -7,12 +7,9 @@ import { siteConfig } from "@/lib/site";
 export async function Footer() {
   const t = await getTranslations("footer");
   const tnav = await getTranslations("nav");
-  const tmeta = await getTranslations("meta");
 
   const footerLinks = [
     { href: "/products", label: tnav("products") },
-    { href: "/products/clinic", label: tmeta("clinicTitle") },
-    { href: "/products/footx-scheduler", label: tmeta("footxSchedulerTitle") },
     { href: "/reality", label: tnav("experiment") },
     { href: "/about", label: tnav("about") },
     { href: "/contact", label: tnav("contact") },

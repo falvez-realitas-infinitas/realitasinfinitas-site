@@ -116,9 +116,6 @@ export default async function HomePage({ params }: Props) {
                   <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-ri-copper">
                     {t("clinicEyebrow")}
                   </p>
-                  <h3 className="mt-4 font-display text-3xl font-medium text-ri-brown sm:text-[2.15rem]">
-                    {t("clinicCardTitle")}
-                  </h3>
                   <p className="mt-5 text-base leading-relaxed text-ri-muted">
                     {t("clinicCardDesc")}
                   </p>
@@ -137,22 +134,37 @@ export default async function HomePage({ params }: Props) {
 
           <div className="overflow-hidden rounded-[2rem] border border-ri-border/90 bg-ri-card shadow-[0_32px_100px_-48px_rgba(89,42,25,0.35)]">
             <div className="p-10 sm:p-12 lg:p-14">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-ri-copper">
-                {t("footxEyebrow")}
-              </p>
-              <h3 className="mt-4 font-display text-3xl font-medium text-ri-brown sm:text-[2.15rem]">
-                {t("footxCardTitle")}
-              </h3>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-ri-muted">
-                {t("footxCardDesc")}
-              </p>
-              <div className="mt-10 border-t border-ri-border pt-10">
-                <Link
-                  href="/products/footx-scheduler"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-ri-brown px-8 py-2.5 text-sm font-semibold tracking-wide text-white shadow-sm transition-[background-color] duration-300 hover:bg-ri-copper"
-                >
-                  {t("footxLearnMore")}
-                </Link>
+              <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10">
+                <div className="flex shrink-0 justify-center lg:justify-start">
+                  <div className="inline-flex w-fit max-w-full items-center justify-center rounded-2xl border border-ri-border/45 bg-gradient-to-br from-white via-ri-bg-soft/95 to-ri-bg-warm/45 px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.88)] sm:px-5 sm:py-4 lg:w-[min(100%,300px)] lg:py-5">
+                    <Image
+                      src="/footx-scheduler-logo.png"
+                      alt=""
+                      width={1024}
+                      height={133}
+                      unoptimized
+                      sizes="(max-width: 1024px) 85vw, 300px"
+                      className="h-auto w-full max-w-[min(100%,280px)] object-contain object-center sm:max-w-[300px]"
+                      aria-hidden
+                    />
+                  </div>
+                </div>
+                <div className="flex min-w-0 flex-1 flex-col">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-ri-copper">
+                    {t("footxEyebrow")}
+                  </p>
+                  <p className="mt-5 max-w-2xl text-base leading-relaxed text-ri-muted">
+                    {t("footxCardDesc")}
+                  </p>
+                  <div className="mt-10 border-t border-ri-border pt-10">
+                    <Link
+                      href="/products/footx-scheduler"
+                      className="inline-flex items-center justify-center gap-2 rounded-full bg-ri-brown px-8 py-2.5 text-sm font-semibold tracking-wide text-white shadow-sm transition-[background-color] duration-300 hover:bg-ri-copper"
+                    >
+                      {t("footxLearnMore")}
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

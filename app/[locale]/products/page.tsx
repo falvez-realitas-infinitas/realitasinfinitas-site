@@ -57,6 +57,13 @@ export default async function ProductsPage({ params }: Props) {
         <ProductCard
           title={tmeta("footxSchedulerTitle")}
           description={tfootx("shortDescription")}
+          logo={{
+            src: "/footx-scheduler-logo.png",
+            alt: tmeta("footxSchedulerTitle"),
+            width: 1024,
+            height: 133,
+            unoptimized: true,
+          }}
           href="/products/footx-scheduler"
           status="available"
         />
