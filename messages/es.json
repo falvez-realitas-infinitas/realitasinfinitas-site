@@ -97,9 +97,12 @@
     "ctaSecondary": "Conocer Clinic"
   },
   "AboutPage": {
-    "p1": "{name} es una empresa de software orientada a productos. Nos enfocamos en construir sistemas que combinan <m1>rigor técnico</m1>, <m2>usabilidad</m2> y <m3>mantenibilidad a largo plazo</m3>, para que el software del que dependes hoy siga teniendo sentido dentro de años.",
+    "eyebrow": "Quiénes somos",
+    "asideTitle": "Construcción transparente",
+    "asideCta": "Ver equipo y socios de IA",
+    "p1": "{name} es una empresa de software orientada a productos. Un fundador humano concentra la visión, los trade-offs y la responsabilidad; los agentes de IA amplifican el taller—ayudando a redactar código, explorar diseños e iterar más rápido. Lo que entregamos sigue teniendo que cumplir la misma vara: sistemas que combinan <m1>rigor técnico</m1>, <m2>usabilidad</m2> y <m3>mantenibilidad a largo plazo</m3>, para que el software del que dependes hoy siga teniendo sentido dentro de años.",
     "p2": "Nuestro trabajo en salud es Clinic hoy: registro de pacientes, perfiles, historias médicas y expediente clínico—información estructurada y flujos claros.",
-    "p3": "Evitamos el ruido y las promesas exageradas. Preferimos interfaces tranquilas, modelos de datos explícitos y software que genera confianza con la consistencia — pensado para evolucionar junto a tu organización."
+    "p3": "Nombramos en esta página los productos de IA con los que construimos porque la transparencia importa. Evitamos el ruido y las promesas exageradas; preferimos interfaces tranquilas, modelos de datos explícitos y software que genera confianza con la consistencia — pensado para evolucionar junto a tu organización."
   },
   "services": {
     "title": "Servicios",
@@ -120,7 +123,7 @@
   },
   "Leadership": {
     "title": "Liderazgo",
-    "intro": "Realitas Infinitas está dirigida por profesionales con experiencia directa en el desarrollo de software para entornos operativos complejos, donde la tecnología, la lógica de negocio y la ejecución en el mundo real deben alinearse.",
+    "intro": "La dirección y la responsabilidad siguen siendo humanas. En paralelo, usamos agentes de IA de forma deliberada—donde aceleran la iteración, muestran alternativas y mantienen el código en movimiento—mientras un ingeniero senior revisa cada cambio con peso. Abajo está el perfil del fundador y, a continuación, los dos productos que más cerca están de nuestro día a día de construcción.",
     "initials": "FA",
     "avatarAriaLabel": "Facundo Alvez",
     "profileName": "Facundo Alvez",
@@ -132,7 +135,17 @@
     "highlight2": "Tecnología para la salud y experiencia en ciclo de ingresos",
     "highlight3": "Automatización de procesos de negocio",
     "highlight4": "Integraciones de sistemas y flujos operativos",
-    "highlight5": "Software práctico para problemas complejos del mundo real"
+    "highlight5": "Software práctico para problemas complejos del mundo real",
+    "aiPartnersHeading": "Socios de construcción (IA)",
+    "aiPartnersIntro": "No son personas ni reemplazan el criterio—pero forman parte del equipo como un compilador o una suite de pruebas: herramientas que elegimos, nombramos y sometemos a una vara de calidad.",
+    "cursorLogoAlt": "Logotipo de Cursor",
+    "cursorName": "Cursor",
+    "cursorRole": "Editor nativo en IA y espacio de agentes",
+    "cursorBio": "Cursor es donde vive la mayor parte de este repositorio día a día: ediciones multiarchivo, refactors, agentes con contexto de terminal y del código para que los cambios sigan siendo coherentes. Es la cabina para pasar de la intención al commit—siempre revisado y siempre con dueño humano antes de que algo llegue a producción.",
+    "chatgptLogoAlt": "Logotipo de ChatGPT",
+    "chatgptName": "ChatGPT",
+    "chatgptRole": "Razonamiento, investigación y pareja de lenguaje",
+    "chatgptBio": "ChatGPT nos ayuda a pensar en prosa—aclarar requisitos, pulir textos en varios idiomas, comparar trade-offs y revisar explicaciones antes de que lleguen a clientes. Es una capa conversativa sobre el conocimiento de dominio que ya tenemos; no decide qué entregamos."
   },
   "ContactPage": {
     "intro": "Puedes escribirnos por el formulario, por correo o por teléfono.",

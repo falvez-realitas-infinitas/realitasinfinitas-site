@@ -97,9 +97,12 @@
     "ctaSecondary": "Learn about Clinic"
   },
   "AboutPage": {
-    "p1": "{name} is a product-oriented software company. We focus on building systems that combine <m1>technical precision</m1>, <m2>usability</m2>, and <m3>long-term maintainability</m3> — so the software you rely on today can still make sense years from now.",
+    "eyebrow": "Who we are",
+    "asideTitle": "Building in the open",
+    "asideCta": "Meet the team",
+    "p1": "{name} is a product-oriented software company. A human founder owns the vision, trade-offs, and accountability; AI agents act as amplifiers in the workshop—helping draft code, explore designs, and stress-test ideas. What we ship still has to meet the same bar: systems that combine <m1>technical precision</m1>, <m2>usability</m2>, and <m3>long-term maintainability</m3> — so the software you rely on today can still make sense years from now.",
     "p2": "Our work in healthcare is Clinic today: patient registration, profiles, medical histories, and clinical records—structured information and clear workflows.",
-    "p3": "We avoid hype and overstated claims. We prefer calm interfaces, explicit data models, and software that earns trust through consistency — built to evolve alongside your organization."
+    "p3": "We list the AI products we build with on this page because transparency matters. We avoid hype and overstated claims; we prefer calm interfaces, explicit data models, and software that earns trust through consistency — built to evolve alongside your organization."
   },
   "services": {
     "title": "Services",
@@ -120,7 +123,7 @@
   },
   "Leadership": {
     "title": "Leadership",
-    "intro": "Realitas Infinitas is led by professionals with hands-on experience building software for complex operational environments, where technology, business logic, and real-world execution must work together.",
+    "intro": "Direction and accountability stay human. Alongside that, we use AI agents deliberately—where they speed up iteration, surface alternatives, and keep the codebase moving—while a senior engineer reviews every meaningful change. Below is the founder profile, followed by the two products that sit closest to our day-to-day build.",
     "initials": "FA",
     "avatarAriaLabel": "Facundo Alvez",
     "profileName": "Facundo Alvez",
@@ -132,7 +135,17 @@
     "highlight2": "Healthcare technology and revenue cycle experience",
     "highlight3": "Business process automation",
     "highlight4": "System integrations and operational workflows",
-    "highlight5": "Practical software for complex real-world problems"
+    "highlight5": "Practical software for complex real-world problems",
+    "aiPartnersHeading": "Build partners (AI)",
+    "aiPartnersIntro": "These are not people and they do not replace judgment—but they are part of the team in the same way a compiler or a test suite is: tools we choose, name, and hold to a quality bar.",
+    "cursorLogoAlt": "Cursor logo",
+    "cursorName": "Cursor",
+    "cursorRole": "AI-native editor & agent workspace",
+    "cursorBio": "Cursor is where most of this repository lives day to day: multi-file edits, refactors, terminal-aware agents, and context pulled from the codebase so changes stay coherent. It is the cockpit for turning intent into commits—always reviewed, always owned by a human before anything reaches production.",
+    "chatgptLogoAlt": "ChatGPT logo",
+    "chatgptName": "ChatGPT",
+    "chatgptRole": "Reasoning, research & language partner",
+    "chatgptBio": "ChatGPT helps us think in prose—clarifying requirements, tightening copy across locales, comparing trade-offs, and sanity-checking explanations before they meet customers. It is a conversational layer on top of domain knowledge we already carry; it does not decide what we ship."
   },
   "ContactPage": {
     "intro": "Reach us through the form, by email, or by phone.",
