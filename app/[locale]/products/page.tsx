@@ -26,8 +26,10 @@ export default async function ProductsPage({ params }: Props) {
 
   const t = await getTranslations("ProductsPage");
   const tmeta = await getTranslations("meta");
+  const tcommercium = await getTranslations("commerciumProduct");
   const tclinic = await getTranslations("clinicProduct");
   const tfootx = await getTranslations("footxProduct");
+  const ttabula = await getTranslations("tabulaProduct");
 
   return (
     <Section className="pt-12 pb-20 sm:pt-16 sm:pb-28">
@@ -41,6 +43,19 @@ export default async function ProductsPage({ params }: Props) {
       </div>
 
       <div className="mt-14 flex max-w-3xl flex-col gap-10 sm:mt-16">
+        <ProductCard
+          logo={{
+            src: "/brand/commercium-logo.png",
+            alt: tmeta("commerciumTitle"),
+            width: 1774,
+            height: 887,
+            unoptimized: true,
+          }}
+          title={tmeta("commerciumTitle")}
+          description={tcommercium("shortDescription")}
+          href="/products/commercium"
+          status="available"
+        />
         <ProductCard
           logo={{
             src: "/brand/clinic-logo-edit-2.png",
@@ -65,6 +80,19 @@ export default async function ProductsPage({ params }: Props) {
             unoptimized: true,
           }}
           href="/products/footx-scheduler"
+          status="available"
+        />
+        <ProductCard
+          logo={{
+            src: "/brand/tabula-logo.png",
+            alt: tmeta("tabulaTitle"),
+            width: 1024,
+            height: 341,
+            unoptimized: true,
+          }}
+          title={tmeta("tabulaTitle")}
+          description={ttabula("shortDescription")}
+          href="/products/tabula"
           status="available"
         />
       </div>

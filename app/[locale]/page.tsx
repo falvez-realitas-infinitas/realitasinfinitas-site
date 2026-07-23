@@ -6,9 +6,8 @@ import { Section } from "@/components/Section";
 import { FeatureCard } from "@/components/FeatureCard";
 import { ServicesSection } from "@/components/ServicesSection";
 import { CTASection } from "@/components/CTASection";
-import { CredibilityStrip } from "@/components/CredibilityStrip";
 import { HeroVisual } from "@/components/HeroVisual";
-import { Link } from "@/i18n/navigation";
+import { HomeProductsCarousel } from "@/components/HomeProductsCarousel";
 import { buildPageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -30,6 +29,7 @@ export default async function HomePage({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations("HomePage");
+  const tmeta = await getTranslations("meta");
 
   const why = [
     { icon: Workflow, titleKey: "why1Title", descKey: "why1Desc" },
@@ -52,6 +52,57 @@ export default async function HomePage({ params }: Props) {
     { key: "stackTech11", logo: "/tech-logos/vercel.svg" },
     { key: "stackTech12", logo: "/tech-logos/github.svg" },
   ] as const;
+
+  const productSlides = [
+    {
+      href: "/products/commercium",
+      eyebrow: t("commerciumEyebrow"),
+      description: t("commerciumCardDesc"),
+      learnMore: t("commerciumLearnMore"),
+      logo: {
+        src: "/brand/commercium-logo.png",
+        width: 1774,
+        height: 887,
+        alt: tmeta("commerciumTitle"),
+      },
+    },
+    {
+      href: "/products/clinic",
+      eyebrow: t("clinicEyebrow"),
+      description: t("clinicCardDesc"),
+      learnMore: t("clinicLearnMore"),
+      logo: {
+        src: "/brand/clinic-logo-edit-2.png",
+        width: 1024,
+        height: 161,
+        alt: tmeta("clinicTitle"),
+      },
+    },
+    {
+      href: "/products/footx-scheduler",
+      eyebrow: t("footxEyebrow"),
+      description: t("footxCardDesc"),
+      learnMore: t("footxLearnMore"),
+      logo: {
+        src: "/footx-scheduler-logo.png",
+        width: 1024,
+        height: 304,
+        alt: tmeta("footxSchedulerTitle"),
+      },
+    },
+    {
+      href: "/products/tabula",
+      eyebrow: t("tabulaEyebrow"),
+      description: t("tabulaCardDesc"),
+      learnMore: t("tabulaLearnMore"),
+      logo: {
+        src: "/brand/tabula-logo.png",
+        width: 1024,
+        height: 341,
+        alt: tmeta("tabulaTitle"),
+      },
+    },
+  ];
 
   return (
     <>
@@ -78,8 +129,6 @@ export default async function HomePage({ params }: Props) {
         </div>
       </section>
 
-      <CredibilityStrip />
-
       <ServicesSection />
 
       <Section className="bg-ri-bg-warm/35 py-20 sm:py-28" innerClassName="max-w-[1200px]">
@@ -94,81 +143,7 @@ export default async function HomePage({ params }: Props) {
           </div>
         </div>
 
-        <div className="mt-14 max-w-3xl space-y-10">
-          <div className="overflow-hidden rounded-[2rem] border border-ri-border/90 bg-ri-card shadow-[0_32px_100px_-48px_rgba(89,42,25,0.35)]">
-            <div className="p-10 sm:p-12 lg:p-14">
-              <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10">
-                <div className="flex shrink-0 justify-center lg:justify-start">
-                  <div className="inline-flex w-fit max-w-full items-center justify-center rounded-2xl border border-ri-border/45 bg-gradient-to-br from-white via-ri-bg-soft/95 to-ri-bg-warm/45 px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.88)] sm:px-5 sm:py-4 lg:w-[min(100%,300px)] lg:py-5">
-                    <Image
-                      src="/brand/clinic-logo-edit-2.png"
-                      alt=""
-                      width={1024}
-                      height={161}
-                      unoptimized
-                      sizes="(max-width: 1024px) 85vw, 300px"
-                      className="h-auto w-full max-w-[min(100%,280px)] object-contain object-center sm:max-w-[300px]"
-                      aria-hidden
-                    />
-                  </div>
-                </div>
-                <div className="flex min-w-0 flex-1 flex-col">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-ri-copper">
-                    {t("clinicEyebrow")}
-                  </p>
-                  <p className="mt-5 text-base leading-relaxed text-ri-muted">
-                    {t("clinicCardDesc")}
-                  </p>
-                  <div className="mt-10 border-t border-ri-border pt-10">
-                    <Link
-                      href="/products/clinic"
-                      className="inline-flex items-center justify-center gap-2 rounded-full bg-ri-brown px-8 py-2.5 text-sm font-semibold tracking-wide text-white shadow-sm transition-[background-color] duration-300 hover:bg-ri-copper"
-                    >
-                      {t("clinicLearnMore")}
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="overflow-hidden rounded-[2rem] border border-ri-border/90 bg-ri-card shadow-[0_32px_100px_-48px_rgba(89,42,25,0.35)]">
-            <div className="p-10 sm:p-12 lg:p-14">
-              <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10">
-                <div className="flex shrink-0 justify-center lg:justify-start">
-                  <div className="inline-flex w-fit max-w-full items-center justify-center rounded-2xl border border-ri-border/45 bg-gradient-to-br from-white via-ri-bg-soft/95 to-ri-bg-warm/45 px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.88)] sm:px-5 sm:py-4 lg:w-[min(100%,300px)] lg:py-5">
-                    <Image
-                      src="/footx-scheduler-logo.png"
-                      alt=""
-                      width={1024}
-                      height={304}
-                      unoptimized
-                      sizes="(max-width: 1024px) 85vw, 300px"
-                      className="h-auto w-full max-w-[min(100%,280px)] object-contain object-center sm:max-w-[300px]"
-                      aria-hidden
-                    />
-                  </div>
-                </div>
-                <div className="flex min-w-0 flex-1 flex-col">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-ri-copper">
-                    {t("footxEyebrow")}
-                  </p>
-                  <p className="mt-5 max-w-2xl text-base leading-relaxed text-ri-muted">
-                    {t("footxCardDesc")}
-                  </p>
-                  <div className="mt-10 border-t border-ri-border pt-10">
-                    <Link
-                      href="/products/footx-scheduler"
-                      className="inline-flex items-center justify-center gap-2 rounded-full bg-ri-brown px-8 py-2.5 text-sm font-semibold tracking-wide text-white shadow-sm transition-[background-color] duration-300 hover:bg-ri-copper"
-                    >
-                      {t("footxLearnMore")}
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <HomeProductsCarousel products={productSlides} />
       </Section>
 
       <Section className="border-t border-ri-border py-20 sm:py-28" innerClassName="max-w-[1200px]">
@@ -237,7 +212,7 @@ export default async function HomePage({ params }: Props) {
         description={t("ctaDescription")}
         primaryHref="/contact"
         primaryLabel={t("ctaPrimary")}
-        secondaryHref="/products/clinic"
+        secondaryHref="/products"
         secondaryLabel={t("ctaSecondary")}
         className="pb-28 sm:pb-36"
       />
