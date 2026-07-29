@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Geist_Mono, Outfit } from "next/font/google";
 import { getLocale, getTranslations } from "next-intl/server";
+import Script from "next/script";
 import { siteConfig } from "@/lib/site";
 import { getLocaleAlternates } from "@/lib/seo";
 import { routing } from "@/i18n/routing";
@@ -95,12 +96,30 @@ export default async function RootLayout({
     locale = routing.defaultLocale;
   }
 
+  const gaId = siteConfig.googleAnalyticsId;
+
   return (
     <html
       lang={locale}
       className={`${outfit.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans text-ri-text">
+        {process.env.NODE_ENV === "production" ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaId}');
+              `}
+            </Script>
+          </>
+        ) : null}
         {children}
       </body>
     </html>
