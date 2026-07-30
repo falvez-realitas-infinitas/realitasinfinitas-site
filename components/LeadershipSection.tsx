@@ -52,8 +52,8 @@ export async function LeadershipSection({
               <Image
                 src="/brand/facundo-alvez.png"
                 alt={t("avatarAriaLabel")}
-                width={300}
-                height={300}
+                width={1024}
+                height={1024}
                 sizes="(max-width: 1024px) 160px, 176px"
                 className="h-40 w-40 rounded-full object-cover shadow-md ring-2 ring-white/90 sm:h-44 sm:w-44"
               />
