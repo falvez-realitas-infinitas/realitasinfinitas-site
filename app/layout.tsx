@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/next";
 import { Geist_Mono, Outfit } from "next/font/google";
 import { getLocale, getTranslations } from "next-intl/server";
 import Script from "next/script";
@@ -121,6 +122,7 @@ export default async function RootLayout({
           </>
         ) : null}
         {children}
+        <Analytics />
       </body>
     </html>
   );
