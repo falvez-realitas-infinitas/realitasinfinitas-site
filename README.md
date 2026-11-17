@@ -26,6 +26,19 @@ Copy the block below into a `.env.local` (or your host’s env UI) and adjust va
 # Optional — Pollinations API key for `/api/reality-image` (server-side)
 # POLLINATIONS_API_KEY=
 
+# Contact form email (Resend)
+# RESEND_API_KEY=
+# CONTACT_EMAIL_FROM=no-reply@realitasinfinitas.com
+# CONTACT_EMAIL_TO=contact@realitasinfinitas.com
+
+# Cloudflare Turnstile (contact form) — required for /api/contact
+# NEXT_PUBLIC_TURNSTILE_SITE_KEY=
+# TURNSTILE_SECRET=
+# Comma-separated frontend hostnames allowed by siteverify (no spaces).
+# Local: localhost,127.0.0.1,realitasinfinitas.com
+# Production: realitasinfinitas.com  (do not include localhost)
+# TURNSTILE_HOSTNAMES=
+
 # Optional — comma-separated hosts for Next.js `allowedDevOrigins` in development
 # (e.g. testing from a phone on your LAN). Example:
 # ALLOW_DEV_ORIGINS=192.168.1.61

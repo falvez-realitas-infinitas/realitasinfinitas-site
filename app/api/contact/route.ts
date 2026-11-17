@@ -1,8 +1,15 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { siteConfig } from "@/lib/site";
+import {
+  isTurnstileConfigured,
+  verifyTurnstileToken,
+} from "@/lib/turnstile";
 
 const MAX = { name: 200, email: 320, company: 200, message: 10000 };
+/** Reject submissions faster than this (typical bots fire instantly). */
+const MIN_FILL_MS = 2500;
+const TURNSTILE_ACTION = "contact";
 
 function trimField(v: unknown, max: number): string | undefined {
   if (typeof v !== "string") return undefined;
@@ -12,6 +19,34 @@ function trimField(v: unknown, max: number): string | undefined {
 
 function isEmail(s: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
+}
+
+/** Silent success so bots don't learn which check failed. */
+function fakeOk() {
+  return NextResponse.json({ ok: true });
+}
+
+/**
+ * Catches common contact-form spam: a single random alphanumeric token
+ * with no spaces (e.g. "aZpvQYEdmmEDKEMA").
+ */
+function looksLikeGibberishToken(message: string): boolean {
+  if (/\s/.test(message)) return false;
+  if (message.length < 10 || message.length > 40) return false;
+  return /^[A-Za-z0-9]+$/.test(message);
+}
+
+function clientIp(request: Request): string | undefined {
+  const forwarded = request.headers.get("x-forwarded-for");
+  if (forwarded) {
+    const first = forwarded.split(",")[0]?.trim();
+    if (first) return first;
+  }
+  return request.headers.get("x-real-ip")?.trim() || undefined;
+}
+
+function turnstileTokenFromBody(raw: Record<string, unknown>): unknown {
+  return raw["cf-turnstile-response"] ?? raw.turnstileToken;
 }
 
 export async function POST(request: Request) {
@@ -27,6 +62,42 @@ export async function POST(request: Request) {
   }
 
   const raw = body as Record<string, unknown>;
+
+  // Honeypot: real users never fill this; bots often do.
+  const honeypot = typeof raw.website === "string" ? raw.website.trim() : "";
+  if (honeypot) {
+    return fakeOk();
+  }
+
+  const startedAt =
+    typeof raw.formStartedAt === "number"
+      ? raw.formStartedAt
+      : typeof raw.formStartedAt === "string"
+        ? Number(raw.formStartedAt)
+        : NaN;
+  if (!Number.isFinite(startedAt) || Date.now() - startedAt < MIN_FILL_MS) {
+    return fakeOk();
+  }
+
+  if (!isTurnstileConfigured()) {
+    return NextResponse.json(
+      { error: "not_configured", code: "CAPTCHA_NOT_CONFIGURED" },
+      { status: 503 }
+    );
+  }
+
+  const captcha = await verifyTurnstileToken({
+    token: turnstileTokenFromBody(raw),
+    expectedAction: TURNSTILE_ACTION,
+    remoteIp: clientIp(request),
+  });
+  if (!captcha.ok) {
+    return NextResponse.json(
+      { error: "captcha", code: "CAPTCHA_FAILED" },
+      { status: 403 }
+    );
+  }
+
   const name = trimField(raw.name, MAX.name);
   const email = trimField(raw.email, MAX.email)?.toLowerCase();
   const company = trimField(raw.company, MAX.company);
@@ -37,6 +108,9 @@ export async function POST(request: Request) {
   }
   if (!isEmail(email)) {
     return NextResponse.json({ error: "validation" }, { status: 422 });
+  }
+  if (looksLikeGibberishToken(message)) {
+    return fakeOk();
   }
 
   const apiKey = process.env.RESEND_API_KEY;

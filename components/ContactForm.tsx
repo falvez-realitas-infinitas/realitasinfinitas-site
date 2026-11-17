@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { Button } from "@/components/Button";
+import { TurnstileWidget, resetTurnstile } from "@/components/TurnstileWidget";
 import { siteConfig } from "@/lib/site";
 
 const fieldClass =
@@ -10,6 +11,14 @@ const fieldClass =
 
 const compactFieldClass =
   "w-full rounded-lg border border-ri-border bg-ri-card px-3.5 py-2.5 text-sm text-ri-text placeholder:text-ri-muted/80 focus:border-ri-copper/50 focus:outline-none focus:ring-2 focus:ring-ri-copper/20";
+
+const honeypotClass =
+  "absolute left-[-10000px] top-auto h-px w-px overflow-hidden opacity-0";
+
+const TURNSTILE_ACTION = "contact";
+
+const turnstileSiteKey =
+  process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim() || undefined;
 
 export type ContactFormProps = {
   compact?: boolean;
@@ -20,6 +29,11 @@ export function ContactForm({ compact = false }: ContactFormProps) {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [formStartedAt] = useState(() => Date.now());
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [turnstileWidgetId, setTurnstileWidgetId] = useState<string | null>(
+    null
+  );
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -31,13 +45,27 @@ export function ContactForm({ compact = false }: ContactFormProps) {
     const email = String(fd.get("email") ?? "").trim();
     const company = String(fd.get("company") ?? "").trim();
     const message = String(fd.get("message") ?? "").trim();
+    const website = String(fd.get("website") ?? "").trim();
+
+    if (!turnstileSiteKey || !turnstileToken) {
+      setError(t("errorCaptcha"));
+      return;
+    }
 
     setSending(true);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, company, message }),
+        body: JSON.stringify({
+          name,
+          email,
+          company,
+          message,
+          website,
+          formStartedAt,
+          "cf-turnstile-response": turnstileToken,
+        }),
       });
       const data = (await res.json().catch(() => ({}))) as {
         code?: string;
@@ -47,16 +75,29 @@ export function ContactForm({ compact = false }: ContactFormProps) {
       if (res.ok) {
         setSubmitted(true);
         form.reset();
+        setTurnstileToken(null);
+        resetTurnstile(turnstileWidgetId);
         return;
       }
 
-      if (res.status === 503 && data.code === "EMAIL_NOT_CONFIGURED") {
+      if (
+        res.status === 503 &&
+        (data.code === "EMAIL_NOT_CONFIGURED" ||
+          data.code === "CAPTCHA_NOT_CONFIGURED")
+      ) {
         setError(
           t("errorUnavailable", {
             email: siteConfig.email,
             phone: siteConfig.phoneDisplay,
           })
         );
+        return;
+      }
+
+      if (res.status === 403 && data.error === "captcha") {
+        setError(t("errorCaptcha"));
+        setTurnstileToken(null);
+        resetTurnstile(turnstileWidgetId);
         return;
       }
 
@@ -93,16 +134,26 @@ export function ContactForm({ compact = false }: ContactFormProps) {
       onSubmit={handleSubmit}
       className={
         compact
-          ? "glass-panel accent-gradient-border mx-auto w-full max-w-none rounded-2xl p-4 sm:p-5"
-          : "glass-panel accent-gradient-border mx-auto max-w-xl rounded-2xl p-6 sm:p-8"
+          ? "glass-panel accent-gradient-border relative mx-auto w-full max-w-none rounded-2xl p-4 sm:p-5"
+          : "glass-panel accent-gradient-border relative mx-auto max-w-xl rounded-2xl p-6 sm:p-8"
       }
       noValidate
     >
+      {/* Honeypot — hidden from humans, attractive to bots */}
+      <div className={honeypotClass} aria-hidden="true">
+        <label htmlFor="contact-website">Website</label>
+        <input
+          id="contact-website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       <div
         className={
-          compact
-            ? "grid grid-cols-1 gap-3 sm:grid-cols-2"
-            : "space-y-5"
+          compact ? "grid grid-cols-1 gap-3 sm:grid-cols-2" : "space-y-5"
         }
       >
         <div className={compact ? "sm:col-span-1" : undefined}>
@@ -160,6 +211,18 @@ export function ContactForm({ compact = false }: ContactFormProps) {
           />
         </div>
       </div>
+
+      {turnstileSiteKey ? (
+        <div className={compact ? "mt-3" : "mt-5"}>
+          <TurnstileWidget
+            siteKey={turnstileSiteKey}
+            action={TURNSTILE_ACTION}
+            onToken={setTurnstileToken}
+            onWidgetId={setTurnstileWidgetId}
+          />
+        </div>
+      ) : null}
+
       <div className={compact ? "mt-4" : "mt-8"}>
         <Button
           type="submit"
