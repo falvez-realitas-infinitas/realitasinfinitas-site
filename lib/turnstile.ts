@@ -1,8 +1,12 @@
+import { siteConfig } from "@/lib/site";
+
 const VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 const MAX_TOKEN_LENGTH = 2048;
 
 export function getTurnstileSiteKey(): string | undefined {
-  const key = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim();
+  const key =
+    process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim() ||
+    siteConfig.turnstileSiteKey;
   return key || undefined;
 }
 

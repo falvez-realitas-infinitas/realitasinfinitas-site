@@ -3,6 +3,12 @@ export const siteConfig = {
   url: "https://realitasinfinitas.com",
   /** Google Analytics 4 measurement ID */
   googleAnalyticsId: "G-2FMVC7XHLJ",
+  /**
+   * Cloudflare Turnstile site key (public). Prefer NEXT_PUBLIC_TURNSTILE_SITE_KEY
+   * when set at build time; this fallback keeps production builds working if the
+   * public env var was missing during deploy.
+   */
+  turnstileSiteKey: "0x4AAAAAAF-uArFpRFzXe45y",
   /** Credibility strip partner sites */
   partnerUrls: {
     vestacare: "https://vestacare.com",

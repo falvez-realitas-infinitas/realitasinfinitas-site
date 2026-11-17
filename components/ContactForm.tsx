@@ -18,7 +18,8 @@ const honeypotClass =
 const TURNSTILE_ACTION = "contact";
 
 const turnstileSiteKey =
-  process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim() || undefined;
+  process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim() ||
+  siteConfig.turnstileSiteKey;
 
 export type ContactFormProps = {
   compact?: boolean;
