@@ -17,20 +17,41 @@ export function getTurnstileSecret(): string | undefined {
   return key || undefined;
 }
 
-export function getTurnstileHostnames(): Set<string> {
-  return new Set(
-    (process.env.TURNSTILE_HOSTNAMES ?? "")
-      .split(",")
-      .map((hostname) => hostname.trim())
-      .filter(Boolean)
-  );
+function normalizeHostname(hostname: string): string {
+  return hostname.trim().toLowerCase().replace(/^["']|["']$/g, "");
 }
 
-/** True when site key, secret, and at least one allowed hostname are set. */
+/** Include apex/www pairs so either production host passes siteverify. */
+function expandHostnames(hosts: Iterable<string>): Set<string> {
+  const out = new Set<string>();
+  for (const raw of hosts) {
+    const host = normalizeHostname(raw);
+    if (!host) continue;
+    out.add(host);
+    if (host.startsWith("www.")) out.add(host.slice(4));
+    else if (host !== "localhost" && host !== "127.0.0.1") out.add(`www.${host}`);
+  }
+  return out;
+}
+
+export function getTurnstileHostnames(): Set<string> {
+  const fromEnv = (process.env.TURNSTILE_HOSTNAMES ?? "")
+    .split(",")
+    .map(normalizeHostname)
+    .filter(Boolean);
+
+  if (fromEnv.length > 0) return expandHostnames(fromEnv);
+
+  const siteHost = normalizeHostname(new URL(siteConfig.url).hostname);
+  if (process.env.NODE_ENV === "production") {
+    return expandHostnames([siteHost]);
+  }
+  return expandHostnames([siteHost, "localhost", "127.0.0.1"]);
+}
+
+/** True when the server secret is available (site key + hostnames have defaults). */
 export function isTurnstileConfigured(): boolean {
-  return Boolean(
-    getTurnstileSiteKey() && getTurnstileSecret() && getTurnstileHostnames().size > 0
-  );
+  return Boolean(getTurnstileSiteKey() && getTurnstileSecret());
 }
 
 type TurnstileVerifyResponse = {
@@ -42,7 +63,15 @@ type TurnstileVerifyResponse = {
 
 export type TurnstileVerifyResult =
   | { ok: true }
-  | { ok: false; reason: "missing_token" | "not_configured" | "verify_failed" };
+  | {
+      ok: false;
+      reason:
+        | "missing_token"
+        | "not_configured"
+        | "verify_failed"
+        | "action_mismatch"
+        | "hostname_mismatch";
+    };
 
 /**
  * Canonical Turnstile siteverify: require success, expected action, and an
@@ -57,14 +86,15 @@ export async function verifyTurnstileToken(options: {
   const expectedHostnames = getTurnstileHostnames();
   const { token, expectedAction, remoteIp } = options;
 
+  if (!secret) {
+    return { ok: false, reason: "not_configured" };
+  }
   if (
     typeof token !== "string" ||
     token.length === 0 ||
-    token.length > MAX_TOKEN_LENGTH ||
-    !secret ||
-    expectedHostnames.size === 0
+    token.length > MAX_TOKEN_LENGTH
   ) {
-    return { ok: false, reason: !secret || expectedHostnames.size === 0 ? "not_configured" : "missing_token" };
+    return { ok: false, reason: "missing_token" };
   }
 
   try {
@@ -83,13 +113,23 @@ export async function verifyTurnstileToken(options: {
     if (!res.ok) return { ok: false, reason: "verify_failed" };
 
     const result = (await res.json()) as TurnstileVerifyResponse;
-    if (
-      !result.success ||
-      result.action !== expectedAction ||
-      !result.hostname ||
-      !expectedHostnames.has(result.hostname)
-    ) {
+    if (!result.success) {
       return { ok: false, reason: "verify_failed" };
+    }
+    if (result.action !== expectedAction) {
+      console.warn("[turnstile] action mismatch", {
+        expected: expectedAction,
+        got: result.action ?? null,
+      });
+      return { ok: false, reason: "action_mismatch" };
+    }
+    const hostname = result.hostname ? normalizeHostname(result.hostname) : "";
+    if (!hostname || !expectedHostnames.has(hostname)) {
+      console.warn("[turnstile] hostname mismatch", {
+        got: hostname || null,
+        allowed: [...expectedHostnames],
+      });
+      return { ok: false, reason: "hostname_mismatch" };
     }
 
     return { ok: true };

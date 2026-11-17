@@ -31,13 +31,12 @@ Copy the block below into a `.env.local` (or your host’s env UI) and adjust va
 # CONTACT_EMAIL_FROM=no-reply@realitasinfinitas.com
 # CONTACT_EMAIL_TO=contact@realitasinfinitas.com
 
-# Cloudflare Turnstile (contact form) — required for /api/contact
-# NEXT_PUBLIC_TURNSTILE_SITE_KEY=
+# Cloudflare Turnstile (contact form) — TURNSTILE_SECRET required for /api/contact
+# NEXT_PUBLIC_TURNSTILE_SITE_KEY=   # optional; public key is also in siteConfig
 # TURNSTILE_SECRET=
-# Comma-separated frontend hostnames allowed by siteverify (no spaces).
-# Local: localhost,127.0.0.1,realitasinfinitas.com
-# Production: realitasinfinitas.com  (do not include localhost)
-# TURNSTILE_HOSTNAMES=
+# Optional hostname allowlist (www/apex pairs are expanded automatically).
+# If unset: production uses realitasinfinitas.com; local also allows localhost.
+# TURNSTILE_HOSTNAMES=realitasinfinitas.com
 
 # Optional — comma-separated hosts for Next.js `allowedDevOrigins` in development
 # (e.g. testing from a phone on your LAN). Example:

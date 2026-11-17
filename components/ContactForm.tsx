@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "@/components/Button";
 import { TurnstileWidget, resetTurnstile } from "@/components/TurnstileWidget";
 import { siteConfig } from "@/lib/site";
@@ -32,9 +32,15 @@ export function ContactForm({ compact = false }: ContactFormProps) {
   const [error, setError] = useState<string | null>(null);
   const [formStartedAt] = useState(() => Date.now());
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileTokenRef = useRef<string | null>(null);
   const [turnstileWidgetId, setTurnstileWidgetId] = useState<string | null>(
     null
   );
+
+  function handleTurnstileToken(token: string | null) {
+    turnstileTokenRef.current = token;
+    setTurnstileToken(token);
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -47,8 +53,13 @@ export function ContactForm({ compact = false }: ContactFormProps) {
     const company = String(fd.get("company") ?? "").trim();
     const message = String(fd.get("message") ?? "").trim();
     const website = String(fd.get("website") ?? "").trim();
+    const token =
+      turnstileTokenRef.current ||
+      turnstileToken ||
+      String(fd.get("cf-turnstile-response") ?? "").trim() ||
+      null;
 
-    if (!turnstileSiteKey || !turnstileToken) {
+    if (!turnstileSiteKey || !token) {
       setError(t("errorCaptcha"));
       return;
     }
@@ -65,7 +76,7 @@ export function ContactForm({ compact = false }: ContactFormProps) {
           message,
           website,
           formStartedAt,
-          "cf-turnstile-response": turnstileToken,
+          "cf-turnstile-response": token,
         }),
       });
       const data = (await res.json().catch(() => ({}))) as {
@@ -76,7 +87,7 @@ export function ContactForm({ compact = false }: ContactFormProps) {
       if (res.ok) {
         setSubmitted(true);
         form.reset();
-        setTurnstileToken(null);
+        handleTurnstileToken(null);
         resetTurnstile(turnstileWidgetId);
         return;
       }
@@ -97,7 +108,7 @@ export function ContactForm({ compact = false }: ContactFormProps) {
 
       if (res.status === 403 && data.error === "captcha") {
         setError(t("errorCaptcha"));
-        setTurnstileToken(null);
+        handleTurnstileToken(null);
         resetTurnstile(turnstileWidgetId);
         return;
       }
@@ -215,10 +226,16 @@ export function ContactForm({ compact = false }: ContactFormProps) {
 
       {turnstileSiteKey ? (
         <div className={compact ? "mt-3" : "mt-5"}>
+          <input
+            type="hidden"
+            name="cf-turnstile-response"
+            value={turnstileToken ?? ""}
+            readOnly
+          />
           <TurnstileWidget
             siteKey={turnstileSiteKey}
             action={TURNSTILE_ACTION}
-            onToken={setTurnstileToken}
+            onToken={handleTurnstileToken}
             onWidgetId={setTurnstileWidgetId}
           />
         </div>

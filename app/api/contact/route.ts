@@ -92,10 +92,18 @@ export async function POST(request: Request) {
     remoteIp: clientIp(request),
   });
   if (!captcha.ok) {
-    return NextResponse.json(
-      { error: "captcha", code: "CAPTCHA_FAILED" },
-      { status: 403 }
-    );
+    const code =
+      captcha.reason === "missing_token"
+        ? "CAPTCHA_REQUIRED"
+        : captcha.reason === "not_configured"
+          ? "CAPTCHA_NOT_CONFIGURED"
+          : captcha.reason === "hostname_mismatch"
+            ? "CAPTCHA_HOSTNAME"
+            : captcha.reason === "action_mismatch"
+              ? "CAPTCHA_ACTION"
+              : "CAPTCHA_FAILED";
+    const status = captcha.reason === "not_configured" ? 503 : 403;
+    return NextResponse.json({ error: "captcha", code }, { status });
   }
 
   const name = trimField(raw.name, MAX.name);
