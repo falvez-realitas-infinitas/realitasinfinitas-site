@@ -77,13 +77,13 @@ export async function generateMetadata(): Promise<Metadata> {
       title: siteConfig.name,
       description: t("description"),
       url: getPublicUrl(currentLocale, "/"),
-      images: [{ url: "/globe.svg" }],
+      images: [{ url: "/og.png", width: 1200, height: 630, alt: siteConfig.name }],
     },
     twitter: {
       card: "summary_large_image",
       title: siteConfig.name,
       description: t("description"),
-      images: ["/globe.svg"],
+      images: ["/og.png"],
     },
     verification: {
       other: {

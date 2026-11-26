@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/site";
 
 type Locale = (typeof routing.locales)[number];
 
-const DEFAULT_OG_IMAGE = "/globe.svg";
+const DEFAULT_OG_IMAGE = "/og.png";
 
 function toLocalePath(locale: string, pathname: string) {
   if (pathname === "/") return `/${locale}`;
@@ -69,7 +69,7 @@ export function buildPageMetadata({
       url,
       title: `${title} · ${siteConfig.name}`,
       description,
-      images: [{ url: image }],
+      images: [{ url: image, width: 1200, height: 630, alt: siteConfig.name }],
     },
     twitter: {
       card: "summary_large_image",
