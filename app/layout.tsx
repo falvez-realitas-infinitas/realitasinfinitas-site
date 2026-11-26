@@ -84,6 +84,11 @@ export async function generateMetadata(): Promise<Metadata> {
       description: t("description"),
       images: ["/globe.svg"],
     },
+    verification: {
+      other: {
+        "facebook-domain-verification": "nl3ups2zao0ph6pq9sg99gkspsh6k",
+      },
+    },
   };
 }
 
