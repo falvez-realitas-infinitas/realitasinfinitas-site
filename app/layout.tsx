@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { Geist_Mono, Outfit } from "next/font/google";
 import { getLocale, getTranslations } from "next-intl/server";
 import Script from "next/script";
+import { FACEBOOK_DOMAIN_VERIFICATION } from "@/lib/facebook-domain-verification";
 import { siteConfig } from "@/lib/site";
 import { getLocaleAlternates } from "@/lib/seo";
 import { routing } from "@/i18n/routing";
@@ -86,7 +87,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     verification: {
       other: {
-        "facebook-domain-verification": "nl3ups2zao0ph6pq9sg99gkspsh6k",
+        "facebook-domain-verification": FACEBOOK_DOMAIN_VERIFICATION,
       },
     },
   };
