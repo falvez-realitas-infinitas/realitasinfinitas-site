@@ -1,6 +1,8 @@
 export const siteConfig = {
   name: "Realitas Infinitas",
   url: "https://realitasinfinitas.com",
+  /** Live origin after Vercel apex → www. Meta scrapes this host. */
+  publicOrigin: "https://www.realitasinfinitas.com",
   /** Google Analytics 4 measurement ID */
   googleAnalyticsId: "G-2FMVC7XHLJ",
   /**

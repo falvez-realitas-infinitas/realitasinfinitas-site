@@ -11,19 +11,31 @@ function toLocalePath(locale: string, pathname: string) {
   return `/${locale}${pathname}`;
 }
 
+/** English homepage is `/` (rewritten), not `/en`, so Meta does not follow a path redirect. */
+function publicPath(locale: string, pathname: string) {
+  if (pathname === "/" && locale === routing.defaultLocale) return "/";
+  return toLocalePath(locale, pathname);
+}
+
+export function getPublicUrl(locale: string, pathname: string) {
+  const path = publicPath(locale, pathname);
+  if (path === "/") return `${siteConfig.publicOrigin}/`;
+  return `${siteConfig.publicOrigin}${path}`;
+}
+
 export function getLocaleAlternates(pathname: string, locale: Locale) {
   const languages = Object.fromEntries(
     routing.locales.map((currentLocale) => [
       currentLocale,
-      toLocalePath(currentLocale, pathname),
+      getPublicUrl(currentLocale, pathname),
     ]),
   );
 
   return {
-    canonical: toLocalePath(locale, pathname),
+    canonical: getPublicUrl(locale, pathname),
     languages: {
       ...languages,
-      "x-default": toLocalePath(routing.defaultLocale, pathname),
+      "x-default": getPublicUrl(routing.defaultLocale, pathname),
     },
   };
 }
@@ -43,8 +55,7 @@ export function buildPageMetadata({
   description,
   image = DEFAULT_OG_IMAGE,
 }: BuildPageMetadataParams): Metadata {
-  const localizedPath = toLocalePath(locale, pathname);
-  const url = `${siteConfig.url}${localizedPath}`;
+  const url = getPublicUrl(locale, pathname);
   const localeCode = locale === "es" ? "es_ES" : "en_US";
 
   return {

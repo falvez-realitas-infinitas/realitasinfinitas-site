@@ -6,7 +6,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import Script from "next/script";
 import { FACEBOOK_DOMAIN_VERIFICATION } from "@/lib/facebook-domain-verification";
 import { siteConfig } from "@/lib/site";
-import { getLocaleAlternates } from "@/lib/seo";
+import { getLocaleAlternates, getPublicUrl } from "@/lib/seo";
 import { routing } from "@/i18n/routing";
 import "./globals.css";
 
@@ -76,7 +76,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: siteConfig.name,
       title: siteConfig.name,
       description: t("description"),
-      url: `${siteConfig.url}/${currentLocale}`,
+      url: getPublicUrl(currentLocale, "/"),
       images: [{ url: "/globe.svg" }],
     },
     twitter: {
